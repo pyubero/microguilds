@@ -71,8 +71,8 @@ def cycle_through( array, length ):
 
 
 
-GENE_NAME   = 'hzsA'
-MIN_PERCENTILE =99
+GENE_NAME   = 'nirs'
+MIN_PERCENTILE =1
 _filename = f'kMatrixPerTaxon_{GENE_NAME}.csv'
 
 
@@ -216,7 +216,7 @@ for i_ctxt in range( _nct ):
         ax.bar( theta, X[ i_tx, i_ctxt ,:], 
                width = width,
                color = colors[(jj % 20)+int(np.floor(jj/20)) ,:],
-                hatch = hatches[ int(np.floor(jj/20)) ] ,
+               hatch = hatches[ int(np.floor(jj/20)) ] ,
                # hatch = hatches[ jj%2 ],
                bottom = _bottoms,
                label = y[i_tx])
@@ -227,7 +227,7 @@ for i_ctxt in range( _nct ):
     # ax.set_rgrids( np.ceil(rlims[1:]), labels='' )
     ax.set_rgrids( np.ceil(rlims[1:]))
 
-    ax.set_thetagrids( theta*57.3, labels=clusters)
+    # ax.set_thetagrids( theta*57.3, labels=clusters)
     ax.set_thetagrids( theta*57.3, labels=labels, fontsize=8)
     ax.xaxis.grid(linewidth=0.1)
     ax.yaxis.grid(linewidth=0.2)

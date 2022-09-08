@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 
 
 FILENAME = 'master_tab.csv'
-GENE_NAME= 'hzsA'
+GENE_NAME= 'nirs'
 EXPORT_DATA= True 
 bathy_list  = ["MP0313",
                "MP0315" ,
