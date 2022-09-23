@@ -71,7 +71,7 @@ def cycle_through( array, length ):
 
 
 
-GENE_NAME   = 'nirs'
+GENE_NAME   = 'hzsA'
 MIN_PERCENTILE =1
 _filename = f'kMatrixPerTaxon_{GENE_NAME}.csv'
 
@@ -118,35 +118,44 @@ n_taxons, n_ctxts, n_clusters = Kmat.shape
 
 
 
-# Find taxons that contribute less than X percent
-MIN_CONTRIBUTION = np.percentile( Kmat.flatten(), q=MIN_PERCENTILE)
-contrib_max   = np.max( np.max( Kmat, axis=2), axis=1)
-not_contrib   = np.argwhere( contrib_max < MIN_CONTRIBUTION)[:,0]
+# Find taxons that contribute less than X percent and aggreggate their values
+# into an "others" category.
+# Others will be at the *first* position in Kmat and taxon names
+TAXONS_SHOWN = 35
+
+
+contrib_per_taxon = np.sum(np.sum(Kmat, axis=2), axis=1)
+_taxons_shown = [TAXONS_SHOWN if TAXONS_SHOWN<=n_taxons-2 else n_taxons][0]
+threshold = np.sort(contrib_per_taxon)[-_taxons_shown]
+
+not_contrib   = np.argwhere( contrib_per_taxon<threshold)[:,0]
 n_not_contrib = len( not_contrib )
 
-if n_not_contrib<=1:    
-    K_w_others  = Kmat.copy()
-    tx_w_others = taxons.copy()
-    
-else:
+# ...the variable OTHERS keeps track of whether the last position is of the others class
+OTHERS = n_not_contrib>0
 
-    print('Found %s taxons contributing less than %1.1f in any cluster and any context.' % (n_not_contrib, MIN_CONTRIBUTION) )
-    print('They will be aggreggated into an "Others" category.')
+if OTHERS:
+    print(f'Found {n_not_contrib} of {n_taxons} taxons that will be aggreggated into "Others"')
     print('The complete list is:')
     _ = [ print('  %s' % taxons[idx]) for idx in not_contrib]
 
-    K_w_others = np.zeros( (n_taxons-n_not_contrib+1, n_ctxts, n_clusters ) )
-    tx_w_others = ['Others',]
 
+    Kmat2 = np.zeros( (n_taxons-n_not_contrib+1, n_ctxts, n_clusters ) )
+    tx2   = ['Others',]
     h = 1 # accumulator to keep track of next valid taxon
 
     for i_taxon in range(n_taxons):
         if i_taxon in not_contrib:
-            K_w_others[0,:,:] += Kmat[i_taxon, :,:]
+            Kmat2[0,:,:] += Kmat[i_taxon, :,:]
         else:
-            K_w_others[h,:,:] = Kmat[i_taxon, :, :]
-            tx_w_others.append( taxons[i_taxon] )
+            Kmat2[h,:,:] = Kmat[i_taxon, :, :]
+            tx2.append( taxons[i_taxon] )
             h += 1            
+    
+else:
+    Kmat2  = Kmat.copy()
+    tx2    = taxons.copy()
+    
 
 
 # #################################
@@ -171,69 +180,83 @@ else:
 
 
 THRESHOLD = 0.01
+
 #########################
 ######### Plots #########
-y = tx_w_others
-X = np.log10( K_w_others )
+y = tx2
+X = np.log10( Kmat2 )
 X[X<THRESHOLD] = 0
 
-#... derived matrices
+#... derived values and matrices
+_ntx, _nct, _ncl = X.shape
 sumX  = np.sum(X, axis=0)
 maxX  = np.max( np.max( X, axis=2), axis=1)
 
-#... general properties
-_ntx, _nct, _ncl = X.shape
+#... general plotting properties
+R_UPPER_MARGIN_REL = 1.02
+BAR_WIDTH_REL = 0.3
+
 theta = np.linspace(0.0, 2 * np.pi, _ncl, endpoint=False)
-rlims = np.linspace( X.min() , 1.05*sumX.max(), 3)
+rlims = np.linspace( X.min() , R_UPPER_MARGIN_REL*sumX.max(), 4)
 Dtheta = theta[1]-theta[0]
-sub_theta = np.linspace( -0.15*Dtheta, 0.15*Dtheta, _ntx)
+width = BAR_WIDTH_REL*Dtheta
+
+
+#... display order
 #I = np.argsort( maxX )[-1::-1] # to plot first those that contribute the most...
 I = range( _ntx)
 
+
 #... style properties and labels 
-width = 0.2 #sub_theta[1]-sub_theta[0]
 labels = [ 'F. '+intToRoman( _+1) for _ in range( _ncl ) ]
 ctxt_labels= ['Epipelagic','Mesopelagic','Bathypelagic']
-#colors = np.array(col_w_others)
-#colors= plt.cm.viridis(np.linspace(0, 1, _ntx))[ np.random.permutation(_ntx),:]
-colors = plt.cm.tab20(np.linspace(0, 1, np.min([20,_ntx-1]) ))#[ cycle_through( range(_ntx-1), 5),:]
-colors = np.concatenate( ([[0.0,0.0,0.0,1]], colors), axis=0)
-
-
+colors = plt.cm.tab20( np.linspace(0, 1, 20) )
 mpl.rcParams['hatch.linewidth'] = 0.3  # previous pdf hatch linewidth
-hatches=[ '' , '////////' ]
+hatches=[ '' , '////////' ,'........']
 
-print(f'The plot shows {_ntx} different taxons. Original number {n_taxons}')
-plt.figure( figsize=(18,10), dpi=300)
+
+plt.figure( figsize=(18,10), dpi=200)
 for i_ctxt in range( _nct ):
     ax = plt.subplot( 1, _nct+1, i_ctxt+1, projection='polar')    
-    
+    # No mola, porque others sale on top of all, pintar others el primero pero con un zorder=9999 para que en la leyenda salga al final??
 
-    
-    # #Uncomment for stacked bars...
     _bottoms = np.zeros( (_ncl,) )    
+    
+    # First of all print the "others" data
+    if OTHERS:
+        ax.bar( theta, X[ 0, i_ctxt ,:], 
+               width = width,
+               color = [0,0,0],
+               label = y[0])
+        _bottoms += X[0, i_ctxt, : ]
+        
+        
+    # For every taxon in the ordered idx list I...
     for jj, i_tx in enumerate(I):
+        
+        # Skip the "others" category"
+        if OTHERS and i_tx==0:
+            continue
+        
+        #
         ax.bar( theta, X[ i_tx, i_ctxt ,:], 
                width = width,
-               color = colors[(jj % 20)+int(np.floor(jj/20)) ,:],
+               color = colors[ jj % 20] ,
                hatch = hatches[ int(np.floor(jj/20)) ] ,
-               # hatch = hatches[ jj%2 ],
                bottom = _bottoms,
                label = y[i_tx])
         _bottoms += X[i_tx, i_ctxt, : ]
 
 
-    plt.title( ctxt_labels[i_ctxt])
-    # ax.set_rgrids( np.ceil(rlims[1:]), labels='' )
-    ax.set_rgrids( np.ceil(rlims[1:]))
 
-    # ax.set_thetagrids( theta*57.3, labels=clusters)
+    plt.title( ctxt_labels[i_ctxt])
+    ax.set_rgrids( np.ceil(rlims[1:]), labels='' )
     ax.set_thetagrids( theta*57.3, labels=labels, fontsize=8)
     ax.xaxis.grid(linewidth=0.1)
     ax.yaxis.grid(linewidth=0.2)
 
-legend = plt.legend( fontsize=8)
 
+legend = plt.legend( fontsize=8)
 
 ax = plt.subplot(1, _nct+1, _nct+1)
 plt.axis('off')
