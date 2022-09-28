@@ -6,9 +6,10 @@ Created on Tue Sep 27 13:36:26 2022
 """
 
 import numpy as np
-from matplotlib import pyplot as plt
 import pandas as pd
 import pickle as pkl
+from tqdm import tqdm
+from matplotlib import pyplot as plt
 
 
 # Load tree data (functional tree, not phylogenetic)
@@ -22,7 +23,7 @@ df = pd.read_csv("test_potf.csv", sep=",", encoding='latin1')
 ft = df.to_numpy()
 ft_names = np.array( [ line[0] for line in ft ] )
 col_names= np.array( [ col for col in df.columns] )[1:16]    
-ft = np.array([ line[1:16] for line in df ])
+ft = np.array([ line[1:16] for line in ft ])
 
 # ... create true feature matrix
 F = np.zeros((M.shape[0], ft.shape[1]))*np.nan
@@ -40,15 +41,20 @@ print('Data obtained for %d tree entries.' % (1158-np.sum(np.all( np.isnan(F), a
 
 # First obtain clusters
 from sklearn.cluster import KMeans
-clustering_api = KMeans(n_clusters=8, # Number of clusters to form
-                        n_init = 10,  # Number of times the k-means algorithm will be run with different seeds.
+from scipy.cluster.hierarchy import cophenet, linkage
+from sklearn.metrics  import calinski_harabasz_score
+
+clustering_api = KMeans(n_clusters= 3, # Number of clusters to form
+                        n_init = 20,  # Number of times the k-means algorithm will be run with different seeds.
                         random_state=1337)
+
 
 kmeans = clustering_api.fit(M)
 labels = kmeans.labels_
+    
 
 
-mc_max = 9999
+mc_max = 99999
 obs_mc = np.zeros((mc_max, ft.shape[1]))
 
 
