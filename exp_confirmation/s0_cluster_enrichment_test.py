@@ -12,18 +12,58 @@ from tqdm import tqdm
 from matplotlib import pyplot as plt
 
 
+
+
+def entropy(f):
+    f = np.array(f)
+    f = f[ np.nonzero(f) ]
+    p = f/np.sum(f) # convert frequencies to probabilities
+    return -np.sum( p*np.log(p) )
+
+
+
+name1 = M_names[0]
+name2 = M_names[1]
+
+sp_name = name1.split('_g_')[-1]
+
+
+def get_species(name):
+    sp_name = name.split('_s_')[-1]
+    if sp_name == '':
+        print('Species name not found.')
+        return None
+    else:
+        return sp_name.split('_')[-1]
+    
+def get_genus(name):
+    sp_name = name.split('_g_')[-1].split('_')[0]
+    if sp_name=='':
+        return None
+    else: 
+        return sp_name
+
+def bin_count(array):
+    unique_values = np.unique(array)
+    return [ np.sum(array==value) for value in unique_values]
+
+
+
+
 # Load tree data (functional tree, not phylogenetic)
 data = np.load('tree_distance.npz')
 M = data['M']
 M_names=data['names']
 
-
 # Load feature matrix
-df = pd.read_csv("test_potf.csv", sep=",", encoding='latin1')
+df = pd.read_csv("test2_potf.csv", sep=",", encoding='latin1')
 ft = df.to_numpy()
 ft_names = np.array( [ line[0] for line in ft ] )
 col_names= np.array( [ col for col in df.columns] )[1:16]    
 ft = np.array([ line[1:16] for line in ft ])
+
+
+
 
 # ... create true feature matrix
 F = np.zeros((M.shape[0], ft.shape[1]))*np.nan
@@ -54,7 +94,30 @@ labels = kmeans.labels_
     
 
 
-mc_max = 99999
+
+#
+genus_list = np.array( [ get_genus(name) for name in M_names] )
+species_list= np.array( [ get_species(name) for name in M_names] )
+S=[]
+
+for cluster_idx in range(labels.max()+1):
+    idx = np.argwhere( labels==cluster_idx )[:,0]
+    
+    
+    cluster_genus = np.array( [ genus for genus in genus_list[idx] if genus is not None] )
+    h = bin_count(cluster_genus)
+    S.append( 1/entropy( h ) )
+
+
+
+
+
+
+
+
+
+
+mc_max = 9999
 obs_mc = np.zeros((mc_max, ft.shape[1]))
 
 
@@ -83,7 +146,7 @@ for cluster_idx in range( labels.max()+1 ):
         plt.text( xlims[0], ylims[1]*0.9, 'pval=%1.4f' % right_pvals[jj], color=col)
         plt.xlabel(col_names[jj])
         plt.ylim(ylims)
-    plt.suptitle('Cluster %d' % cluster_idx)
+    plt.suptitle('Cluster %d; Size %d' % (cluster_idx, group_size) )
     plt.tight_layout()
 
 
