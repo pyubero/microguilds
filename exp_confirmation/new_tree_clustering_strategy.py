@@ -47,12 +47,12 @@ from matplotlib import pyplot as plt
 # clade_lfs = np.array(clade_lfs)
 
 # np.savez('all_clade_data.npz', leaf_names=leaf_names, clade_ids=clade_ids,
-#          clade_dpt = clade_dpt,
-#          clade_lfs = clade_lfs)
+#           clade_dpt = clade_dpt,
+#           clade_lfs = clade_lfs)
 
 
 # Load all clade data
-data = np.load('all_clade_data.npz', allow_pickle=True)
+data = np.load('data_all_clades.npz', allow_pickle=True)
 leaf_names = data['leaf_names']
 clade_ids  = data['clade_ids']
 clade_dpt  = data['clade_dpt'] 
