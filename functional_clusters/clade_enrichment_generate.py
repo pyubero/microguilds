@@ -90,6 +90,7 @@ warnings.filterwarnings('ignore')
 
 
 ZSCORES = np.zeros( (nclusters, nfeatures))*np.nan
+PVALS   = np.zeros( (nclusters, nfeatures))*np.nan
 
 
 # First obtain clusters
@@ -108,7 +109,7 @@ for ii, cluster_leafs in tqdm(enumerate(clade_lfs), total=len(clade_lfs)):
     mc_std  = np.nanstd(obs_mc, axis=0)
     mc_std[ np.abs(mc_std)<=1e-8]=np.nan
     ZSCORES[ii,:] = (mc_mean-obs_mean)/mc_std
-    
+    PVALS[ii,:]
     
     
 # Compute univocity
@@ -122,12 +123,13 @@ for ii, cluster_leafs in enumerate(clade_lfs):
     
     
 np.savez(FILENAME_OUT,
+         names = ft_sp_names,
+         features= col_names,
          F = F,
          S = S,
          MCMAX = MCMAX,
          ZSCORES=ZSCORES)  
     
-
 #%%
 
 # Entropy/Univocity correlates with the number of leafs within clade
@@ -163,20 +165,41 @@ np.savez(FILENAME_OUT,
 # plt.tight_layout()
 
 
-
+data = np.load(FILENAME_OUT, allow_pickle=True)
+F = data['F']
+S = data['S']
+ZSCORES= data['ZSCORES']
 
 # Find unique patterns
 THOLD_Z = 3
 barcode = 1*(ZSCORES>THOLD_Z) - 1*(ZSCORES<-THOLD_Z)
 
+
 unq_bc = np.unique(barcode, axis=0)
-ref_bc = unq_bc[8]
-idc = np.argwhere( np.all(barcode==ref_bc, axis=1))[:,0]
+for jj, ref_bc in enumerate(unq_bc):
+    # ref_bc = unq_bc[23]
+    idc = np.argwhere( np.all(barcode==ref_bc, axis=1))[:,0]
+    
 
 
 
+# for jj, ref_bc in enumerate(unq_bc):
+# ref_bc = unq_bc[23]
+# idc = np.argwhere( np.all(barcode==ref_bc, axis=1))[:,0]
 
 
+# start_idx = idc[0]
+# for test_idx in idc[1:]:
+#   if set( clade_lfs[start_idx]) > set(clade_lfs[test_idx]):
+#       # print('yay', test_idx)
+#       start_idx = test_idx
+# print('Ref_bc ', jj, ',node idx ',start_idx, ', # of leafs:', len(clade_lfs[start_idx]),
+#       '\t',ref_bc)      
 
-
-
+  
+    
+  
+    
+  
+    
+  

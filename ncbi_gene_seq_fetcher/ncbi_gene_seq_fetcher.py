@@ -14,12 +14,13 @@ import xmltodict as xml2dict
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
-GENE_OF_INTEREST = '16S Ribosomal rna'
+GENE_OF_INTEREST = 'recA gene'
 FILENAME_IN = 'organismpotf.csv'
 #...
-GENE_OF_INTEREST = '_'.join( GENE_OF_INTEREST.split(' '))
-FILENAME_OUT = 'seq_'+GENE_OF_INTEREST+'.fasta'
-FILENAME_LOG = 'log_'+GENE_OF_INTEREST+'.log'
+gene_out = '_'.join( GENE_OF_INTEREST.split(' '))
+FILENAME_OUT = 'seq_'+gene_out+'.fasta'
+FILENAME_LOG = 'log_'+gene_out+'.log'
+FILENAME_FAILED = 'list_of_failed_organisms.txt'
 # ...
 YOUR_EMAIL = 'pabloyub@protonmail.com'
 TOOL = 'gene_fetcher'
@@ -39,6 +40,7 @@ def print_to_log( data ):
 # Create empty files
 with open(FILENAME_OUT , 'w+') as file:    pass
 with open(FILENAME_LOG , 'w+') as file:    pass
+with open(FILENAME_FAILED , 'w+') as file:    pass
 
 # Get list of organisms' names
 organisms_names = []
@@ -78,6 +80,7 @@ for jj, organism in enumerate(organisms_names):
     genus = organism.split(' ')[0]
     species = organism.split(' ')[1]
     useful_id = np.nan
+    potential_ids = []
     species_found = []
     accesions_found=[]
     for jj, data in enumerate( response.text.split('>') ):
@@ -88,21 +91,30 @@ for jj, organism in enumerate(organisms_names):
             accesions_found.append( data.split(' ')[0] )
             
         # Check if any entry fits perfectly the description            
-        if (GENE_OF_INTEREST.lower() in data.lower()) and (genus.lower() in data.lower()) and (species.lower() in data.lower()):
-            useful_id = jj
-            accession_number = data.split(' ')[0]
-            sequence_length  = 70*(len(data.split('\n'))-3)
+        if (genus.lower() in data.lower()) and (species.lower() in data.lower()):
+            if (GENE_OF_INTEREST.lower() in data.lower()):
+                useful_id = jj
+                accession_number = data.split(' ')[0]
+                sequence_length  = 70*(len(data.split('\n'))-3)
+            # elif "whole genome" in data.lower():
+            #     print_to_log('>>> Whole genome available for %s in %s' % (organism, accesions_found[-1] )
     
     if np.isnan(useful_id):
-        print_to_log('<W> Could not find any 16s for %s' % organism )
-        print_to_log('Found instead for:')
-        _=[ print_to_log('  -%s %s' % (a,b)) for a,b in zip(accesions_found, species_found) ]
+        print_to_log('<W> Could not find any entry for %s' % organism )
+        
+        with open(FILENAME_FAILED,'a+') as file:
+            file.write(organism+'\n')
+        
+        if "Supplied+id+parameter+is+empty" not in accesions_found[0]:
+            print_to_log('Found instead for:')
+            _=[ print_to_log('  -%s %s' % (a,b)) for a,b in zip(accesions_found, species_found) ]
     else:
         fasta = '>'+response.text.split('>')[useful_id]
         with open(FILENAME_OUT, 'a+') as file:
             file.write(fasta)
         print_to_log( f'{accession_number}\t{organism}\t{sequence_length}bp' )
     
+    print_to_log('')
 
 # ##########
 # Add the character > to all lines that have it missing
@@ -145,4 +157,14 @@ for jj, organism in enumerate(organisms_names):
 #         # else:
 #         #     print('>W< Could not find name of %s' % old_name )
         
-        
+# I need to find where recA is located if annotated, for that I need all the info of
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NZ_PGTY01000001.1&rettype=fasta_cds_na&retmode=text
+
+
+
+# To download the whole genome fasta for an accession ID
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NZ_PGTY01000001.1&rettype=fasta&retmode=text
+
+# After I have the accession ID, and the sequence start and stop bases i can call this:        
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=NZ_PGTY01000001.1&from=502873&to=503931&rettype=fasta&retmode=text
+
