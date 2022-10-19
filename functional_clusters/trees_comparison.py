@@ -147,8 +147,54 @@ depth_lca_gene+= np.random.randn( *depth_lca_gene.shape )/50000
 plt.figure( figsize=(6,4), dpi=300)      
 plt.plot(  depth_lca_16s, depth_lca_gene ,'.', color=np.ones((3,))*0.5, ms=5, zorder=0 )
 plt.scatter( depth_lca_16s[idx_significant], depth_lca_gene[idx_significant],c = np.log10(1+np.array(n_bichos[idx_significant])), s=6)    
-
+plt.plot( depth_lca_16s[1065], depth_lca_gene[1065] ,'ro', ms=5, zorder=0 )
+plt.plot( depth_lca_16s[43], depth_lca_gene[43] ,'bo', ms=5, zorder=0 )
+plt.plot( depth_lca_16s[49], depth_lca_gene[49] ,'go', ms=5, zorder=0 )
 
 plt.colorbar( label=' log10 Number of leafs in potF')
 plt.xlabel('Taxonomic relatedness')
 plt.ylabel('Relatedness')
+
+
+#%%
+
+
+# Load tree data
+data = np.load( FILENAME_OUT, allow_pickle=True)
+n_bichos = data['n_bichos']
+depth_lca_16s = data['depth_lca_16s']
+depth_lca_gene = data['depth_lca_gene']
+leafs_idx_lca = data['leafs_idx_lca']
+
+# Load enrichment data
+data = np.load('data_clade_enrichment.npz')
+F = data['F']
+S = data['S']
+ZSCORES = data['ZSCORES']
+
+
+plt.figure( figsize=(18,20), dpi=300)      
+
+for feature_idx in range(15):
+    idx_significant = np.argwhere( np.abs(ZSCORES[:,feature_idx])>3)[:,0]
+    
+    
+    depth_lca_16s += np.random.randn( *depth_lca_16s.shape )/50000
+    depth_lca_gene+= np.random.randn( *depth_lca_gene.shape )/50000
+    
+    plt.subplot(5,3,feature_idx+1)
+    plt.plot(  depth_lca_16s, depth_lca_gene ,'.', color=np.ones((3,))*0.5, ms=5, zorder=0 )
+    plt.scatter( depth_lca_16s[idx_significant], 
+                depth_lca_gene[idx_significant],
+                c = np.log10(1+np.array(n_bichos[idx_significant])), 
+                s=6,
+                edgecolors=[1, 0, 0]
+                )    
+    
+    plt.colorbar( label=' log10 Number of leafs in potF')
+    plt.xlabel('Taxonomic relatedness')
+    plt.ylabel('Relatedness')
+    
+
+
+

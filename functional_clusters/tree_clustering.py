@@ -22,6 +22,17 @@ FILENAME_TREE = 'tree_potF_labelled.newick'
 tree = Phylo.read( FILENAME_TREE, 'newick')
 clades = tree.get_nonterminals()
 
+C = np.zeros(( len(clades), len(clades) ) )
+for node in clades:
+    parent_idx = int( node.name.split('_')[1] )
+    for child in node.clades:
+        if not child.is_terminal():
+            child_idx = int( child.name.split('_')[1] )
+            C[parent_idx, child_idx] = 1
+            
+
+
+
 # Load all clade data
 data = np.load(FILENAME_CLADE_DATA, allow_pickle=True)
 leaf_names = data['leaf_names']
@@ -40,89 +51,78 @@ ZSCORES= data['ZSCORES']
 # features= data['features']
 
 X = ZSCORES.copy()
-X = np.clip(X, -3,3)
+X[ np.isnan(X)] = 0
 
+threshold = 2
 
-order = np.argsort( clade_dpt )
-
-
-t = 1
-
-clades[1]
-
-
-
-
-
-# # Find all nodes closer than threshold to the root
-# idx = np.argwhere(clade_dpt<threshold)[:,0]
-# print(idx)
-
-# # Find clades that compose a partition, that is
-# partition_idc =  [ idx[-1],]
-# partition_leafs= set( [_ for _ in clade_lfs[idx[-1]]] )
-
-# for jj in np.arange( len(idx)-2, -1,-1):
+for feature_idx in range(15):
     
-#     if not set( clade_lfs[ idx[jj]] ).issubset( partition_leafs ):
-#         partition_idc[-1] = jj
-#         partition_leafs |= set ( clade_lfs[jj] )
-# print(partition_idc)
-
-
-# clade_lfs[8] = [8,9]
-
-
-
-
-
-
-
-
-# # first detect features with all nan values
-# idx1_allnan = [_ for _ in range( X.shape[1]) if not (_ in np.argwhere(np.all(np.isnan(X), axis=0))[:,0])]
-# X = X[:,idx1_allnan]
-
-# # then detect samples with all nan values
-# idx0_allnan = [_ for _ in range( X.shape[0]) if not (_ in np.argwhere(np.any(np.isnan(X), axis=1))[:,0])]
-# X = X[idx0_allnan,:]
-
-# CH = []
-# # for nclusters in range(30):
-# for nclusters in (1,):
+    nodes_sign = np.argwhere( np.abs(X[:,feature_idx])>threshold)[:,0]
+    
+    
+    MRCA_NODES = []
+    for node_idx in nodes_sign:
         
-#     model = AgglomerativeClustering(n_clusters=nclusters+2, affinity='cosine', linkage='complete')
-#     model.fit(X)
-#     clabels = model.labels_
+        # Buscar padre
+        parent_idx = np.argwhere(C[:, node_idx])[:,0][0]
+    
+        # Si el padre no es significativo:
+        if np.abs(X[parent_idx,feature_idx])<threshold:
+            MRCA_NODES.append(node_idx)
+            
+    print( len(nodes_sign), len(MRCA_NODES))        
+    print(MRCA_NODES)
+    print( [clade_nleafs[_] for _ in MRCA_NODES])
     
     
-#     LABELS = []
-#     C_BCODE= []
     
-#     for icluster in np.unique(clabels):
-#         idx = np.argwhere( clabels == icluster)[:,0]
+    
+    
+    FINAL_MRCA_NODES = MRCA_NODES.copy()
+    for jj in MRCA_NODES:
+        jj_leafs = set(clade_lfs[jj])
+    
+        for kk in MRCA_NODES:
+            if jj==kk:
+                continue
+            kk_leafs = set(clade_lfs[kk])
+            
+            if kk_leafs.issubset( jj_leafs):
+                if kk in FINAL_MRCA_NODES:
+                    FINAL_MRCA_NODES.remove(kk)
+                print('OJO el nodo %d contiene al nodo %d' % (jj, kk) )
+    
+    print(MRCA_NODES)
+    print(FINAL_MRCA_NODES)
+    
+    with open('para_juan.txt','a+') as file:
+        file.write('Feature index: %d\n' % feature_idx )
         
-#         LABELS.append('C%d, %d' % (icluster, len(idx)) )
-#         C_BCODE.append( np.mean(X[idx,:], axis=0) )
-    
-#     C_BCODE = np.array(C_BCODE)
-    
-#     plt.imshow(C_BCODE, aspect='auto', vmin=-2, vmax=2)
-#     plt.yticks( ticks=range(clabels.max()+1), labels= LABELS)
-#     plt.colorbar()
+        for idx in FINAL_MRCA_NODES:
+            print( "Node %3d contains %4d leafs with Z = %2.2f" % (idx, clade_nleafs[idx], ZSCORES[idx, feature_idx]) )
+            file.write("Node %3d contains %4d leafs with Z = %2.2f\n" % (idx, clade_nleafs[idx], ZSCORES[idx, feature_idx]) )
+        file.write('\n')
 
-# # dendrogram = sch.dendrogram(sch.linkage(X, method='ward'))
+
 
 
 
     
-#     ch_index = calinski_harabasz_score(X, clabels)
-#     CH.append(ch_index)
-#     # print(ch_index)
 
-
-
-# # plt.plot( 2+np.array(range(len(CH))), CH,'.-')
-# # plt.xlabel('Number of clusters')
-# # plt.ylabel('Calinski-Harabsz score')
-# # plt.grid()
+def poisson_nevents(lam=1.0, ntrials=1):
+    def poisson_pdf(lam=1.0, k=1.0):
+        return lam**k*np.exp(-lam)/np.math.factorial(k)
+    
+    
+    ref = np.cumsum( [poisson_pdf(lam,_) for _ in range(5*lam)] )
+    nevents = []
+    for _ in range(ntrials):
+        rr = np.random.rand()       
+        nevents.append( np.argwhere(rr<ref)[:,0][0]    )
+    return nevents
+    
+    
+    
+    
+    
+    

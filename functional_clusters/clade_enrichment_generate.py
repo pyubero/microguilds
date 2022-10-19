@@ -44,7 +44,7 @@ def bin_count(array):
 FILENAME_CLADE_DATA = 'data_potF_all_clades.npz'
 FILENAME_ENV_DATA   = 'environmental_data.csv'
 FILENAME_OUT = 'data_clade_enrichment.npz'
-MCMAX = 999 # 999 takes 220s
+MCMAX = 99999 # 999 takes 220s
 
 
 # Load all clade data
