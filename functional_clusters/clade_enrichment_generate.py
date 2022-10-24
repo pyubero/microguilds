@@ -44,7 +44,7 @@ def bin_count(array):
 FILENAME_CLADE_DATA = 'data_potF_all_clades.npz'
 FILENAME_ENV_DATA   = 'environmental_data.csv'
 FILENAME_OUT = 'data_clade_enrichment.npz'
-MCMAX = 99999 # 999 takes 220s
+MCMAX = 99 # 999 takes 220s
 
 
 # Load all clade data
@@ -96,6 +96,7 @@ PVALS   = np.zeros( (nclusters, nfeatures))*np.nan
 # First obtain clusters
 for ii, cluster_leafs in tqdm(enumerate(clade_lfs), total=len(clade_lfs)):
 
+
     # Compute true observed value
     obs_mean = np.nanmean(F[ cluster_leafs,:], axis=0)             # Observed mean features across cluster cluster_idx
     
@@ -122,13 +123,13 @@ for ii, cluster_leafs in enumerate(clade_lfs):
     
     
     
-np.savez(FILENAME_OUT,
-         names = ft_sp_names,
-         features= col_names,
-         F = F,
-         S = S,
-         MCMAX = MCMAX,
-         ZSCORES=ZSCORES)  
+# np.savez(FILENAME_OUT,
+#           names = ft_sp_names,
+#           features= col_names,
+#           F = F,
+#           S = S,
+#           MCMAX = MCMAX,
+#           ZSCORES=ZSCORES)  
     
 #%%
 

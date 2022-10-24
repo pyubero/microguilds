@@ -18,9 +18,10 @@ import xml.etree.ElementTree as ET
 
 FILENAME_IN = 'organismpotf.csv'
 #...
-GENE_OF_INTEREST = 'whole genome'
+GENE_OF_INTEREST = 'genome'
 gene_out = '_'.join( GENE_OF_INTEREST.split(' '))
-FILENAME_OUT = 'seq_'+gene_out+'.fasta'
+# FILENAME_OUT = 'seq_'+gene_out+'.fasta'
+FILENAME_OUT = './genomes/genome_ACCESSION.fasta'
 FILENAME_LOG = 'log_'+gene_out+'.log'
 FILENAME_FAILED = 'list_of_failed_organisms.txt'
 # ...
@@ -40,7 +41,7 @@ def print_to_log( data ):
     
     
 # Create empty files
-with open(FILENAME_OUT , 'w+') as file:    pass
+# with open(FILENAME_OUT , 'w+') as file:    pass
 with open(FILENAME_LOG , 'w+') as file:    pass
 with open(FILENAME_FAILED , 'w+') as file:    pass
 
@@ -58,13 +59,13 @@ for jj, organism in enumerate(organisms_names ):
     
     
     
-    search_term = organism+' '+GENE_OF_INTEREST
+    search_term = organism+'[Organism] '+GENE_OF_INTEREST
     PARAMS_SEARCH = {
         'db' : 'nuccore', # or nucleotide
         'term' : search_term,
         'retmode' : 'json',
         'retmax' : 10,
-        'sort' : 'relevance'
+        'sort' : 'slen'
         }
     
     
@@ -80,7 +81,7 @@ for jj, organism in enumerate(organisms_names ):
     
     PARAMS_FETCH = {
         'db' : 'nuccore', # or nucleotide
-        'id' : ','.join(idlist[:5]),
+        'id' : ','.join(idlist[:10]),
         'rettype' : 'fasta',
         'retmode' : 'xml'
         }
@@ -104,28 +105,78 @@ for jj, organism in enumerate(organisms_names ):
         print_to_log('<W> %s' % organism)
         continue
     
-    seqlengths = np.array(seqlengths)/1000
+    seqlengths = np.array(seqlengths)/1000/1000
     idx = seqlengths.argmax()
      
-    if "contig" in recordnames[idx]:
-        print_to_log('<W> %s' % organism)
-        continue
+    # if "contig" in recordnames[idx]:
+    #     print_to_log('<W> %s' % organism)
+    #     continue
     
-    
-    print_to_log('[%3d%%] %17s\t%5.1f Mbp\t%s' % ( jj/len(organisms_names)*100,accessions[idx], seqlengths[idx], organism) )
-    
-    
-    header = "> "+accessions[idx]+' '+recordnames[idx]
-    sequence= data[idx].find('TSeq_sequence').text
-    subseq = [ sequence[_:_ + 80] for _ in range(0, len(sequence), 80)]
-    body   = '\n'.join(subseq)
-    
-    with open(FILENAME_OUT, 'a+') as file:
-        file.write(header+'\n') 
-        file.write(body+'\n')
+    if seqlengths[idx] > 1 :
+        print_to_log('[%3d%%] %17s\t%5.1f Gbp\t%s' % ( jj/len(organisms_names)*100,accessions[idx], seqlengths[idx], organism) )
+        
+        
+        header = "> "+accessions[idx]+' '+recordnames[idx]
+        sequence= data[idx].find('TSeq_sequence').text
+        subseq = [ sequence[_:_ + 80] for _ in range(0, len(sequence), 80)]
+        body   = '\n'.join(subseq)
+        
+        # with open(FILENAME_OUT.replace('ACCESSION', accessions[idx]), 'w+') as file:
+        #     file.write(header+'\n') 
+        #     file.write(body+'\n')
+    else:
+        print_to_log('<W> Sequences for %s seem too short.' % (organism) )
         
         
         
+        
+        
+        
+        
+organism = 'Nioella nitratireducens'        
+
+        
+
+search_term = organism+'[Organism]'
+PARAMS_SEARCH = {
+    'db' : 'taxonomy', # or nucleotide
+    'term' : search_term,
+    'retmode' : 'json',
+    'retmax' : 10,
+    'sort' : 'slen'
+    }
+
+
+response = requests.get( URL_ESEARCH, params = PARAMS_SEARCH, timeout = 10)
+json = response.json()        
+idlist = json['esearchresult']['idlist']
+print(idlist)
+
+
+
+taxid = '1287720'
+# idx = 'GCF_001879715.1'        
+
+
+
+        
+PARAMS_FETCH = {
+    'db' : 'genome', # or nucleotide
+    'id' : taxid,
+    'retmode' : 'text',
+    'rettype' : 'fasta'
+    }
+
+response = requests.get( URL_EFETCH, params = PARAMS_FETCH, timeout = 5)
+print(response)
+print(response.text)
+data = ET.fromstring(response.text)
+sleep(DELAY)        
+        
+        
+    
+    
+    
         
     # genus = organism.split(' ')[0]
     # species = organism.split(' ')[1]
@@ -206,9 +257,10 @@ for jj, organism in enumerate(organisms_names ):
 #         # else:
 #         #     print('>W< Could not find name of %s' % old_name )
         
-# # I need to find where recA is located if annotated, for that I need all the info of
-# https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NZ_PGTY01000001.1&rettype=fasta_cds_na&retmode=text
 
+
+# # To download CDS data from nuccore id
+# https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NZ_PGTY01000001.1&rettype=fasta_cds_na&retmode=text
 
 
 # # To download the whole genome fasta for an accession ID
