@@ -11,9 +11,11 @@ from matplotlib import pyplot as plt
 
 
 # Load tree
-ifile = 'tree_potF_labelled.newick' 
+# FILENAME_TREE = 'tree_potF_labelled.newick' 
+FILENAME_TREE = 'tree_recA.newick' 
+FILENAME_OUT  = 'data_recA_all_clades.npz'
 #...
-t = Phylo.read(ifile, 'newick')
+t = Phylo.read(FILENAME_TREE, 'newick')
 depths = t.depths()
 
 # Obtain (terminal) leaf data
@@ -46,13 +48,13 @@ clade_ids = np.array(clade_ids)
 clade_dpt = np.array(clade_dpt)
 clade_lfs = np.array(clade_lfs)
 
-np.savez('all_clade_data.npz', leaf_names=leaf_names, clade_ids=clade_ids,
+np.savez(FILENAME_OUT, leaf_names=leaf_names, clade_ids=clade_ids,
           clade_dpt = clade_dpt,
           clade_lfs = clade_lfs)
 
 
 # Load all clade data
-data = np.load('data_all_clades.npz', allow_pickle=True)
+data = np.load(FILENAME_OUT, allow_pickle=True)
 leaf_names = data['leaf_names']
 clade_ids  = data['clade_ids']
 clade_dpt  = data['clade_dpt'] 

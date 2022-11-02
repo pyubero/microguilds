@@ -13,6 +13,26 @@ from matplotlib import pyplot as plt
 
 
 
+def accession_to_name(query, fastafile):
+    with open(fastafile,'r') as file:
+        for line in file.readlines():
+            if np.all( [ _ in line for _ in query ]):
+                return line
+    return None
+
+
+# Create dictionary
+acc2names = {}
+with open('seq_recA_std.fasta','r') as file:
+    for line in file.readlines():
+        if line[0]=='>':
+            line = line.replace('>','').split(' ')
+            accession = line[0]
+            name = ' '.join( line[1:3])
+            acc2names.update( {accession : name} ) 
+acc2names
+
+
 
 
 def entropy(f):
@@ -41,9 +61,10 @@ def bin_count(array):
     return np.array( [ np.sum(array==value) for value in unique_values] )
 
 
-FILENAME_CLADE_DATA = 'data_potF_all_clades.npz'
+# FILENAME_CLADE_DATA = 'data_potF_all_clades.npz'
+FILENAME_CLADE_DATA = 'data_recA_all_clades.npz'
 FILENAME_ENV_DATA   = 'environmental_data.csv'
-FILENAME_OUT = 'data_clade_enrichment.npz'
+FILENAME_OUT = 'data_clade_enrichment_recA.npz'
 MCMAX = 99 # 999 takes 220s
 
 
@@ -75,19 +96,23 @@ species_list= np.array( [ get_species(name) for name in leaf_names] )
 # ... create true feature matrix
 F = np.zeros((nleafs, nfeatures))*np.nan
 
-for idx_ft_sp, species in enumerate(ft_sp_names):
+for idx_ft_sp, species in tqdm(enumerate(ft_sp_names), total=len(ft_sp_names)):
     _name = species.split(' ')
     for idx_leaf, full_name in enumerate(leaf_names):
+        # Uncomment this when analysing recA data
+        fasta_line = accession_to_name(full_name, 'seq_recA_std.fasta')
+        full_name = ' '.join( fasta_line.split(' ')[1:3])
+        
         if (_name[0] in full_name) and (_name[1] in full_name):
             F[idx_leaf,:] = ft[idx_ft_sp,:]
 
-print('Data obtained for %d tree entries.' % (1158-np.sum(np.all( np.isnan(F), axis=1))))            
+print('Data missing for %d tree entries.' % (np.sum(np.all( np.isnan(F), axis=1))))            
 
 import warnings
 warnings.filterwarnings('ignore')
 
 
-
+#%%
 
 ZSCORES = np.zeros( (nclusters, nfeatures))*np.nan
 PVALS   = np.zeros( (nclusters, nfeatures))*np.nan
@@ -123,13 +148,13 @@ for ii, cluster_leafs in enumerate(clade_lfs):
     
     
     
-# np.savez(FILENAME_OUT,
-#           names = ft_sp_names,
-#           features= col_names,
-#           F = F,
-#           S = S,
-#           MCMAX = MCMAX,
-#           ZSCORES=ZSCORES)  
+np.savez(FILENAME_OUT,
+          names = ft_sp_names,
+          features= col_names,
+          F = F,
+          S = S,
+          MCMAX = MCMAX,
+          ZSCORES=ZSCORES)  
     
 #%%
 

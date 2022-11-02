@@ -11,11 +11,18 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-FILENAME_GENE_SEQS = 'pot16s.fasta'
-FILENAME_CLADE_DATA= 'data_potF_all_clades.npz'
-FILENAME_TREE_16s  = 'tree_16s_labelled.newick'
-FILENAME_TREE_GENE = 'tree_potF_labelled.newick' 
-FILENAME_OUT = 'data_tree_comparison.npz'
+# FILENAME_CLADE_DATA= 'data_potF_all_clades.npz'
+# FILENAME_TREE_GENE = 'tree_potF_labelled.newick' 
+#...
+FILENAME_TREE_GENE = 'tree_recA.newick'
+FILENAME_CLADE_DATA= 'data_recA_all_clades.npz'
+#...
+FILENAME_GENE_SEQS = 'seq_16S_std.fasta'
+FILENAME_TREE_16s  = 'tree_16s.newick'
+#...
+FILENAME_OUT = 'data_tree_comparison_recA.npz'
+
+EXPORT_DATA = True
 
 def search_accession(name):
     if (name[0] == None) or (name[1] == None):
@@ -41,6 +48,20 @@ def get_genus(name):
         return sp_name
     
 #%%
+
+
+# Create dictionary
+acc2names = {}
+with open('seq_recA_std.fasta','r') as file:
+    for line in file.readlines():
+        if line[0]=='>':
+            line = line.replace('>','').split(' ')
+            accession = line[0]
+            name = ' '.join( line[1:3])
+            acc2names.update( {accession : name} ) 
+            
+            
+            
 # Load all clade data
 data = np.load(FILENAME_CLADE_DATA, allow_pickle=True)
 leaf_names = data['leaf_names']
@@ -82,17 +103,20 @@ for clade_idx in tqdm( range( len(clade_ids) )):
     leafs_lca_16s = []
     leafs_lca_gene= []
     
-    #... for every terminal leaf in the the clade_idx
+    #... for every terminal leaf in the clade_idx
     for leaf_idx  in subleafs:
-        name_leaf= leaf_names[leaf_idx]
-        name_bicho = [ get_genus(name_leaf), get_species(name_leaf) ]
+        # uncomment for recA
+        gene_accession = leaf_names[leaf_idx]
+        name_bicho = acc2names[gene_accession].split(' ')
+        # uncomment for potF
+        # name_bicho = [ get_genus(name_leaf), get_species(name_leaf) ]
         accession  = search_accession(name_bicho)
-        
+
         if accession is not None:
             idx_in_16s = np.argwhere( leaf_16s_names == accession)[:,0]
             leafs_lca_16s.append( idx_in_16s[0]  )
             leafs_lca_gene.append(leaf_idx )            
-        
+
     leafs_lca_16s  = np.unique(leafs_lca_16s)
     leafs_lca_gene = np.unique(leafs_lca_gene)
     
@@ -118,10 +142,13 @@ depth_lca_16s = np.array( depth_lca_16s)
 depth_lca_gene= np.array( depth_lca_gene)
 leafs_idx_lca = np.array( leafs_idx_lca )
 
-np.savez(FILENAME_OUT, n_bichos = n_bichos, 
-                       depth_lca_16s = depth_lca_16s,
-                       depth_lca_gene = depth_lca_gene,
-                       leafs_idx_lca = leafs_idx_lca)
+if EXPORT_DATA:
+    print('')
+    print('Data saved to %s.' % FILENAME_OUT )
+    np.savez(FILENAME_OUT, n_bichos = n_bichos, 
+                           depth_lca_16s = depth_lca_16s,
+                           depth_lca_gene = depth_lca_gene,
+                           leafs_idx_lca = leafs_idx_lca)
 
 
 #%% PLOTS
@@ -134,7 +161,7 @@ depth_lca_gene = data['depth_lca_gene']
 leafs_idx_lca = data['leafs_idx_lca']
 
 # Load enrichment data
-data = np.load('data_clade_enrichment.npz')
+data = np.load('data_clade_enrichment_recA.npz')
 F = data['F']
 S = data['S']
 ZSCORES = data['ZSCORES']
@@ -146,10 +173,11 @@ depth_lca_gene+= np.random.randn( *depth_lca_gene.shape )/50000
 
 plt.figure( figsize=(6,4), dpi=300)      
 plt.plot(  depth_lca_16s, depth_lca_gene ,'.', color=np.ones((3,))*0.5, ms=5, zorder=0 )
+plt.plot(  depth_lca_16s, depth_lca_16s,'k', zorder=0)
 plt.scatter( depth_lca_16s[idx_significant], depth_lca_gene[idx_significant],c = np.log10(1+np.array(n_bichos[idx_significant])), s=6)    
-plt.plot( depth_lca_16s[1065], depth_lca_gene[1065] ,'ro', ms=5, zorder=0 )
-plt.plot( depth_lca_16s[43], depth_lca_gene[43] ,'bo', ms=5, zorder=0 )
-plt.plot( depth_lca_16s[49], depth_lca_gene[49] ,'go', ms=5, zorder=0 )
+# plt.plot( depth_lca_16s[1065], depth_lca_gene[1065] ,'ro', ms=5, zorder=0 )
+# plt.plot( depth_lca_16s[43], depth_lca_gene[43] ,'bo', ms=5, zorder=0 )
+# plt.plot( depth_lca_16s[49], depth_lca_gene[49] ,'go', ms=5, zorder=0 )
 
 plt.colorbar( label=' log10 Number of leafs in potF')
 plt.xlabel('Taxonomic relatedness')
@@ -167,7 +195,7 @@ depth_lca_gene = data['depth_lca_gene']
 leafs_idx_lca = data['leafs_idx_lca']
 
 # Load enrichment data
-data = np.load('data_clade_enrichment.npz')
+data = np.load('data_clade_enrichment_recA.npz')
 F = data['F']
 S = data['S']
 ZSCORES = data['ZSCORES']
