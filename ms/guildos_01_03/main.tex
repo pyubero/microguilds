@@ -1,0 +1,302 @@
+\documentclass[Journal,letterpaper,NoLists]{ascelike-new}
+%%%%%%%%%%%%%%%%%%%%%%%%%% TO DOs %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Some useful packages...
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[figurename=Figure,labelfont=bf,labelsep=period]{caption}
+\usepackage{amsmath}
+\usepackage{soul}
+\usepackage{xcolor} 
+\usepackage{newtxtext,newtxmath}
+\usepackage[colorlinks=true,citecolor=red,linkcolor=black]{hyperref}
+\newcommand{\comment}[1]{}
+
+% Please add the first author's last name here for the footer:
+\NameTag{\today}
+
+
+\begin{document}
+\title{Quantifying microbial guilds}
+\author[Authors]{authors-labs}
+\maketitle
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Abstract %%%%%%%%%%
+\begin{abstract}
+The study of biological functions in microbiomes is prohibitively difficult, both in terms of information quantity and ambiguity. Using a quantifiable definition of guild would be useful for extracting general principles in the ecology of functions. The scope of this work is to provide a reimagined guild definition for the study of microbes by discriminating biostructures that are able to perpetrate a concrete function from those that are not. For functional characterization, we differentiate types of sequences both by their phylogenetic dissimilarity and by the physicochemical characteristics that condition the biocatalyst folding, allowing us to elucidate the contribution of taxonomic position and environmental convergence separatedly. 
+
+
+\end{abstract}
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Introduction %%%%%%%%%%
+\section{Introduction}
+
+
+Microorganisms greatly modify their environment. A clear example of this is the dramatic change in atmospheric oxidation potential that occurred in the primitive Earth due to the appearance of oxygenic photosynthesis, probably during the neo-archaic period – around 2.8 Gyr ago \cite{cavalier_2006}. This planetary shift was achieved solely through the multiplication of encoded biological functions. Unfortunately, if we rely on the assigned taxonomic position and on the automatic functional annotation, understanding how microbial functions contributed to this and other phenomena becomes challenging~\cite{tikhonov2017theoretical,koskella2017microbiome}.
+
+Biological functions can be understood as the causal relationship between the physicochemical, structural information contained in a biosynthetic catalyst and the chemical interaction it facilitates on a specific substrate. This relationship may be curated by evolutionary forces or converge \textit{de novo}, and it is environment-dependent~\cite{huynen2000predicting}. If the environment changes, that causal relationship may be compromised or extinguished, resulting in loss-of-function~\cite{forbes2019loss}. In addition, the exploitation of the resource space is not due to a unique optimal biocatalyst, but rather there is a remarkable variability among them \cite{dourado2021optimality}, usually enzymes with prosthetic groups, which radiate through processes of drift \cite{masel2011genetic,lynch2016genetic}, and duplication \cite{altenhoff2012inferring}. 
+
+ Most functions are inherited vertically and, therefore, taxonomically related organisms will often share very similar set of functions~\cite{baiser2011relationship}. However, there are alternatives to vertical inheritance. On the one hand, horizontal transfer~\cite{van2017horizontal} has been observed even among bionts with markedly different taxonomic positions~\cite{husnik2018functional}. 
+On the other hand, fundamentally dissimilar biostructures compromising the same function may emerge convergently populating the global biome with uneven, heterogenous patterns~\cite{page2008temporal,storz2016causes}. Therefore, taxonomic position alone cannot predict the occurrence of some functions. 
+
+This is why we long for a non-taxonomic approach to explain the ecology of microbial functions. The ecological guild concept would solve the latter problem. A guild is classically defined as: \textit{“a group of species that exploit the same class of environmental resources in a similar way (…) without regard to taxonomic position, that overlap significantly in their niche requirements”} \cite{root1967niche}. Thus, guilds shall be interpreted as the functional modules into which the biocenosis can be subdivided. 
+
+The guild concept was designed for macroecology and became fashionable in the 70s. This viewpoint triggered a major inquiry into niche partitioning, so that different species would compete for the same resource. Consequently, and by way of example, all insect predators are now often regarded as members of the \textit{insectivore} guild, regardless of the taxonomic group they currently belong to \cite{koran2014ecological,nebel2010declines}.
+
+The guild definition should help us to quantify and classify, taking into account the available techniques, the ecologically relevant information on microbes. Nevertheless, the classical definition does not completely fit the needs of microbial ecology. In macrofauna, guilds are defined by feeding behaviors \cite{hohberg2003soil}. These behaviors have to do with body plan, very complex genetic interactions leading to ethology, and nurturally transmitted information \cite{chiel1997brain,hillis1996sexual}. However, microbial feeding phenotypes are closer to their genotypes \cite{torsvik2002microbial}. This is explained by the immediacy of their metabolism, which is focused on transforming the shared external environment locally \cite{paerl1996mini,shapiro1998thinking}, as opposed to multicellulars, which instead try to regulate the internal environment \cite{wangemann1996homeostatic} to withstand large extrinsic environment oscillations \cite{nemeskeri2019physiological}.  In addition, we find that a single microorganism can belong to many different guilds. This is not so much the case in higher organisms, since functions affecting environment are typically implemented with fewer required elements in microbes \cite{gregory2005genome,gregory2005comparative}. However, microbial communities also achieve functional complexity with environmental interaction networks. \cite{sanchez2022community}.
+
+Despite the above considerations, many researchers have tried to use the classic guild concept because of its usefulness to explain the functional complexity of microbiomes \cite{veshareh2021novel,jones2014recently,martinovic2021temporal}. Because of this, there is a lack of consensus on how to quantify microbial guilds. Below are some examples: 
+
+Wu et at. \cite{wu2021guild} use the term microbial guild to assign a functional value solely based on spatial co-occurrence among taxa. They elucidate guilds by correlating positive, neutral, and negative effects with CAGs (co-abundance groups). The problems with this approach are manifest, as spatiality does not necessarily correlate with function; especially in microorganisms. 
+
+A rather ingenious idea attempted to discriminate between different guilds of diatoms using a very similar standard to those of macroscopic guilds, based on the morphology and motility of a single-celled organism \cite{passy2007diatom}. Passy's argument is that the nutritional trait of several diatoms seems to correlate with the motility profiles. In this case it seems a wise decision, since the ecological interpretation of the results leaves no room for doubt: “\textit{The motile guild is comparatively free of both resource limitation and disturbance stress, because it has the physical capability of selecting the most suitable habitat}”. However, it is not a standardizable solution, which is the main aim of the present study.
+
+Nemergut et al. propose that the guild should be restricted to the co-occurrence in space and time of those taxa exploiting the same resource, and do not explore the question of how they exploit it~\cite{nemergut2013patterns}. It is sensible to think that the guild concept should not be restricted spatially nor temporally, since what we want to quantify is how members are changing their contribution to the guild over time-space. We also consider it relevant to address how the function is being carried out in every case.
+
+Pedrós-Alió defines more precisely what microbial guilds represent, as opposed to macro guilds: "\textit{a group of microorganisms using the same energy and carbon sources and the same electron donors and acceptors}" \cite{pedros1989toward}. However, microbes can share all energy and carbon sources and can still perform differently on the key substrate. For example, imagine two coexisting methanotrophs. They will share membership in \textit{methane import} guild most of the time, but one of them removes methane only when it is abundant, and the other when it is scarce. The guild definition should consider the particularities of how the relevant function is carried out.
+
+For this reasons, the guild concept, which was coined and mainly used for macroscopic studies, has been extensively overhauled as a tool for the interests of modern molecular ecology. We propose the following definition: \textit{a repertoire of bionts that, regardless of their current taxonomic position, benefit from a key resource through a set of biostructures converging to the very same function, which can be implemented differently to maintain an equivalent ecological role by adaptive radiation across all permitted environments}.
+
+\subsection{Quantification of microbial guilds}
+
+As we have established, all biological functions are performed by biostructures, and these respond to an ideal range of action that is environment-dependent. Moreover, all biostructures are encoded in adaptive genetic polymers. Then, diversification of the functional secuences is not only expected but frequently observed \cite{pascual2010quantifying,soria2014functional}.  Besides neutral drift, most likely the reason behind this phenomenon is that evolution rewards the pursuit of different optimal kinetics across various environments \cite{alam2009studies,offre2014variability}. So, if the entire biostructure repertoire for a function get clusterized by secuence dissimilarity, we will find groups that should work better under similar environments. Henceforth, we will call these sequence groups \textit{implementations}, as they reveal how a function has been implemented in a particular set of biotic systems, which necessarily converge towards the unique action properties of the cluster.
+
+These facts lead us to think that the guilds are structured differently, depending on the environmental circumstances (Figure \ref{fig:Fig1}). However, because there is no quantifiable guild definition, studying shifts in guild structure has been impossible until now. Consequently, we propose to determine the structure of a microbial guild as a vector, following:
+
+\textbf{\textit{Gi (k1, …, kn)}}
+
+where the structure of a guild for is given by the ecological dominance \textbf{(k)} of its implementations per environment \textbf{\textit{i}}. Here  we set one element of the vector for each known implementation of the function,  and give each a \textit{k-value} which can be defined as:
+
+\textbf{\textit{k= d·u·a }}
+
+where, from left to right, are defined the terms: \textbf{\textit{d}} as the total diversity measure inside a functional repertoire or implementation; \textbf{\textit{u}} as the functional univocity of each of the implementations that compose the guild, i.e., The closer the value is to 0, the more ambiguous the functional repertoire will be in occupying the same resource space; and \textbf{\textit{a}} as the environmental abundance of the entire implementation. We construct the \textit{k-value} in order to appraise the occurrence of diversity for an implementation, the likelihood of the implementation to perform the screened function, and the presence in the environment of this implementation.
+
+We will obtain a vector of values for each screened environment and of as much length as implementations, so we can treat the quantified guilds as matrixes. We tested this approach all through with the \textit{polyamine uptakers} guild along Malaspina (MP) watercolumns, to show the potential of the guild quantification concept to undestand complex ecological dynamics. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Results %%%%%%%%%%
+\section{Results}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Results 1 %%%%%%%%%%
+
+\subsection{1. Specific environmental features shape the functional biostructure}
+
+A reference tree has been constructed to classify the sequences found in the Malaspina metagenomes. For this purpose, the specific polyamine-uptake HMM has been searched against a curated oceanic database (details in methods). 
+
+The reference tree shows a collection of HMM-retrieved sequences segregated into dissimilarity groups. These sequences can belong to one or several taxa, which may be in degenerated positions around the tree. Sometimes these positions are distant, indicating that the same species may also have different sequence types. At this point, we consider it necessary to determine whether there is an environmental effect drifting the big groups of sequences (rather than taxonomic position) of these periplasmic proteins, which must maintain their function under physiological conditions.
+
+Our results show that there are internal nodes significantly enriched for certain environmental variables~(one-tailed p-values$<0.01$). Consequently, we split the tree into two main clusters according to salinity, motility and acidity (Figure \ref{fig:Fig2}). The more external nodes would be also significant for other distinct environmental variables, indicating that taxonomic position summarizes the functional relationship only in relatively small nodes that do not contain sequences undergoing environmental convergence, nor re-adaptation, nor explained by horizontal transfer.
+
+
+\subsection{2. Determining functional sequences in metagenomic samples through placement filtering}
+
+The phylogenetic placement of the short environmental sequences shows, even after discarding false positives (71 placed sequences, $4.13\%$ of total), a homogeneous distribution throughout the reference tree (Figure \ref{fig:Fig3}). Thus, the metagenomic sequences populate all the reference functional clusters that we have previously defined.
+
+Moreover, most of the recovered sequences fit well in the reference tree (with a weighted likelihood ratio mean value of $0.89$), indicating that the HMM would represent quite well the sequence diversity we found corresponding to polyamine uptake function within Malaspina metagenomes.
+
+
+\subsection{3. Functional clustering reveals ecological dynamics across environments}
+
+Overall, our results show that the polyamine uptake guild is present throughout the water column in the Malaspina samples, which is not only consistent with previous literature on the topic \cite{bergauer2018organic}, but adds novel insights to how this function is fluctuating with depth (Figure \ref{fig:Fig4}). 
+
+First, we found that the main forms of polyamine uptake were, regardless of depth, accounted for as saline implementations; this is coherent with the nature of the samples. In addition, the function appears to be redundant in the ocean layers we screened out, since we usually find all implementations in every sample. The latter effect seems to support the statement of functional redundancy being more prevalent than expected by chance in microbiomes \cite{puente2022cross}. 
+
+Specifically, the guild pattern changes significantly between the epipelagic and mesopelagic, both in taxonomic composition and in the estimated strength of each of the implementations. Between the mesopelagic and bathypelagic the pattern is remarkably taxon-preserved, but the net contribution of each implementation to the overall function slightly changes, with major importance in the bathypelagic. Therefore, we conclude that there are unexpected non-linearities on how the polyamine uptake is carried out along the water column. 
+
+Another factor that denotes \hl{resilience} in polyamine uptake is that, even in those environments where certain bacteria do not thrive (or that they cannot be detected while carrying a copy of this function marker), other taxa replace them, evidencing a \hl{vertical ecological succession}. We can easily quantify the taxonomic contribution to the total occurence of function in a concrete ocean layer.
+
+In addition, the approach demonstrate its potential to track and estimate unexpected ecological traits. In our data, the occurrence of two different implementations in the same taxon is rare but possible. There is a clear example of this happening in the epipelagic between implementations IA and IIA. 
+
+We also noticed that there are non-strictly halophilic implementations contributing to the guild in the watercolumn, which would be adapted to alkaline environments. Of these alkaline implementations, \hl{the one with a more limited pH range} would dominate in the epipelagic, while \hl{the one with more plasticity} gains importance with depth. 
+
+\begin{figure}[]
+\centering
+\includegraphics[width=\linewidth]{cartoon_final.png}
+\caption{ {\bf Example of two cooccurring oceanic microbial guilds.} \hl{Environment selects for the ecological interactions of various taxa, whose functions are implemented in different ways. The functional set that each species maintains over time depend on the relative fitness in the actual environment. Therefore, it is expected to observe genotypic variations in populations of the same species across environments. Using massive sequencing techniques we cannot detect false negatives, because we do not know if there are relevant unknown proteins that have an equivalent ecological function. However, we can rule out false positives (functional paralogs) by comparison with certain types of sequences that exhibit evidence of catalysis. Then, we can cluster the diversity of sequences that do perform the function. For clustering, we will take into account the environmental variables that constitute a major agent of sequence drift for each guild marker. In the above example, taxonomic position alone rarely predict the guild membership, nor the final ecologic contribution to urea or ammonia uptake. On the other hand, environmental conditions (salinity, pressure and major nitrogen source) are better at predicting the transporter kind. Screening circumstances where the guild pattern drastically changes would allow us to draw major ecologic knowledge.}}
+\label{fig:Fig1}
+\end{figure}
+
+\begin{figure}[]
+\centering
+\includegraphics[width=\linewidth]{polyamine_guild_clusters.png}
+\caption{ {\bf Functional Clustering of K11073 Reference Tree.} \hl{The tree's colored regions represent the most distant parental nodes that remain significant for a feature that is not explained by taxonomic position. Therefore, we can establish that there are two markedly different groups of dissimilarity: the sequences that would be adapted to salinity conditions and those that would be adapted to a wide range of pH. Within these groups we find significant nodes for other environmental variables, which allow us to differentiate subgroups of dissimilarity for specific conditions. Studying the prevalence of each of these functional clusters in different environments will provide us with a more detailed picture of the ecological dynamics concerning this guild, which would be the amount of putrescine-like polyamines.}}
+\label{fig:Fig2}
+\end{figure}
+
+\begin{figure}[]
+\centering
+\includegraphics[width=\linewidth]{placements_beautified.png}
+\caption{ {\bf Short environmental sequences from MP watercolumns placed in K11073 Reference Tree.} \hl{Part of the placed sequences will not pass the first filter, which consists of eliminating sequences that do not align well with the reference tree (gray). Others have fallen into regions where there is functional evidence for not binding polyamines, so they are not considered for guild quantification. Note that the emplaced leaves represent 2/3 of the tree's total, and come from more than 70 different samples, divided into epipelagic, mesopelagic and bathypelagic regions of the ocean. The complexity of the functional data in metagenomes requires a suitable quantitative method for their subsequent analysis. }}
+\label{fig:Fig3}
+\end{figure}
+
+
+\begin{figure}[]
+\centering
+\includegraphics[width=\linewidth, scale=3.5]{potf.png}
+\caption{ {\bf Patterns of "Polyamine uptakers" guild.} \hl{K-matrix is calculated only with d·u. We need to introduce the abundance. Implementation c1b == cIII}}
+\label{fig:Fig4}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Discussion %%%%%%%%%%
+\section{Discussion}
+
+Proteins constitute the bulk of biostructures that perform a function in living beings. Like all other organisms, microbes achieve proteostasis through expression regulatory feedbacks, tuning of non-covalent interactions between biostructural subunits, and sequence re-adaptation \cite{ullmann1968subunit,gidalevitz2011stress,manara2012pseudomonas}. All of these source-of-variation mechanisms act in multiple levels and can have an immediate impact on substrate accomodation \cite{thompson1999liver}. A single amino acid change may be crucial for the stereospecificity between the substrate and its binding site \cite{gierse1996single,price2022interactive}. However, drift of residues at sites other than the conserved regions of the protein can often be important in elucidating folding \cite{sadowski2009sequence}. As already mentioned above, the biochemical performance turns out to be mostly hold by proteic oligomers evolved to remain bound under physiological conditions, and to monomerize in out-of-range environments \cite{traut1994dissociation}. Sometimes, due in part to the non-covalent nature of these protein-protein bonds, it is possible to recover function when physiological conditions return \cite{traut1994dissociation}. For all these reasons, it can be stated that any functional biostructure is the fine-tuning product of a secuence to a very particular environmental configuration range.
+
+Some have discussed the environmental effect on the functional footprint of microbiomes before, although almost solely in the sense of extrinsic biological interactions. \cite{rio2003comparative,spor2011unravelling}. However, Panja et al. explore quantitatively how functional biostructures would have selection pressure to adapt to certain types of extreme environments, both in amino acid composition and in their ordering \cite{panja2020protein}. Halophilicity, pH and temperature would represent the major environmental drivers in how implementations evolve, while maintaining an equivalent function \cite{panja2020protein}.
+
+Therefore, in order to classify the performances of ABC transporter-associated polyamine-binding proteins, we decided to test which of the environmental variables from the cultured organisms present in our reference tree would have a significant effect per node; that is, to test how good the tree topology is at discriminating groups of sequences putatively adapted to certain environmental variables. 
+
+We have opted to study a function that is difficult to explore and quantify, which is organic nitrogen acquisition through putrescine and other related polyamines. The idea was to test the usefulness of the guild quantification method. The difficulty of exploring this function is given by the following pitfalls: i) substrate binding is highly degenerate and, although there may be a slight preferential binding to spermidine or putrescine depending on certain amino acids \cite{kashiwagi1996spermidine}, the tests we have done indicate that it would be very difficult to discriminate between regions of the tree with preferential binding to one type of polyamine \hl{Supplementary Figure 1}  ii) there are several gene names for very similar biostructures, all corresponding to the subunit of the ABC transporter that has activity with the ligand iii) there is an extreme shortage of curated sequences with functional evidence. 
+
+Our results show a clear significance on big internal nodes to some environmental variables, discriminating at least two dissimilarity groups behaving different in the reference tree. These are alkaline pH and halophilic organism-enriched clusters, which is consistent with the study by Panja et al. The ability to select a suitable local environment for the kinetics of physiological functions seems to be relevant, as motility remains wildly significant also at these deep levels of the tree. As one moves up to the leaves of the tree, some nodes are enriched in significance by other variables. At the nodes closest to the leaves, the significant environmental variables were more related to taxonomic position and vertical inheritance. This is the case for some environmental variables. The main ones are PAHs presence and temperature. The first one is entirely to be expected, since hydrocarbon degrading bacteria that can thrive in PAHs media require sharing a fairly large metabolic machinery in order to inhabit the same environments, which would be explained by vertical inheritance. However, the case of temperature it is indeed surprising, since thermostability is reported to be one of the main drivers of bias in neutral drift of functional structures \cite{somero1995proteins,panja2020protein}. Our hypothesis is that temperature would bias all protein sequences of microorganisms equally (including "phylomarkers"), since temperature, unlike salinity and pH, cannot be regulated inside of unicellular organisms.
+
+This opens a debate that needs to be explored further. The current paradigm uses certain types of preserved sequences to measure taxonomic position, such as 16s ribosomal subunit \cite{rajendhran2011microbial}, under the assumption of the molecular clock \cite{bromham2003modern}. Phylogenetic reconstructions use more or less complex algorithms that can be summarized in Hamming distances and parsimony between sequences, assuming one of them being ancestral \cite{bruyn2014phylogenetic}. However, this assumption does not contemplate that sequences can permute in an environmentally biased way. The problem is that two apparently phylogenetically distant bacteria could have a closer-than-expected vertical relationship in number of generations if there was a temperature readaptation process in one of them. The reverse, unfortunately, would also occur: two microorganisms very distant in number of vertical generations could have converged in environments of similar temperature, so that our phylogenetic estimates would be wrong; underestimating their actual divergence. In contrast, the molecular clock would have proven useful for estimating speciation in higher animals, since physicochemical variables such as temperature are internally regulated. 
+
+We previously introduced that taxonomic position is not, in many cases, synonymous with function. In addition to these arguments, there is some research actually focused on decoupling taxonomy from functional assets \cite{louca2016decoupling}. Moreover, machine learning approaches appear to outperform niche prediction with functions rather than phylogeny \cite{alneberg2020ecosystem}.
+
+The guild concept can partially address the latter disquisition, because can be used to discriminate these taxonomic effects from those caused by functional convergence in order to dissect how the function behaves through a battery of environments.
+
+It should be considered that, beside guilds, there are other ways to study microbial functions, such as metabolic pathways reconstruction from omics data \cite{gianoulis2009quantifying}. However, this approach does not consider the ecological forces shaping the microbial community that makes up each sequenced sample, but instead correlate abundance of different process-related enzymes with metadata \cite{yang2021metagenomic}. A guild approach would be superior since (i) it simplifies and classifies ecologically valuable information (ii) allows standardized comparison between environments, taxa and functions among an unlimited number of samples (iii) allows us to discriminate between taxonomy-dependent and taxonomy-independent effects, whilst in metabolic pathways they remain mixed.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+The sequences that can perform a specific function are multiple and degenerate, not necessarily having a close evolutionary history. In addition, there would be abiotic extrinsic forces shaping the sequences capable of performing a function. The potential for exploring functional ecology in microorganisms has been limited by the overwhelming amount of irrelevant and imprecise omics data.
+
+Despite this, we have been able to open the "automatic functional annotation black-box" and to mechanistically describe the ecological dynamics within a complex function and ecosystem. Therefore, we propose a theoretical redefinition of the term guild, as well as methodologic procedures and bioinformatics tools to facilitate the praxis. 
+
+There are four main arguments that justify the present work: (i) the original definition becomes inextricably ambiguous in the microscopic realm, as there is no consensus on what is a similar way to exploit the same kind of resources for microbes; (ii) the emergence of omics data that drags along technical biases and an insurmountable information quantity; (iii) the desire to establish a universality of the term, which favors a referable use of the same by the scientific community; (iv) alternative concepts are neither quantifiable nor ecologically relevant.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Materials and methods.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Oceanic reference DB construction}
+
+%We built a reference DB with MARref 1200+ complete genomes, MARdb (filter = high completion, 5000+ partial genomes)  and merge it with japanese DB (OCEANDB) and Paoli DB. (Elbrus "readme" to extract more info!)
+\hl{Semidan}
+
+\subsection{Guild marker selection}
+
+The search for guild markers was carried out by means of an extensive bibliographic comparison. This methodology is based on choosing public available Hidden Markov Models (HMMs) \cite{vasudevan2011structure} for one or several genes, trying to avoid functional paralogs. To integrate a HMM as a guild marker, we followed this conservative criteria: i) the construction of the HMM must be consistent, with an adequate number of seed sequences ii) it is well represented in our curated working database for reference tree reconstruction iii) there is sufficient functional evidence of the biostructure encoded by that gene iv) the metagemonic sequences retrieved with the tested HMM can be filtered out by a specific quality argument, derived from the inner workings of genomic architecture (i.e.: synteny). With this score system, we found that the best minimal marker for putrescine-like polyamines uptake is K11073, available from UniProt curated entry P31133 (https://www.uniprot.org/uniprotkb/P31133/external-links).
+
+\subsection{Oceanic reference DB search}
+
+%For adressing the biostructure model, an ABC transporter-associated polyamine-binding protein-specific HMM - constructed with HMMER3/f based on KEGG 11073 - has been searched against a curated oceanic database. 
+
+\hl{Semidan}
+
+\subsection{Phylogeny reconstruction}
+
+\hl{Semidan}
+
+\subsection{Functional clustering}
+
+\hl{Mr. Pabson}
+
+Before working with sequence clustering, we required functional features sequence-associated. Because we had no reliable evidence of how these polyamine transporter subunits perform, we constructed a curated collection of physicochemical property vectors for each cultured organism in our functional tree (321 out of 1158 leaves, being XXX of them redundant). \hl{Supplementary Figure 2}.
+
+\hl{Supplementary table 1}.
+Functional clustering was carried out by randomizing property vectors while maintaining the tree topology. Node enrichment. 
+
+\hl{Supplementary table 2}.
+
+\subsection{Metagenomic functional sequences search}
+
+Squeezemeta \cite{tamames2019squeezemeta}
+
+\subsection{Placement and filtering of short query sequences}
+
+\hl{Semidan}
+
+
+\subsection{Quantification of Polyamine-uptakers guild}
+
+Once filtered sequences are classified by environment and functional cluster, is merged together with the corresponding normalized abundances into a single master table. This is the input for the first tool, microguilds.py. The module will extract all the required information for the calculation of each implementation contribution (k), with which we will establish the elements of a guild vector for an environment (Gi). In the present case, we study three distinct environments, so the software will produce an array of dimension n x 3 (where n is the number of implementations established within the guild marker).
+
+The calculation contemplates three terms. The theoretical d is the total diversity of elements performing an equivalent ecological function. Calculation of the theoretical d is complex and would require avoiding false negatives. Therefore, in this example is calculated as the sum of unique sequences found within a functional cluster. The term representing the univocity of the implementations (u) is equalled to 1.0 since we discard the metagenomic sequences falling into non-functional clusters of the reference tree and we had a highly-conservative criteria to build the function's model. Finally, the abundance (a) has been calculated as a summation of normalized metagenomic counts for all sequence diversity falling in the same implementation. An example of the k-matrix output is provided in the \hl{Supplementary Table 3}.
+
+The second tool (mgplots.py) helps to visualize this matrix, which can be of varying complexity. It does two things: (i) it filters by the taxonomic level to visualize the guild and (ii) it takes the value of k by taxonomic contribution to each functional cluster. To do this, it calculates the logarithm of each position in the matrix and plots it as shown in Fig. 4.
+
+
+\subsection{16S and recA sequences}
+To screen phylogenetic deviations between functions and phylomarkers, we obtained the nucleotide sequences of the 16S ribosomal subunit and the \textit{recA} gene from the assembly genomic RNA and CDS provided by the NCBI for 319 out of the 321 species found in pure culture. When 16S sequences were $<1000$bp, we used instead sequences from other strains as they should remain well conserved within the same species. All RefSeq assembly accession numbers and alternative GIs for 16S data were automatically retrieved from the NCBI, a detailed list is available in the \hl{Supplementary Table 4}.
+
+\hl{sup mat:
+
+- Supplementary Figure 1 - potF/potD/spuD tree, mixed branches - refinement?
+
+- Supplementary figure 2 - reference tree with distribution of evidence - maybe inside fig. 2
+
+- Supplementary table 1 - environmental evidence table
+
+- Supplementary table 2 - all significance nodes table
+
+- Sup. table 3 - k-matrix of K11073 in MP
+
+- Supplementary table 4 - 16s data}
+
+
+%\subsection{Tree comparison}
+%To compare the sequence relatedness of \textit{potF} to that of the ribosomal subunit 16S we compare the trees obtained for both types of sequences in all organisms. Then, we compare the depth of every internal node in the tree of \textit{potF} to the depth of the MRCA node in the tree of 16S that includes all species found above the node of potF.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% References %%%%%%%%%%
+\label{section:references}
+\bibliography{bibliography}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% THE END %%%%%%%%%%
+\end{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Equation template %%%%%%%%%
+\begin{equation}
+    \text{C} = \frac{ \text{W}_{+} - \text{W}_{-} } { \text{W}_{+} + \text{W}_{-} }
+\end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Figure template %%%%%%%%%%
+\begin{figure}[h!]
+\centering
+\includegraphics[]{Figure1.png}
+\caption{ \textbf{Title of figure.}
+Caption goes here.
+}
+\label{fig:Fig1}
+\end{figure}

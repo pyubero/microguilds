@@ -1,0 +1,88 @@
+\documentclass{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{lmodern}
+\usepackage{natbib}
+\usepackage{lipsum}  
+\usepackage{color,soul}
+\usepackage[table]{xcolor}
+\usepackage{minted}
+\usepackage{footnote}
+\usepackage{graphicx}
+\usepackage[figurename=Figure,labelfont=bf,labelsep=period]{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{newtxtext,newtxmath}
+\usepackage[sorting=none,style=nature]{biblatex}
+
+
+% New commands and other definitions
+\bibliography{bibliography} 
+\allowdisplaybreaks
+\newcommand{\hlc}[2][yellow]{ {\sethlcolor{#1} \hl{#2}} }
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\newcommand{\comment}[1]{}
+\geometry{lmargin=1in}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\begin{document}
+\title{Supplementary Material \\ Predicting the fitness costs of complex mutations}
+\author{Pablo Yubero and Juan F. Poyatos}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Types of mutations in metabolic models}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+In this supplementary section, we extend the study of the effect of mutations upon all genes of the metabolic model. However, we here restrict mutations to the limiting case of knockouts. Thus, we systematically computed the fitness of all single gene deletions of the metabolic model in minimal media supplemented with one of 174 carbon sources.
+
+Among all results, we identify lethal mutations, those with a growth rate $<0.01$ h$^-1$ in all media (163), mutations with an identical response to that of the wild type in every media (2) and "complex" mutations with a global relative fitness $<0.99 \text{h}^{-1}$ (48; Fig.~\ref{fig:FigS1}AB). Moreover, we repeatedly observe that in some mutations, fitness in a reduced number of media deviates significantly from the general trend. We call these {\it specific gene-media interactions}, and they are also present in global mutants (Fig.~\ref{fig:FigS1}B). For example, these specific interactions can render a mutant lethal in only a handful of media. 
+
+Figure~\ref{fig:FigS1}C shows the enzymes that we have identified as complex mutations and the magnitude of their associated global relative fitness. We find that relative fitnesses ranged from $-80\%$ to a mild $+5\%$ advantage. Positive generalized fitness should be considered with caution, in this case, they are associated to a larger increase in growth rate between two carbon sources compared to the wild type. Some of the enzymes producing global relative fitness costs are: XXXX which is a XXXX... This highlights that, complex mutations are in general associated to fundamental functions that are not specific to the growth media.
+
+
+
+In addition, we asked ourselves whether the magnitude of the global relative fitness correlated to either the number of reactions in which that particular enzymes participates (Fig.XXX, left y-axis), or in the change in fluxes that its mutation produces (Fig.XXX, right y-axis). 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Figure 1 %%%%%%%%%%
+\begin{figure}[h!]
+\centering
+\includegraphics[]{Figure_S1.png}
+\caption{ {\bf {\it nuoB} is a complex mutation: its fitness is proportional to that of the wild type in a multitude of growth media.}
+({\bf A})~Fitness of two {\it nuoB} mutants (colors) obtained from 174 growth media (points) with respect to the wild type (black diagonal). The fitness of complex mutations is proportional to the fitness of the wild type, we characterize this trend (solid lines) by the slope:~the relative global fitness~$\alpha$.
+({\bf B})~The relative global fitness of mutants decreases monotonically when imposing more restrictive flux bounds. Ultimately, when turning off the reaction, and imposing an upper bound = 0 (pink), we recover the fitness of the {\it nuoB} knockout. Error bars denote the 95\%~CI of the slope after fitting data to a linear trend (as in panel~A).
+}
+\label{fig:FigS1}
+\end{figure}
+
+
+
+ %%%%%%%%%%%%%%% Sup Figure 1 %%%%%%%%%%%%%%%
+%{\bf Mutations that affect similarly in all media are characterized by a global relative fitness.} We characterized and classified all single-gene deletions in the whole-genome metabolic model iAZ1260 in 174 growth media (Methods). We classified all single-gene deletions according to their fitness costs across 174 growth media. The fitness of global mutations is proportional to that of the wild type across growth media. We name specific mutations those whose growth rate in at least one growth media deviates significantly from the trend. Thus, a global mutant can also behave as specific in one or more growth media. Also, we identified lethal mutations that could not support growth in any media, and identical mutations which exhibited an identical growth rate pattern to that of the wild type in all media. (A)~Venn diagram describing the number of mutants with each type of fitness cost. (B)~Relative fitness with respect to the wild type of complex mutations. We find several enzyme \hl{families} such as {\it atp}, {\it nuo} or {\it shd}. Global relative fitness range from $20\%$ to a mild beneficial $105\%$. (C-D)~Example fitness profiles of the enzymes {\it atpC} and {\it nuoB} respectively. Growth of a mutant in certain media can be lethal (gray), follow the global relative fitness (black) and/or have a specific growth rate (red) that deviates from the global trend (blue line). 
+
+
+
+
+
+
+
+\end{document}
