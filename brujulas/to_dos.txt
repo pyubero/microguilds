@@ -1,4 +1,4 @@
 replace s_ por unassigned
 qué es realmente la casilla "others"?
-que trague kMatrixPerTaxon con un numero arbitrario de contextos (filas por matriz)
+que trague kMatrixPerTaxon con un numero arbitrario de contextos (filas por matriz) -> done
 que genere si quieres una brujula con los contextos agregados en uno solo.
