@@ -1,4 +1,11 @@
+*Modificar k-matrices*
+done - que trague una mastertable con una columna con los contextos, y cualquier num de contextos
+done - modificar kfun como k=sum(a*u)
+done - exportar la diversidad de secuencias
+
+*Modificar PLOTS*
 replace s_ por unassigned
 qué es realmente la casilla "others"?
-que trague kMatrixPerTaxon con un numero arbitrario de contextos (filas por matriz) -> done
-que genere si quieres una brujula con los contextos agregados en uno solo.
+que genere si quieres una brujula con los contextos agregados en uno solo
+protección contra sobrescritura de figuras (con una opción de sobreescribir)
+priorizar la visualización de taxones buenorros si tienen +/-x magnitud de k parecida

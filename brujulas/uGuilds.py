@@ -51,9 +51,9 @@ def verbosebar(iterable):
 
 def Kfun(A,D,U):
     # Abundance, Diversity, Univocity
-    return A*D
+    return A*U
 
-def compute_K_value(masterframe, inputs, loc ):
+def compute_adu(masterframe, inputs, loc):
     # Find where the interesting abundances are in the masterframe
     idc = ( df["taxonomic_classification_level"] == inputs[0][loc[0]] ) & \
           ( df["Context"] ==  inputs[1][loc[1]]) & \
@@ -66,10 +66,9 @@ def compute_K_value(masterframe, inputs, loc ):
     abundances = subtable["value"]
     diversity = len(abundances)
     abundance = sum(abundances)
-    univocity = None
-    
-    # Compute K
-    return Kfun(abundance, diversity, univocity)
+    univocity = 1.0
+    return abundance, diversity, univocity
+
     
 # How to nicely load our tensor?
 def from_df_to_ktensor(df):
@@ -82,6 +81,8 @@ def from_df_to_ktensor(df):
 
     K = np.moveaxis(K2, 0,2)
     return K
+
+
 
 
 FILENAME    = 'mastertable_w_ctxt.tsv'
@@ -136,10 +137,12 @@ included = df_gene["taxonomic_classification_level"] == np.random.rand() # to ke
 
 for j_tx, j_ct, j_cl in verbosebar(idc):
     # Compute K value
-    _k = compute_K_value(df_gene, [taxons, contexts, clusters], [j_tx, j_ct, j_cl] )
+    _ab, _dv, _un = compute_adu(df_gene, [taxons, contexts, clusters], [j_tx, j_ct, j_cl] )
+    _k = Kfun(_ab, _dv, _un)
+    
     
     # Store K value
-    data.append( [taxons[j_tx], contexts[j_ct], clusters[j_cl], _k] )
+    data.append( [taxons[j_tx], contexts[j_ct], clusters[j_cl], _ab, _dv, _un, _k] )
     
     # To keep track of included and missing samples    
     _id = ( df_gene["taxonomic_classification_level"] == taxons[j_tx] ) & \
@@ -149,9 +152,9 @@ for j_tx, j_ct, j_cl in verbosebar(idc):
 
 
 # Finishing comment
-verboseprint(f"Included {sum(included)} out of {len(df_gene)} samples.")    
+verboseprint(f"\nIncluded {sum(included)} out of {len(df_gene)} samples.")    
 
 
 # Export data
-ddf = pd.DataFrame(data, columns=["Taxon","Context","Cluster","k-value"])
-ddf.to_csv(f"kValuesPerTaxon_{GENE_NAME}.tsv", sep="\t", index=False)
+ddf = pd.DataFrame(data, columns=["Taxon","Context","Cluster","Abundance","Diversity","Univocity","k-value"])
+ddf.to_csv(out_filename, sep="\t", index=False)

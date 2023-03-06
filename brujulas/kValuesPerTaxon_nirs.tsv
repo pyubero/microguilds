@@ -1,379 +1,379 @@
-Taxon	Context	Cluster	k-value
-o__Methylococcales	Epipelagic	Cl_Gammaproteobacteria_1	3831.0499999999997
-o__Methylococcales	Bathypelagic	Cl_Gammaproteobacteria_1	113297.66999999997
-o__Methylococcales	Mesopelagic	Cl_Gammaproteobacteria_1	44423.07
-Unspecified	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-Unspecified	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-Unspecified	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-g__Marinobacter	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-g__Marinobacter	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-g__Marinobacter	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-o__Pseudomonadales	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Gammaproteobacteria_1	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Gammaproteobacteria_1	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Gammaproteobacteria_1	0.0
-o__Methylococcales	Epipelagic	Cl_Halobacteria	0.0
-o__Methylococcales	Bathypelagic	Cl_Halobacteria	0.0
-o__Methylococcales	Mesopelagic	Cl_Halobacteria	0.0
-Unspecified	Epipelagic	Cl_Halobacteria	44.23299999999999
-Unspecified	Bathypelagic	Cl_Halobacteria	4568.858000000001
-Unspecified	Mesopelagic	Cl_Halobacteria	878.05
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Halobacteria	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Halobacteria	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Halobacteria	0.0
-s__	Epipelagic	Cl_Halobacteria	0.0
-s__	Bathypelagic	Cl_Halobacteria	0.0
-s__	Mesopelagic	Cl_Halobacteria	0.0
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Halobacteria	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Halobacteria	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Halobacteria	0.0
-g__Marinobacter	Epipelagic	Cl_Halobacteria	0.0
-g__Marinobacter	Bathypelagic	Cl_Halobacteria	0.0
-g__Marinobacter	Mesopelagic	Cl_Halobacteria	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Halobacteria	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Halobacteria	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Halobacteria	0.0
-o__Pseudomonadales	Epipelagic	Cl_Halobacteria	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Halobacteria	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Halobacteria	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Halobacteria	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Halobacteria	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Halobacteria	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Halobacteria	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Halobacteria	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Halobacteria	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Halobacteria	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Halobacteria	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Halobacteria	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Halobacteria	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Halobacteria	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Halobacteria	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Halobacteria	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Halobacteria	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Halobacteria	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Halobacteria	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Halobacteria	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Halobacteria	0.0
-o__Methylococcales	Epipelagic	Cl_Mainly-Gamma	0.0
-o__Methylococcales	Bathypelagic	Cl_Mainly-Gamma	0.0
-o__Methylococcales	Mesopelagic	Cl_Mainly-Gamma	0.0
-Unspecified	Epipelagic	Cl_Mainly-Gamma	0.0
-Unspecified	Bathypelagic	Cl_Mainly-Gamma	0.0
-Unspecified	Mesopelagic	Cl_Mainly-Gamma	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Mainly-Gamma	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Mainly-Gamma	126.65
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Mainly-Gamma	1.188
-s__	Epipelagic	Cl_Mainly-Gamma	0.0
-s__	Bathypelagic	Cl_Mainly-Gamma	45.792
-s__	Mesopelagic	Cl_Mainly-Gamma	0.244
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Mainly-Gamma	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Mainly-Gamma	0.244
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Mainly-Gamma	0.0
-g__Marinobacter	Epipelagic	Cl_Mainly-Gamma	0.0
-g__Marinobacter	Bathypelagic	Cl_Mainly-Gamma	1.03
-g__Marinobacter	Mesopelagic	Cl_Mainly-Gamma	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Mainly-Gamma	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Mainly-Gamma	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Mainly-Gamma	4.029
-o__Pseudomonadales	Epipelagic	Cl_Mainly-Gamma	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Mainly-Gamma	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Mainly-Gamma	4.632
-s__Labrenzia aggregata	Epipelagic	Cl_Mainly-Gamma	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Mainly-Gamma	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Mainly-Gamma	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Mainly-Gamma	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Mainly-Gamma	17.365
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Mainly-Gamma	1.612
-s__Marinicella sediminis	Epipelagic	Cl_Mainly-Gamma	0.878
-s__Marinicella sediminis	Bathypelagic	Cl_Mainly-Gamma	9.785
-s__Marinicella sediminis	Mesopelagic	Cl_Mainly-Gamma	0.9019999999999999
-s__Marinobacter segnicrescens	Epipelagic	Cl_Mainly-Gamma	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Mainly-Gamma	0.227
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Mainly-Gamma	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Mainly-Gamma	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Mainly-Gamma	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Mainly-Gamma	2.358
-c__Gammaproteobacteria	Epipelagic	Cl_Mainly-Gamma	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Mainly-Gamma	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Mainly-Gamma	0.0
-o__Methylococcales	Epipelagic	Cl_Dehalococcoidales	0.0
-o__Methylococcales	Bathypelagic	Cl_Dehalococcoidales	0.0
-o__Methylococcales	Mesopelagic	Cl_Dehalococcoidales	0.0
-Unspecified	Epipelagic	Cl_Dehalococcoidales	0.0
-Unspecified	Bathypelagic	Cl_Dehalococcoidales	0.0
-Unspecified	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Dehalococcoidales	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__	Epipelagic	Cl_Dehalococcoidales	0.0
-s__	Bathypelagic	Cl_Dehalococcoidales	2.551
-s__	Mesopelagic	Cl_Dehalococcoidales	0.59
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Dehalococcoidales	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Dehalococcoidales	0.0
-g__Marinobacter	Epipelagic	Cl_Dehalococcoidales	0.0
-g__Marinobacter	Bathypelagic	Cl_Dehalococcoidales	0.0
-g__Marinobacter	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Dehalococcoidales	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Dehalococcoidales	0.0
-o__Pseudomonadales	Epipelagic	Cl_Dehalococcoidales	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Dehalococcoidales	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Dehalococcoidales	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Dehalococcoidales	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Dehalococcoidales	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Dehalococcoidales	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Dehalococcoidales	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Dehalococcoidales	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Dehalococcoidales	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Dehalococcoidales	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Dehalococcoidales	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Dehalococcoidales	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Dehalococcoidales	0.0
-o__Methylococcales	Epipelagic	Cl_Alphaproteobacteria	0.0
-o__Methylococcales	Bathypelagic	Cl_Alphaproteobacteria	0.0
-o__Methylococcales	Mesopelagic	Cl_Alphaproteobacteria	0.0
-Unspecified	Epipelagic	Cl_Alphaproteobacteria	0.0
-Unspecified	Bathypelagic	Cl_Alphaproteobacteria	0.218
-Unspecified	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__	Bathypelagic	Cl_Alphaproteobacteria	0.233
-s__	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Alphaproteobacteria	0.0
-g__Marinobacter	Epipelagic	Cl_Alphaproteobacteria	0.0
-g__Marinobacter	Bathypelagic	Cl_Alphaproteobacteria	0.0
-g__Marinobacter	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Alphaproteobacteria	0.0
-o__Pseudomonadales	Epipelagic	Cl_Alphaproteobacteria	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Alphaproteobacteria	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Alphaproteobacteria	0.868
-s__Labrenzia aggregata	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Alphaproteobacteria	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Alphaproteobacteria	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Alphaproteobacteria	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Alphaproteobacteria	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Alphaproteobacteria	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Alphaproteobacteria	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Alphaproteobacteria	0.0
-o__Methylococcales	Epipelagic	Cl_Planctomycetota	0.0
-o__Methylococcales	Bathypelagic	Cl_Planctomycetota	0.0
-o__Methylococcales	Mesopelagic	Cl_Planctomycetota	0.0
-Unspecified	Epipelagic	Cl_Planctomycetota	0.0
-Unspecified	Bathypelagic	Cl_Planctomycetota	0.0
-Unspecified	Mesopelagic	Cl_Planctomycetota	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Planctomycetota	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Planctomycetota	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Planctomycetota	0.0
-s__	Epipelagic	Cl_Planctomycetota	5.571
-s__	Bathypelagic	Cl_Planctomycetota	0.0
-s__	Mesopelagic	Cl_Planctomycetota	95.42500000000001
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Planctomycetota	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Planctomycetota	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Planctomycetota	0.0
-g__Marinobacter	Epipelagic	Cl_Planctomycetota	0.0
-g__Marinobacter	Bathypelagic	Cl_Planctomycetota	0.0
-g__Marinobacter	Mesopelagic	Cl_Planctomycetota	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Planctomycetota	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Planctomycetota	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Planctomycetota	0.0
-o__Pseudomonadales	Epipelagic	Cl_Planctomycetota	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Planctomycetota	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Planctomycetota	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Planctomycetota	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Planctomycetota	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Planctomycetota	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Planctomycetota	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Planctomycetota	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Planctomycetota	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Planctomycetota	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Planctomycetota	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Planctomycetota	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Planctomycetota	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Planctomycetota	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Planctomycetota	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Planctomycetota	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Planctomycetota	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Planctomycetota	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Planctomycetota	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Planctomycetota	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Planctomycetota	0.0
-o__Methylococcales	Epipelagic	Cl_Alpha-Gamma_2	0.0
-o__Methylococcales	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-o__Methylococcales	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-Unspecified	Epipelagic	Cl_Alpha-Gamma_2	0.0
-Unspecified	Bathypelagic	Cl_Alpha-Gamma_2	1.0819999999999999
-Unspecified	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-g__Marinobacter	Epipelagic	Cl_Alpha-Gamma_2	0.0
-g__Marinobacter	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-g__Marinobacter	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-o__Pseudomonadales	Epipelagic	Cl_Alpha-Gamma_2	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Alpha-Gamma_2	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Alpha-Gamma_2	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Alpha-Gamma_2	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Alpha-Gamma_2	0.0
-o__Methylococcales	Epipelagic	Cl_Alpha-Gamma_1	0.0
-o__Methylococcales	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-o__Methylococcales	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-Unspecified	Epipelagic	Cl_Alpha-Gamma_1	1.169
-Unspecified	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-Unspecified	Mesopelagic	Cl_Alpha-Gamma_1	1.724
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__	Mesopelagic	Cl_Alpha-Gamma_1	0.779
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-g__Marinobacter	Epipelagic	Cl_Alpha-Gamma_1	0.0
-g__Marinobacter	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-g__Marinobacter	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-o__Pseudomonadales	Epipelagic	Cl_Alpha-Gamma_1	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Alpha-Gamma_1	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Alpha-Gamma_1	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Alpha-Gamma_1	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Alpha-Gamma_1	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Alpha-Gamma_1	0.76
-o__Methylococcales	Epipelagic	Cl_Mix_3	0.0
-o__Methylococcales	Bathypelagic	Cl_Mix_3	0.0
-o__Methylococcales	Mesopelagic	Cl_Mix_3	0.0
-Unspecified	Epipelagic	Cl_Mix_3	0.0
-Unspecified	Bathypelagic	Cl_Mix_3	0.0
-Unspecified	Mesopelagic	Cl_Mix_3	0.0
-s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Mix_3	0.0
-s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Mix_3	0.0
-s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Mix_3	0.0
-s__	Epipelagic	Cl_Mix_3	0.0
-s__	Bathypelagic	Cl_Mix_3	0.0
-s__	Mesopelagic	Cl_Mix_3	3.543
-s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Mix_3	0.0
-s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Mix_3	0.0
-s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Mix_3	0.0
-g__Marinobacter	Epipelagic	Cl_Mix_3	0.0
-g__Marinobacter	Bathypelagic	Cl_Mix_3	0.0
-g__Marinobacter	Mesopelagic	Cl_Mix_3	0.0
-s__UBA7803 sp002480525	Epipelagic	Cl_Mix_3	0.0
-s__UBA7803 sp002480525	Bathypelagic	Cl_Mix_3	0.0
-s__UBA7803 sp002480525	Mesopelagic	Cl_Mix_3	0.0
-o__Pseudomonadales	Epipelagic	Cl_Mix_3	0.0
-o__Pseudomonadales	Bathypelagic	Cl_Mix_3	0.0
-o__Pseudomonadales	Mesopelagic	Cl_Mix_3	0.0
-s__Labrenzia aggregata	Epipelagic	Cl_Mix_3	0.0
-s__Labrenzia aggregata	Bathypelagic	Cl_Mix_3	0.0
-s__Labrenzia aggregata	Mesopelagic	Cl_Mix_3	0.0
-s__Thiobacillus denitrificans_E	Epipelagic	Cl_Mix_3	0.0
-s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Mix_3	0.0
-s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Mix_3	0.0
-s__Marinicella sediminis	Epipelagic	Cl_Mix_3	0.0
-s__Marinicella sediminis	Bathypelagic	Cl_Mix_3	0.0
-s__Marinicella sediminis	Mesopelagic	Cl_Mix_3	0.0
-s__Marinobacter segnicrescens	Epipelagic	Cl_Mix_3	0.0
-s__Marinobacter segnicrescens	Bathypelagic	Cl_Mix_3	0.0
-s__Marinobacter segnicrescens	Mesopelagic	Cl_Mix_3	0.0
-s__GCA-002726655 sp002725995	Epipelagic	Cl_Mix_3	0.0
-s__GCA-002726655 sp002725995	Bathypelagic	Cl_Mix_3	0.0
-s__GCA-002726655 sp002725995	Mesopelagic	Cl_Mix_3	0.0
-c__Gammaproteobacteria	Epipelagic	Cl_Mix_3	0.0
-c__Gammaproteobacteria	Bathypelagic	Cl_Mix_3	0.0
-c__Gammaproteobacteria	Mesopelagic	Cl_Mix_3	0.0
+Taxon	Context	Cluster	Abundance	Diversity	Univocity	k-value
+o__Methylococcales	Epipelagic	Cl_Gammaproteobacteria_1	76.621	50	1.0	76.621
+o__Methylococcales	Bathypelagic	Cl_Gammaproteobacteria_1	419.62099999999987	270	1.0	419.62099999999987
+o__Methylococcales	Mesopelagic	Cl_Gammaproteobacteria_1	255.30499999999998	174	1.0	255.30499999999998
+Unspecified	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+Unspecified	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Gammaproteobacteria_1	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Halobacteria	6.318999999999999	7	1.0	6.318999999999999
+Unspecified	Bathypelagic	Cl_Halobacteria	99.32300000000002	46	1.0	99.32300000000002
+Unspecified	Mesopelagic	Cl_Halobacteria	35.122	25	1.0	35.122
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Halobacteria	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+Unspecified	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Mainly-Gamma	12.665000000000001	10	1.0	12.665000000000001
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Mainly-Gamma	0.594	2	1.0	0.594
+s__	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Mainly-Gamma	7.632	6	1.0	7.632
+s__	Mesopelagic	Cl_Mainly-Gamma	0.244	1	1.0	0.244
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Mainly-Gamma	0.244	1	1.0	0.244
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Mainly-Gamma	1.03	1	1.0	1.03
+g__Marinobacter	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Mainly-Gamma	1.343	3	1.0	1.343
+o__Pseudomonadales	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Mainly-Gamma	2.316	2	1.0	2.316
+s__Labrenzia aggregata	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Mainly-Gamma	3.473	5	1.0	3.473
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Mainly-Gamma	0.806	2	1.0	0.806
+s__Marinicella sediminis	Epipelagic	Cl_Mainly-Gamma	0.878	1	1.0	0.878
+s__Marinicella sediminis	Bathypelagic	Cl_Mainly-Gamma	1.9569999999999999	5	1.0	1.9569999999999999
+s__Marinicella sediminis	Mesopelagic	Cl_Mainly-Gamma	0.45099999999999996	2	1.0	0.45099999999999996
+s__Marinobacter segnicrescens	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Mainly-Gamma	0.227	1	1.0	0.227
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Mainly-Gamma	1.179	2	1.0	1.179
+c__Gammaproteobacteria	Epipelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Mainly-Gamma	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+Unspecified	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Dehalococcoidales	2.551	1	1.0	2.551
+s__	Mesopelagic	Cl_Dehalococcoidales	0.59	1	1.0	0.59
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Dehalococcoidales	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Alphaproteobacteria	0.218	1	1.0	0.218
+Unspecified	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Alphaproteobacteria	0.233	1	1.0	0.233
+s__	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Alphaproteobacteria	0.434	2	1.0	0.434
+s__Labrenzia aggregata	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Alphaproteobacteria	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+Unspecified	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Planctomycetota	1.8569999999999998	3	1.0	1.8569999999999998
+s__	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__	Mesopelagic	Cl_Planctomycetota	19.085	5	1.0	19.085
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Planctomycetota	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Alpha-Gamma_2	0.5409999999999999	2	1.0	0.5409999999999999
+Unspecified	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Alpha-Gamma_2	0.0	0	1.0	0.0
+o__Methylococcales	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Alpha-Gamma_1	1.169	1	1.0	1.169
+Unspecified	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+Unspecified	Mesopelagic	Cl_Alpha-Gamma_1	0.862	2	1.0	0.862
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__	Mesopelagic	Cl_Alpha-Gamma_1	0.779	1	1.0	0.779
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Alpha-Gamma_1	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Alpha-Gamma_1	0.76	1	1.0	0.76
+o__Methylococcales	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+o__Methylococcales	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+o__Methylococcales	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+Unspecified	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+Unspecified	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+Unspecified	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinobacter hydrocarbonoclasticus	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__	Mesopelagic	Cl_Mix_3	1.181	3	1.0	1.181
+s__Pseudomonas_A stutzeri_AB	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Pseudomonas_A stutzeri_AB	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+g__Marinobacter	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+g__Marinobacter	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+g__Marinobacter	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__UBA7803 sp002480525	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+o__Pseudomonadales	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+o__Pseudomonadales	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+o__Pseudomonadales	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Labrenzia aggregata	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Thiobacillus denitrificans_E	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinicella sediminis	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinicella sediminis	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinicella sediminis	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__Marinobacter segnicrescens	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+s__GCA-002726655 sp002725995	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Epipelagic	Cl_Mix_3	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Bathypelagic	Cl_Mix_3	0.0	0	1.0	0.0
+c__Gammaproteobacteria	Mesopelagic	Cl_Mix_3	0.0	0	1.0	0.0
