@@ -71,13 +71,13 @@ def compute_adu(masterframe, inputs, loc):
 
     
 # How to nicely load our tensor?
-def from_df_to_ktensor(df):
+def from_df_to_ktensor(df, column="k_value"):
     # you should call before:
     # df = pd.read_csv(f"kValuesPerTaxon_{GENE_NAME}.tsv", sep="\t")
     ntaxons = len(df["Taxon"].unique())
     ncontexts = len(df["Context"].unique())
     nclusters = len(df["Cluster"].unique())
-    K = df["k-value"].to_numpy().reshape(nclusters, ntaxons, ncontexts)
+    K = df[column].to_numpy().reshape(nclusters, ntaxons, ncontexts)
 
     K = np.moveaxis(K2, 0,2)
     return K
@@ -90,7 +90,7 @@ GENE_NAME   = 'nirs'
 LEVEL_NAME  = 'Species_GTDB'
 VERBOSE = True
 # ...
-out_filename = f'kMatrixPerTaxon_{GENE_NAME}_v2.csv'
+out_filename = f'kMatrixPerTaxon_{GENE_NAME}_{LEVEL_NAME}_v2.csv'
 
 
 
