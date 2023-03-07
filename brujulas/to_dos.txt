@@ -9,3 +9,4 @@ done - qué es realmente la casilla "others"?
 done - priorizar la visualización de taxones buenorros si tienen +/-x magnitud de k parecida
 done - protección contra sobrescritura de figuras (con una opción de sobreescribir)
 que genere si quieres una brujula con los contextos agregados en uno solo
+to keep colors consistent, when plotting the summed values across contexts, change the matrix colors¿?
