@@ -40,20 +40,45 @@ import pandas as pd
 import numpy as np
 
 def verboseprint(msg):
+    '''Prinst a message if VERBOSE is True.'''
     if VERBOSE:
         print(msg)
       
 def verbosebar(iterable):
+    '''Generates a progress bar with tqdm if VERBOSE is True.'''
     if VERBOSE:
         return tqdm(iterable)
     else:
         return iterable
 
-def Kfun(A,D,U):
-    # Abundance, Diversity, Univocity
-    return A*U
 
 def compute_adu(df, inputs, loc):
+    '''
+    Compute A(bundance) D(iversity) and U(nivocity) from a gene master table.
+
+    Parameters
+    ----------
+    df : DataFrame
+        Master table at the GENE or FUNCTION levels.
+    inputs : list of list of str
+        Typically a list of [taxons, contexts, clusters] with the names with
+        wich they appear in df.
+    loc : list of int
+        Typically a list [2,0,7] with the indices of the desired output. Thus,
+        we would obtain data for taxons[2] in contexts[0] and clusters[7].
+        This convoluted way of extracting ADU is derived from a quick linear,
+        e.i. single loop, way to extract all data.
+
+    Returns
+    -------
+    abundance : float
+        The sum of abundances of sequences within a taxon, context and cluster.
+    diversity : int
+        The number of sequences within a taxon, context and cluster.
+    univocity : float, between 0 and 1
+        The univocity of sequences within a taxon, context and cluster.
+
+    '''
     # Find where the interesting abundances are in the df/master table
     idc = ( df["taxonomic_classification_level"] == inputs[0][loc[0]] ) & \
           ( df["Context"] ==  inputs[1][loc[1]]) & \
@@ -69,21 +94,9 @@ def compute_adu(df, inputs, loc):
     univocity = 1.0
     return abundance, diversity, univocity
 
-    
-# How to nicely load our tensor?
-def from_df_to_ktensor(df, column="k_value"):
-    # you should call before:
-    # df = pd.read_csv(f"kValuesPerTaxon_{GENE_NAME}.tsv", sep="\t")
-    ntaxons = len(df["Taxon"].unique())
-    ncontexts = len(df["Context"].unique())
-    nclusters = len(df["Cluster"].unique())
-    K = df[column].to_numpy().reshape(nclusters, ntaxons, ncontexts)
-
-    K = np.moveaxis(K2, 0,2)
-    return K
-
 
 def export_legacy(df, filename):
+    '''Export data as a series of k-matrices in plain csv as in v0'''
     gene = df["Gene"].iloc[0]
     taxons = df["Taxon"].unique()
     contexts = df["Context"].unique()
@@ -129,9 +142,7 @@ def export_legacy(df, filename):
 
 
 def bivariate_regression(x,y):
-    '''
-    Computes the bivariate regression as the angle of the covariance matrix.
-    '''    
+    '''Computes a bivariate regression as the angle of the cov matrix.'''    
     
     x0 = np.mean(logx)
     y0 = np.mean(logy)
@@ -160,6 +171,12 @@ if VERBOSE:
 # Import mastertable
 master_table = pd.read_csv(FILENAME, sep="\t")
 verboseprint( f"Loaded mastertable with {len(master_table)} rows." )
+
+
+assert LEVEL_NAME in master_table.columns
+assert "gene_fun" in master_table.columns
+assert GENE_NAME in master_table["gene_fun"].to_list()
+assert "cluster_id" in master_table.columns
 
 #... and standardize taxonomic column name
 master_table = master_table.rename( columns = {LEVEL_NAME : "taxonomic_classification_level"} )
@@ -292,34 +309,3 @@ if EXPORT_PLOT:
 
 if EXPORT_LEGACY:
     export_legacy(adu_table, f"legacy_kMatrixPerTaxon_{GENE_NAME}_{LEVEL_NAME}.csv")
-
-
-
-
-# you should call before:
-
-
-def from_df_to_ktensor(df, data, column="k-value"):
-    taxons, contexts, clusters = data
-    ntaxons = len(taxons)
-    ncontexts = len(contexts)
-    nclusters = len(clusters)    
-    
-    Kmat = np.zeros((ntaxons, ncontexts, nclusters), dtype="object")
-    idc = np.array(np.meshgrid( range(ntaxons), range(ncontexts), range(nclusters))).T.reshape(-1,3)
-    for j_tx, j_ct, j_cl in verbosebar(idc):
-            idx = (df["Taxon"]==taxons[j_tx]) & \
-                    (df["Context"]==contexts.astype("str")[j_ct]) & \
-                    (df["Cluster"]==clusters[j_cl])
-            assert sum(idx)==1
-            Kmat[j_tx, j_ct, j_cl] = df[idx][column].iloc[0]
-         
-    return Kmat
-
-table = pd.read_csv(f"kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv", sep="\t")
-
-taxons = table['Taxon'].unique()
-contexts = np.array(["Epipelagic","Mesopelagic","Bathypelagic"])
-clusters = table["Cluster"].unique()
-
-K = from_df_to_ktensor(table, [taxons, contexts, clusters], "k-value")
