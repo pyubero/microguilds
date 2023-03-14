@@ -5,7 +5,6 @@ Created on Tue Jul 19 11:47:36 2022
 @author: logslab
 """
 
-
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
@@ -66,18 +65,27 @@ def cycle_through( array, length ):
             
     return np.array( new_order )
 
+
 # How to nicely load our tensor?
-def from_df_to_ktensor(df, column):
+def from_df_to_ktensor(df, data, column="k-value"):
+    from tqdm import tqdm
     # you should call before:
     # df = pd.read_csv(f"kValuesPerTaxon_{GENE_NAME}.tsv", sep="\t")
-    ntaxons = len(df["Taxon"].unique())
-    ncontexts = len(df["Context"].unique())
-    nclusters = len(df["Cluster"].unique())
-    K = df[column].to_numpy().reshape(nclusters, ntaxons, ncontexts)
-
-    K = np.moveaxis(K, 0,2)
-    return K
-
+    taxons, contexts, clusters = data
+    ntaxons = len(taxons)
+    ncontexts = len(contexts)
+    nclusters = len(clusters)    
+    
+    Kmat = np.zeros((ntaxons, ncontexts, nclusters), dtype="object")
+    idc = np.array(np.meshgrid( range(ntaxons), range(ncontexts), range(nclusters))).T.reshape(-1,3)
+    for j_tx, j_ct, j_cl in tqdm(idc):
+            idx = (df["Taxon"]==taxons[j_tx]) & \
+                    (df["Context"]==contexts.astype("str")[j_ct]) & \
+                    (df["Cluster"]==clusters[j_cl])
+            assert sum(idx)==1
+            Kmat[j_tx, j_ct, j_cl] = df[idx][column].iloc[0]
+         
+    return Kmat
 
 def score_taxon(taxon):
     _tx = taxon.split(' ')
@@ -158,10 +166,10 @@ def save_figure(HFigure, filepath, overwrite=True, *args, **kwargs):
 
 
 # General variables
-GENE_NAME = 'nirs'
+GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 OVERWRITE = False
-_filename = f'kMatrixPerTaxon_{GENE_NAME}_{LEVEL_NAME}_v2.csv'
+_filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_filename = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
 
 #... plotting options
@@ -179,16 +187,13 @@ COLOR_UNASSIGNED= [0.3, 0.3, 0.3]
 COLOR_OTHERS = [0.5, 0.5, 0.5]
 
 
-
-
 df = pd.read_csv(_filename, sep='\t', header=0)
 # ...
-K = from_df_to_ktensor(df, column="k-value")
+taxons = df['Taxon'].unique()
+contexts = np.array(["Epipelagic","Mesopelagic","Bathypelagic"])
+clusters = df['Cluster'].unique()
 # ...
-diversity = from_df_to_ktensor(df, column="Diversity")
-taxons = from_df_to_ktensor(df, column="Taxon")[:,0,0]
-contexts = from_df_to_ktensor(df, column="Context")[0,:,0]
-clusters = from_df_to_ktensor(df, column="Cluster")[0,0,:]
+K = from_df_to_ktensor(df, [taxons, contexts, clusters], column="k-value").astype("float")
 # ...
 n_taxons, n_ctxts, n_clusters = K.shape
 
@@ -221,10 +226,10 @@ idx_other = list( set(idc_left) - set(idx_show) )
 
 # General plotting properties
 #... style properties and labels 
-clst_labels = [ 'F. '+intToRoman( _+1) for _ in range( n_clusters ) ]
-# clst_labels = clusters
+# clst_labels = [ 'F. '+intToRoman( _+1) for _ in range( n_clusters ) ]
+clst_labels = clusters
 ctxt_labels = ['Epipelagic','Mesopelagic','Bathypelagic']
-colors = plt.cm.tab20( np.linspace(0, 1, 20) )
+colors = plt.cm.tab20( np.linspace(0, 1, MAX_TAXONS_SHOWN) )
 mpl.rcParams['hatch.linewidth'] = 0.3  # previous pdf hatch linewidth
 hatches=[ '' , '////////' ,'........']
 
@@ -233,10 +238,10 @@ hatches=[ '' , '////////' ,'........']
 #########################
 ######### Plots #########
 # Linear version
-X = K.copy()
+# X = K.copy()
 # Log version
-# X = np.log10( K )
-# X[X<1] = 0
+X = np.log10( K )
+X[X<1] = 0
 
 
 
@@ -315,7 +320,7 @@ legend.set_bbox_to_anchor( (2.1, 1.25) )
 
 
 # Save figure
-save_figure(HFigure, out_filename, overwrite=OVERWRITE, dpi=DPI )
+# save_figure(HFigure, out_filename, overwrite=OVERWRITE, dpi=DPI )
 
 
 

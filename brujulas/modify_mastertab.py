@@ -8,9 +8,10 @@ Created on Thu Mar  2 18:46:06 2023
 
 
 import pandas as pd
+from tqdm import tqdm
 
-
-FILENAME    = 'master_tab.csv'
+FILENAME = "master_tab.tsv"
+ID_COLUMN_NAME = "MP"
 
 df = pd.read_csv(FILENAME, sep=",")
 
@@ -37,13 +38,13 @@ epi_list= ["MP2239","MP2241","MP0323", "MP2819", "MP1857","MP0311","MP1419",
            "MP0528","MP0540","MP1176", "MP1174", "MP2821","MP1855" , "MP1684",
            "MP0321","MP2243","MP1672"]
 
-for jj, row in df.iterrows():
+for jj, row in tqdm(df.iterrows(), total=len(df)):
 # row = df.iloc[4]
-    if row["Sample_ID"] in bathy_list:
+    if row[ID_COLUMN_NAME] in bathy_list:
         contexts.append("Bathypelagic")
-    elif row["Sample_ID"] in meso_list:
+    elif row[ID_COLUMN_NAME] in meso_list:
         contexts.append("Mesopelagic")
-    elif row["Sample_ID"] in epi_list:
+    elif row[ID_COLUMN_NAME] in epi_list:
         contexts.append("Epipelagic")
     else:
         print( f"Couldnt find a context for sample id: {row['Sample_ID']}")
