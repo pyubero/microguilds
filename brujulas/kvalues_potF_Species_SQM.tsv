@@ -1,0 +1,1099 @@
+Gene	Taxon	Context	Cluster	Abundance	Diversity	Univocity	delta	k-value
+potF	c_Gammaproteobacteria	Bathypelagic	C3	31.04700000000001	49	1.0	2.6847372632746263	83.35303781288735
+potF	c_Gammaproteobacteria	Epipelagic	C3	14.017999999999999	14	1.0	1.3083010256980465	18.339763778235216
+potF	c_Gammaproteobacteria	Mesopelagic	C3	35.104	38	1.0	1.9172392097722435	67.30276521984483
+potF	o_Rhizobiales	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Epipelagic	C3	0.364	1	1.0	1.00001	0.36400364
+potF	o_Rhizobiales	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Epipelagic	C3	2.783	7	1.0	1.9370921720769028	5.39092751489002
+potF	f_Rhodobacteraceae	Mesopelagic	C3	0.197	1	1.0	1.00001	0.19700197000000003
+potF	c_Alphaproteobacteria	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Epipelagic	C3	16.837	19	1.0	1.570002000163411	26.43412367675135
+potF	o_Rhodobacterales	Mesopelagic	C3	2.643	1	1.0	0.2864884638943876	0.7571890100728663
+potF	o_Pseudomonadales	Bathypelagic	C3	0.802	2	1.0	1.2761187171225796	1.023447211132309
+potF	o_Pseudomonadales	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Bathypelagic	C3	0.531	1	1.0	0.8415973328204994	0.44688818372768524
+potF	p_Proteobacteria	Epipelagic	C3	0.195	1	1.0	1.00001	0.19500195
+potF	p_Proteobacteria	Mesopelagic	C3	0.511	1	1.0	0.8635741197529485	0.4412863751937567
+potF	g_Fulvimarina	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Epipelagic	C3	7.774	10	1.0	1.3883481267974307	10.793018337723225
+potF	f_Porticoccaceae	Mesopelagic	C3	1.447	1	1.0	0.4293153952076561	0.6212193768654785
+potF	s_Gammaproteobacteria bacterium	Bathypelagic	C3	153.65800000000002	72	1.0	1.3480102368953117	207.13255698085985
+potF	s_Gammaproteobacteria bacterium	Epipelagic	C3	52.021	36	1.0	1.3947518593962753	72.55638647765365
+potF	s_Gammaproteobacteria bacterium	Mesopelagic	C3	251.452	148	1.0	1.9906712237323345	500.558260549943
+potF	g_Sulfitobacter	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Epipelagic	C3	1.311	2	1.0	0.9174582174063819	1.2027877230197666
+potF	s_Candidatus Thioglobus sp.	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Mesopelagic	C3	15.831999999999999	7	1.0	0.6028262210782036	9.543944732110118
+potF	s_Candidatus Poribacteria bacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Mesopelagic	C3	5.764	6	1.0	1.0183212274192814	5.869603554844739
+potF	g_Pseudomonas	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Devosia	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Devosia	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Devosia	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Stappia	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Stappia	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Stappia	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Epipelagic	C3	10.944	8	1.0	0.8827896860840891	9.661250324504273
+potF	s_Porticoccaceae bacterium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Epipelagic	C3	0.217	1	1.0	1.00001	0.21700217000000002
+potF	n_unclassified Marinovum	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Epipelagic	C3	0.388	1	1.0	1.00001	0.38800388
+potF	n_unclassified Aestuariivita	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Bathypelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Epipelagic	C3	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Mesopelagic	C3	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Bathypelagic	c1b	9.036999999999999	10	1.0	1.254871563543409	11.340274319741784
+potF	s_Thalassococcus profundi	Epipelagic	c1b	0.969	1	1.0	0.561959163860597	0.5445384297809185
+potF	s_Thalassococcus profundi	Mesopelagic	c1b	1.8780000000000001	4	1.0	1.4414762315786855	2.7070923629047714
+potF	g_Thalassospira	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Bathypelagic	c1b	335.21500000000015	82	1.0	0.9093037795994635	304.8122664784343
+potF	f_Rhodobacteraceae	Epipelagic	c1b	79.55099999999999	43	1.0	1.2525722622952473	99.64337603784921
+potF	f_Rhodobacteraceae	Mesopelagic	c1b	189.9	60	1.0	0.9744486406494033	185.0477968593217
+potF	c_Alphaproteobacteria	Bathypelagic	c1b	0.164	1	1.0	1.00001	0.16400164
+potF	c_Alphaproteobacteria	Epipelagic	c1b	17.141999999999996	35	1.0	2.8574550657811986	48.982494737621295
+potF	c_Alphaproteobacteria	Mesopelagic	c1b	1.7199999999999998	3	1.0	1.1468226191993187	1.9725349050228278
+potF	s_Pseudooceanicola flagellatus	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Epipelagic	c1b	0.822	1	1.0	0.6275965582084515	0.5158843708473471
+potF	s_Pseudooceanicola flagellatus	Mesopelagic	c1b	0.582	1	1.0	0.7913380653686287	0.4605587540445419
+potF	o_Rhodobacterales	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Bathypelagic	c1b	25.564000000000004	15	1.0	0.9363997204863618	23.938122454513355
+potF	g_Pseudooceanicola	Epipelagic	c1b	1.965	4	1.0	1.398305908905064	2.747671110998451
+potF	g_Pseudooceanicola	Mesopelagic	c1b	7.6610000000000005	13	1.0	1.8226841537997986	13.963583302260258
+potF	g_Halomonas	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Bathypelagic	c1b	0.465	1	1.0	0.9200404756286704	0.4278188211673318
+potF	p_Proteobacteria	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Bathypelagic	c1b	2.33	5	1.0	1.5589402238676524	3.63233072161163
+potF	g_Sulfitobacter	Epipelagic	c1b	0.235	1	1.0	1.00001	0.23500235
+potF	g_Sulfitobacter	Mesopelagic	c1b	0.441	1	1.0	0.95336578064948	0.42043430926642067
+potF	g_Maritimibacter	Bathypelagic	c1b	1.815	2	1.0	0.7374434016813944	1.3384597740517308
+potF	g_Maritimibacter	Epipelagic	c1b	0.982	3	1.0	1.670848239455353	1.6407729711451566
+potF	g_Maritimibacter	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Bathypelagic	c1b	5.069999999999999	7	1.0	1.294916798492236	6.565228168355636
+potF	s_Marinovum algicola	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Mesopelagic	c1b	11.284	2	1.0	0.21621078819738312	2.439722534019271
+potF	n_unclassified Ahrensia	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Bathypelagic	c1b	2.306	5	1.0	1.5698158103204516	3.6199952585989617
+potF	n_unclassified Paracoccus	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Mesopelagic	c1b	1.154	3	1.0	1.499245310233314	1.7301290880092444
+potF	g_Roseovarius	Bathypelagic	c1b	3.081	6	1.0	1.550743983996127	4.777842214692067
+potF	g_Roseovarius	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Mesopelagic	c1b	0.519	2	1.0	1.7092186766165394	0.887084493163984
+potF	n_SAR116 cluster	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Epipelagic	c1b	0.876	1	1.0	0.6013497079193548	0.5267823441373548
+potF	n_SAR116 cluster	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Bathypelagic	c1b	4.8580000000000005	5	1.0	0.951852662848774	4.624100236119345
+potF	s_Pseudooceanicola atlanticus	Epipelagic	c1b	1.021	2	1.0	1.0851493823044966	1.107937519332891
+potF	s_Pseudooceanicola atlanticus	Mesopelagic	c1b	1.115	2	1.0	1.0228393754128005	1.1404659035852724
+potF	g_Nisaea	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Epipelagic	c1b	0.404	1	1.0	1.00001	0.40400404000000006
+potF	k_Bacteria	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Bathypelagic	c1b	1.81	3	1.0	1.1082140635430167	2.00586745501286
+potF	s_Thalassococcus halodurans	Epipelagic	c1b	0.716	2	1.0	1.377105187952254	0.9860073145738139
+potF	s_Thalassococcus halodurans	Mesopelagic	c1b	0.193	1	1.0	1.00001	0.19300193000000002
+potF	g_Devosia	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Devosia	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Devosia	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Stappia	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Stappia	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Stappia	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Epipelagic	c1b	0.986	2	1.0	1.1108645000710964	1.095312397070101
+potF	s_Alphaproteobacteria bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Bathypelagic	c1b	0.237	1	1.0	1.00001	0.23700237000000002
+potF	s_Albimonas pacifica	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Bathypelagic	c1b	0.507	1	1.0	0.8681428417522047	0.4401484207683678
+potF	GTDB:s__Tritonibacter sp001874255	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Bathypelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Epipelagic	c1b	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Mesopelagic	c1b	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Bathypelagic	c1a	7.893	1	1.0	0.13742709450380602	1.084712056918541
+potF	c_Gammaproteobacteria	Epipelagic	c1a	48.236	11	1.0	0.448348684478205	21.626547144490694
+potF	c_Gammaproteobacteria	Mesopelagic	c1a	228.34	64	1.0	0.9184033861415885	209.7082291915703
+potF	o_Rhizobiales	Bathypelagic	c1a	0.988	2	1.0	1.1093541167463288	1.096041867345373
+potF	o_Rhizobiales	Epipelagic	c1a	0.425	1	1.0	0.9773178604512304	0.4153600906917729
+potF	o_Rhizobiales	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Bathypelagic	c1a	2.851	5	1.0	1.3613915379657682	3.881327274740405
+potF	g_Thalassospira	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Bathypelagic	c1a	0.336	1	1.0	1.00001	0.33600336000000003
+potF	f_Rhodobacteraceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Bathypelagic	c1a	1.1139999999999999	3	1.0	1.5351811143085132	1.7101917613396835
+potF	c_Alphaproteobacteria	Epipelagic	c1a	123.68700000000001	54	1.0	1.16956898614421	144.6604791892189
+potF	c_Alphaproteobacteria	Mesopelagic	c1a	20.147000000000002	9	1.0	0.6592541397411299	13.281993153364546
+potF	s_Pseudooceanicola flagellatus	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Bathypelagic	c1a	1.921	5	1.0	1.7746625364816169	3.409126732581186
+potF	f_Hyphomicrobiaceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Bathypelagic	c1a	0.251	1	1.0	1.00001	0.25100251
+potF	f_Aurantimonadaceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Bathypelagic	c1a	13.418999999999999	8	1.0	0.76984712022606	10.330578506313499
+potF	p_Proteobacteria	Epipelagic	c1a	123.81800000000004	48	1.0	1.038878232729371	128.6318250200853
+potF	p_Proteobacteria	Mesopelagic	c1a	6.720000000000001	2	1.0	0.30620773238466115	2.057715961624923
+potF	g_Fulvimarina	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Mesopelagic	c1a	0.308	1	1.0	1.00001	0.30800308000000004
+potF	g_Marinobacter	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Bathypelagic	c1a	0.324	1	1.0	1.00001	0.32400324
+potF	s_Mesorhizobium oceanicum	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Epipelagic	c1a	3.592	2	1.0	0.4663070427825637	1.6749748976749688
+potF	s_Gammaproteobacteria bacterium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Bathypelagic	c1a	53.84799999999999	26	1.0	0.9842427742439674	52.999504907489154
+potF	s_Candidatus Thioglobus sp.	Epipelagic	c1a	2.181	1	1.0	0.32593695203397727	0.7108684923861044
+potF	s_Candidatus Thioglobus sp.	Mesopelagic	c1a	79.222	23	1.0	0.6718475836274593	53.22510927013458
+potF	s_Marinovum algicola	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Bathypelagic	c1a	13.7	13	1.0	1.2337135452953325	16.901875570546053
+potF	n_unclassified Ahrensia	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Mesopelagic	c1a	3.9499999999999993	8	1.0	1.7499511175938718	6.912306914495792
+potF	g_Aurantimonas	Bathypelagic	c1a	3.192	6	1.0	1.5143252865970307	4.8337263148177225
+potF	g_Aurantimonas	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Bathypelagic	c1a	69.546	24	1.0	0.7651392130325894	53.212371709564465
+potF	s_Fulvimarina manganoxydans	Epipelagic	c1a	8.097999999999999	8	1.0	1.0806412188224195	8.751032590023952
+potF	s_Fulvimarina manganoxydans	Mesopelagic	c1a	19.398	18	1.0	1.3524781310229148	26.2353707855825
+potF	f_Rhizobiaceae	Bathypelagic	c1a	10.779	14	1.0	1.5607200928173863	16.823001880478607
+potF	f_Rhizobiaceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Bathypelagic	c1a	1.381	3	1.0	1.3289488063606398	1.8352783015840437
+potF	f_Phyllobacteriaceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Mesopelagic	c1a	0.784	1	1.0	0.6478620166830461	0.5079238210795082
+potF	g_Candidatus Thioglobus	Bathypelagic	c1a	14.425	8	1.0	0.7333713165171445	10.57888124075981
+potF	g_Candidatus Thioglobus	Epipelagic	c1a	22.195	4	1.0	0.2745617647864433	6.0938983694351085
+potF	g_Candidatus Thioglobus	Mesopelagic	c1a	120.293	28	1.0	0.6178794837939321	74.32657674402348
+potF	n_unclassified Paracoccus	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Bathypelagic	c1a	0.309	1	1.0	1.00001	0.30900309000000004
+potF	s_Pelagibacteraceae bacterium	Epipelagic	c1a	130.398	43	1.0	0.8988617692995327	117.20977699312046
+potF	s_Pelagibacteraceae bacterium	Mesopelagic	c1a	15.519000000000002	3	1.0	0.2618418188986739	4.063523187488521
+potF	s_Pseudooceanicola atlanticus	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Bathypelagic	c1a	2.223	4	1.0	1.2871471920100004	2.8613282078382305
+potF	g_Nisaea	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Mesopelagic	c1a	1.4100000000000001	3	1.0	1.3105336535844787	1.8478524515541153
+potF	g_Mesorhizobium	Bathypelagic	c1a	1.7360000000000002	3	1.0	1.1397147952070443	1.9785448844794291
+potF	g_Mesorhizobium	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Devosia	Bathypelagic	c1a	1.283	3	1.0	1.3962793314696136	1.791426382275514
+potF	g_Devosia	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Devosia	Mesopelagic	c1a	0.197	1	1.0	1.00001	0.19700197000000003
+potF	s_Thiotrichales bacterium	Bathypelagic	c1a	0.382	1	1.0	1.00001	0.38200382000000005
+potF	s_Thiotrichales bacterium	Epipelagic	c1a	0.324	1	1.0	1.00001	0.32400324
+potF	s_Thiotrichales bacterium	Mesopelagic	c1a	1.9530000000000003	3	1.0	1.0530526176493484	2.0566117622691777
+potF	g_Stappia	Bathypelagic	c1a	0.379	1	1.0	1.00001	0.37900379
+potF	g_Stappia	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Stappia	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Bathypelagic	c1a	2.408	5	1.0	1.524850997786774	3.6718412026705516
+potF	n_unclassified Ketobacter	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Mesopelagic	c1a	0.762	1	1.0	0.6603622693869677	0.5031960492728694
+potF	s_Porticoccaceae bacterium	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Epipelagic	c1a	3.0780000000000003	3	1.0	0.7758806317110781	2.3881605844066986
+potF	s_alpha proteobacterium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Epipelagic	c1a	14.587	1	1.0	0.09098736756636965	1.327232730690634
+potF	GTDB:s__	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Bathypelagic	c1a	3.039	1	1.0	0.26085247749986823	0.7927306791220996
+potF	n_unclassified Oleibacter	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Epipelagic	c1a	2.229	1	1.0	0.32120735494426117	0.7159711941707582
+potF	f_Pelagibacteraceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Mesopelagic	c1a	0.386	1	1.0	1.00001	0.38600386000000003
+potF	f_Oceanospirillaceae	Bathypelagic	c1a	0.912	2	1.0	1.1706064926209538	1.06759312127031
+potF	f_Oceanospirillaceae	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Bathypelagic	c1a	0.733	2	1.0	1.3555779813076059	0.993638660298475
+potF	s_Proteobacteria bacterium	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Bathypelagic	c1a	0.243	1	1.0	1.00001	0.24300243000000002
+potF	s_Acuticoccus sediminis	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Mesopelagic	c1a	0.392	1	1.0	1.00001	0.39200392000000006
+potF	GTDB:s__Tritonibacter sp001874255	Bathypelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Bathypelagic	c1a	0.276	1	1.0	1.00001	0.27600276
+potF	o_Caulobacterales	Epipelagic	c1a	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Mesopelagic	c1a	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Bathypelagic	c2b	226.372	60	1.0	0.8660220047912129	196.04313326859648
+potF	o_Pseudomonadales	Epipelagic	c2b	2.403	3	1.0	0.9161896048919043	2.201603620555246
+potF	o_Pseudomonadales	Mesopelagic	c2b	54.28999999999999	37	1.0	1.3929859670775104	75.62520815263802
+potF	g_Pseudooceanicola	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Bathypelagic	c2b	39.831	25	1.0	1.1587613739496112	46.154624285786966
+potF	g_Halomonas	Epipelagic	c2b	4.7109999999999985	11	1.0	2.1377258225160793	10.070826349873247
+potF	g_Halomonas	Mesopelagic	c2b	21.010999999999996	27	1.0	1.9227775294620588	40.39947867152731
+potF	f_Hyphomicrobiaceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Bathypelagic	c2b	15.138000000000003	16	1.0	1.4199890717850783	21.49579456868252
+potF	g_Marinobacter	Epipelagic	c2b	0.203	1	1.0	1.00001	0.20300203000000003
+potF	g_Marinobacter	Mesopelagic	c2b	0.622	2	1.0	1.5135864169669841	0.9414507513534641
+potF	s_Mesorhizobium oceanicum	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Bathypelagic	c2b	0.748	3	1.0	2.0058939443335317	1.5004086703614818
+potF	g_Pseudomonas	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Mesopelagic	c2b	1.418	3	1.0	1.3055645836586622	1.851290579627983
+potF	s_Thalassococcus halodurans	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Devosia	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Devosia	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Devosia	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Stappia	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Stappia	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Stappia	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Bathypelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Epipelagic	c2b	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Mesopelagic	c2b	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Bathypelagic	c2a	2.784	1	1.0	0.2766630793341693	0.7702300128663272
+potF	c_Gammaproteobacteria	Epipelagic	c2a	8.159	8	1.0	1.0752096954578592	8.772635905240673
+potF	c_Gammaproteobacteria	Mesopelagic	c2a	31.687000000000005	21	1.0	1.134945726077243	35.96302522220961
+potF	o_Rhizobiales	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Bathypelagic	c2a	0.456	1	1.0	0.9321936529714855	0.4250803057549974
+potF	p_Proteobacteria	Epipelagic	c2a	33.178999999999995	22	1.0	1.1528199170609161	38.24941202816413
+potF	p_Proteobacteria	Mesopelagic	c2a	15.984	10	1.0	0.8556725615612509	13.677070223995035
+potF	g_Fulvimarina	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Bathypelagic	c2a	181.047	46	1.0	0.7714133124516358	139.6620659794313
+potF	s_Gammaproteobacteria bacterium	Epipelagic	c2a	23.312	14	1.0	0.9297990532842354	21.675475530162096
+potF	s_Gammaproteobacteria bacterium	Mesopelagic	c2a	185.28300000000002	96	1.0	1.585098620588783	293.6918277185515
+potF	g_Sulfitobacter	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Mesopelagic	c2a	3.21	1	1.0	0.25143849566117027	0.8071175710723566
+potF	s_Candidatus Poribacteria bacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Devosia	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Devosia	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Devosia	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Stappia	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Stappia	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Stappia	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Bathypelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Epipelagic	c2a	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Mesopelagic	c2a	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	c_Gammaproteobacteria	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Rhizobiales	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus profundi	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Thalassospira	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Rhodobacteraceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	c_Alphaproteobacteria	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola flagellatus	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Rhodobacterales	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Pseudomonadales	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Pseudooceanicola	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Halomonas	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Hyphomicrobiaceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Aurantimonadaceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Bathypelagic	incertae	1.0	1	1.0	0.5502017497559039	0.5502017497559039
+potF	p_Proteobacteria	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	p_Proteobacteria	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Fulvimarina	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Marinobacter	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Mesorhizobium oceanicum	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Porticoccaceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Gammaproteobacteria bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Sulfitobacter	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Maritimibacter	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Candidatus Thioglobus sp.	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Marinovum algicola	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Ahrensia	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Aurantimonas	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Fulvimarina manganoxydans	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Rhizobiaceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Phyllobacteriaceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Candidatus Thioglobus	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Paracoccus	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Roseovarius	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_SAR116 cluster	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pelagibacteraceae bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Pseudooceanicola atlanticus	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Nisaea	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Mesorhizobium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	k_Bacteria	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Candidatus Poribacteria bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Pseudomonas	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thalassococcus halodurans	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Devosia	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Devosia	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Devosia	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Thiotrichales bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Stappia	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Stappia	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Stappia	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Ketobacter	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__Thioglobus sp001628405	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Porticoccaceae bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Alphaproteobacteria bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_alpha proteobacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Albimonas pacifica	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Oleibacter	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Pelagibacteraceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Hoeflea	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	f_Oceanospirillaceae	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Proteobacteria bacterium	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Marinovum	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	s_Acuticoccus sediminis	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	n_unclassified Aestuariivita	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	g_Hoeflea	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	GTDB:s__Tritonibacter sp001874255	Mesopelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Bathypelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Epipelagic	incertae	0	0	1.0	0.0	0.0
+potF	o_Caulobacterales	Mesopelagic	incertae	0	0	1.0	0.0	0.0

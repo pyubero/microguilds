@@ -39,9 +39,9 @@ SEP : str
 import pandas as pd
 import numpy as np
 
-def verboseprint(msg):
+def verboseprint(msg, condition = True):
     '''Prinst a message if VERBOSE is True.'''
-    if VERBOSE:
+    if VERBOSE and condition:
         print(msg)
       
 def verbosebar(iterable):
@@ -115,6 +115,7 @@ def export_legacy(df, filename):
                     (adu_table["Context"]==new_contexts.astype("str")[j_ct]) & \
                     (adu_table["Cluster"]==clusters[j_cl])
             assert sum(idx)==1
+            
             Kmat[j_tx, j_ct, j_cl] = adu_table[idx]["k-value"]
     
     # Prepare output file
@@ -153,10 +154,38 @@ def bivariate_regression(x,y):
     
     return alfa, beta
 
+def check_mastertable(filename, save=False):
+    df = pd.read_csv(filename, sep="\t")
+    _modified = False
+    
+    # Find null taxons
+    idc_null = np.argwhere(df['Species_SQM'].isnull().values)[:,0]
+    if len(idc_null)==0:
+        verboseprint(f"All {len(df)} entries are apparently valid.")
+    else:
+        _modified = True
+        verboseprint(f"Found {len(idc_null)} null classifications")
+        for jj in verbosebar(idc_null):
+            df.at[jj, "Domain_SQM"] = "GTDB:"+df.loc[jj, "Domain_GTDB"]
+            df.at[jj, "Phylum_SQM"] = "GTDB:"+df.loc[jj, "Phylum_GTDB"]
+            df.at[jj, "Class_SQM"] = "GTDB:"+df.loc[jj, "Class_GTDB"]
+            df.at[jj, "Order_SQM"] = "GTDB:"+df.loc[jj, "Order_GTDB"]
+            df.at[jj, "Family_SQM"] = "GTDB:"+df.loc[jj, "Family_GTDB"]
+            df.at[jj, "Genus_SQM"] = "GTDB:"+df.loc[jj, "Genus_GTDB"]
+            df.at[jj, "Species_SQM"] = "GTDB:"+df.loc[jj, "Species_GTDB"]
+        
+        idc_null = np.argwhere(df['Domain_SQM'].isnull().values)[:,0]
+        verboseprint(f"Still found {len(idc_null)} null classifications.", 
+                     len(idc_null)>0)
+    if _modified and save:
+        verboseprint(f"Saving modified master table.")
+        df.to_csv(filename, sep="\t", index=False)
+
+    return df
 
 FILENAME    = 'mastertable_w_ctxt.tsv'
 GENE_NAME   = 'potF'
-LEVEL_NAME  = 'Species_GTDB'
+LEVEL_NAME  = 'Species_SQM'
 VERBOSE = True
 EXPORT_PLOT = True
 EXPORT_LEGACY = True
@@ -169,7 +198,7 @@ if VERBOSE:
     from tqdm import tqdm
 
 # Import mastertable
-master_table = pd.read_csv(FILENAME, sep="\t")
+master_table = check_mastertable( FILENAME,True)
 verboseprint( f"Loaded mastertable with {len(master_table)} rows." )
 
 
