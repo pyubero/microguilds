@@ -183,12 +183,12 @@ def check_mastertable(filename, save=False):
 
     return df
 
-FILENAME    = 'mastertable_w_ctxt.tsv'
+FILENAME    = 'mastertable.tsv'
 GENE_NAME   = 'potF'
 LEVEL_NAME  = 'Species_SQM'
 VERBOSE = True
 EXPORT_PLOT = True
-EXPORT_LEGACY = True
+EXPORT_LEGACY = False
 # ...
 out_filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_plot = f"loglog_regression_{GENE_NAME}_{LEVEL_NAME}.png"

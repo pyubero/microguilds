@@ -199,22 +199,22 @@ def save_figure(HFigure, filepath, overwrite=True, *args, **kwargs):
 
 # General variables
 GENE_NAME = 'potF'
-LEVEL_NAME = 'Species_GTDB'
+LEVEL_NAME = 'Species_SQM'
 DISPLAY_MODE = 'log10' #  ... either linear or log10
-OVERWRITE = False
+OVERWRITE = True
 VERBOSE = True
 #...
 _filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_filename = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
 
 # Plotting options
-MAX_TAXONS_SHOWN = 30
+MAX_TAXONS_SHOWN = 20
 TAXONOMIC_ADVANTAGE = 0 # taxons fully assigned advantage over worse identifiable taxons
 
 # Styling options
 DPI = 200
-N_COLORS = 20
-R_UPPER_MARGIN_REL = 1.02 # radial margin top, relative to the maximum
+N_COLORS = 20 #  <=20
+R_UPPER_MARGIN_REL = 1.02 #  Radial margin top, relative to the maximum
 BAR_WIDTH_REL = 0.5
 COLOR_UNASSIGNED= [0.0, 0.0, 0.0, 1]
 COLOR_OTHERS = [0.3, 0.3, 0.3, 1]
@@ -266,7 +266,7 @@ K_shown[0,:,:] = np.sum(K[idx_other,:,:], axis=0)
 K_shown[1,:,:] = np.sum(K[idx_unassigned,:,:], axis=0)
 K_shown[2:,:,:]= K[idx_show,:,:]
 k_min = contrib_per_taxon[idx_show].min()
-taxon_labels = [f"Others, K<{k_min:1.1f}","Unassigned", *taxons[idx_show]]
+taxon_labels = [f"Others, K$\leq${k_min:1.1f}","Unassigned", *taxons[idx_show]]
 
 
 verboseprint(f"Found {len(idx_unassigned)} unassigned taxons:")
