@@ -9,8 +9,23 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib as mpl
+from tqdm import tqdm
 
 
+def verboseprint(msg):
+    '''Prinst a message if VERBOSE is True.'''
+    if VERBOSE:
+        print(msg)
+      
+        
+def verbosebar(iterable):
+    '''Generates a progress bar with tqdm if VERBOSE is True.'''
+    if VERBOSE:
+        return tqdm(iterable)
+    else:
+        return iterable
+    
+    
 def hex_to_rgb(value):
     # Function to convert hexadecimal colors into RGB triplets
     value = value.lstrip('#')
@@ -56,7 +71,6 @@ def cycle_through( array, length ):
         
         if new_idx<len(array):
             new_order.append( int( new_idx)     )
-            #print(new_idx)
     
             k+=1
         else:
@@ -68,7 +82,6 @@ def cycle_through( array, length ):
 
 # How to nicely load our tensor?
 def from_df_to_ktensor(df, data, column="k-value"):
-    from tqdm import tqdm
     # you should call before:
     # df = pd.read_csv(f"kValuesPerTaxon_{GENE_NAME}.tsv", sep="\t")
     taxons, contexts, clusters = data
@@ -78,7 +91,7 @@ def from_df_to_ktensor(df, data, column="k-value"):
     
     Kmat = np.zeros((ntaxons, ncontexts, nclusters), dtype="object")
     idc = np.array(np.meshgrid( range(ntaxons), range(ncontexts), range(nclusters))).T.reshape(-1,3)
-    for j_tx, j_ct, j_cl in tqdm(idc):
+    for j_tx, j_ct, j_cl in verbosebar(idc):
             idx = (df["Taxon"]==taxons[j_tx]) & \
                     (df["Context"]==contexts.astype("str")[j_ct]) & \
                     (df["Cluster"]==clusters[j_cl])
@@ -87,7 +100,14 @@ def from_df_to_ktensor(df, data, column="k-value"):
          
     return Kmat
 
-def score_taxon(taxon):
+def score_taxon(taxon : str):
+    '''
+    Scores taxon name. 
+    It returns: 
+        0 if it does not have a defined species nor genus.
+        1 if it only has a genus specified.
+        2 if it has both, genus and species specified.
+    '''
     _tx = taxon.split(' ')
     if (len(_tx)>1) and (_tx[1][:2]!="sp"):
         has_species = True
@@ -169,22 +189,22 @@ def save_figure(HFigure, filepath, overwrite=True, *args, **kwargs):
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 OVERWRITE = False
+VERBOSE = True
+
+
 _filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_filename = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
 
 #... plotting options
-COLOR_FILE = None # if not None, will try to load a csv file like a dict with colors per taxon
-MAX_TAXONS_SHOWN = 30
-K_MIN = 1 # in tpm units
-TAXONOMIC_ADVANTAGE = 0 # taxons fully assigned advantage to be displayed over worse identifiable taxons
+MAX_TAXONS_SHOWN = 20
+TAXONOMIC_ADVANTAGE = 0 # taxons fully assigned advantage over worse identifiable taxons
 
 #... some styling options
 DPI = 200
 R_UPPER_MARGIN_REL = 1.02 # radial margin top, relative to the maximum
 BAR_WIDTH_REL = 0.5
-COLOR_BELOW_MIN = [0.0, 0.0, 0.0]
-COLOR_UNASSIGNED= [0.3, 0.3, 0.3]
-COLOR_OTHERS = [0.5, 0.5, 0.5]
+COLOR_UNASSIGNED= [0.0, 0.0, 0.0, 1]
+COLOR_OTHERS = [0.3, 0.3, 0.3, 1]
 
 
 df = pd.read_csv(_filename, sep='\t', header=0)
@@ -200,17 +220,24 @@ n_taxons, n_ctxts, n_clusters = K.shape
 
 ## Find plottable DATA ##
 contrib_per_taxon = np.sum(np.sum(K, axis=2), axis=1)
-idx_below_min = np.argwhere(contrib_per_taxon<K_MIN)[:,0] 
+verboseprint(f"Loaded data for:")
+verboseprint(f"   {n_taxons:4d}\ttaxons")
+verboseprint(f"   {n_ctxts:4d}\tcontexts")
+verboseprint(f"   {n_clusters:4d}\tclusters.")
 
 
 # All UNASSIGNED taxons add to the class "Unassigned"
 # ... we compute the taxonomic scores
 tx_scores = np.array([score_taxon(tx) for tx in taxons])
-idx_unassigned = np.argwhere(tx_scores==0)[:,0]
+# idx_unassigned = np.argwhere(tx_scores<0.5)[:,0]
+idx_unassigned = np.argwhere( np.array(taxons) =="s__")[:,0]
+verboseprint(f"Found {len(idx_unassigned)} unassigned taxons:")
+_ = [verboseprint(f"   {tx}") for tx in taxons[idx_unassigned] ]
+verboseprint("")
 
 
 # All taxons in the top MAX_TAXONS_SHOWN add to the class "Show"
-idc_left = list(set(range(n_taxons)) - set(idx_below_min) - set(idx_unassigned))
+idc_left = list(set(range(n_taxons)) - set(idx_unassigned)) #- set(idx_below_min)
 _maxshown = np.clip(MAX_TAXONS_SHOWN,0, len(idc_left))
 scores = np.log10( contrib_per_taxon ) + tx_scores*TAXONOMIC_ADVANTAGE
 threshold = np.sort(scores[ idc_left ])[-_maxshown]
@@ -220,16 +247,25 @@ idx_show = np.array( idc_left )[idx_show]
 
 # All taxons left add to the class "Others"
 idx_other = list( set(idc_left) - set(idx_show) )
-
+verboseprint(f"Will group {len(idx_other)} taxons into 'Others'.")
   
+
+K_shown = np.zeros((len(idx_show)+2, n_ctxts, n_clusters) )
+K_shown[0,:,:] = np.sum(K[idx_other,:,:], axis=0)
+K_shown[1,:,:] = np.sum(K[idx_unassigned,:,:], axis=0)
+K_shown[2:,:,:]= K[idx_show,:,:]
+k_min = contrib_per_taxon[idx_show].min()
+
+taxon_labels = [f"Others, K<{k_min:1.1f}","Unassigned", *taxons[idx_show]]
 
 
 # General plotting properties
 #... style properties and labels 
 # clst_labels = [ 'F. '+intToRoman( _+1) for _ in range( n_clusters ) ]
-clst_labels = clusters
-ctxt_labels = ['Epipelagic','Mesopelagic','Bathypelagic']
 colors = plt.cm.tab20( np.linspace(0, 1, MAX_TAXONS_SHOWN) )
+colors = colors[cycle_through(colors, 20),:]
+colors = np.concatenate(([COLOR_OTHERS,], colors), axis=0)
+colors = np.concatenate(([COLOR_UNASSIGNED,], colors), axis=0)
 mpl.rcParams['hatch.linewidth'] = 0.3  # previous pdf hatch linewidth
 hatches=[ '' , '////////' ,'........']
 
@@ -240,8 +276,8 @@ hatches=[ '' , '////////' ,'........']
 # Linear version
 # X = K.copy()
 # Log version
-X = np.log10( K )
-X[X<1] = 0
+X = np.log10( K_shown )
+X[X<0] = 0
 
 
 
@@ -265,51 +301,17 @@ bottoms = np.zeros((n_ctxts, n_clusters))
 
 for _context in range( n_ctxts ):
     ax = plt.subplot( n_rows, n_cols, _context+1, projection='polar')    
-    
-    # Plot BELOW_MIN        
-    ax, _bot = stackbar(ax, theta, X[idx_below_min, _context, :],
-                       width = width,
-                       color = COLOR_BELOW_MIN,
-                       label = "Below minimum",
-                       bottom = bottoms[_context, :]
-                       )
-    
-        
-    # Plot UNASSIGNED
-    bottoms[_context, :] = _bot
-    ax, _bot = stackbar(ax, theta, X[idx_unassigned, _context, :],
-                       width = width,
-                       color = COLOR_UNASSIGNED,
-                       label = "Unassigned",
-                       bottom = bottoms[_context, :]
-                       )
-    
-    
-    # Plot OTHERS
-    bottoms[_context, :] = _bot
-    ax, _bot = stackbar(ax, theta, X[idx_other, _context, :],
-                       width = width,
-                       color = COLOR_OTHERS,
-                       label = "Others",
-                       bottom = bottoms[_context, :]
-                       )
-    
-    
-    # Plot SHOWN
-    bottoms[_context, :] = _bot
-    ax, _bot = stackbar(ax, theta, X[idx_show, _context, :],
-                       width = width,
-                       colors = colors,
-                       labels = list(taxons[idx_show]),
-                       bottom = bottoms[_context, :]
-                       )
-    
+
+    ax, _ = stackbar(ax, theta, X[:, _context,:],
+                       width=width,
+                       colors=colors,
+                       labels=taxon_labels)
 
     ax.set_rgrids( np.ceil(rlims[1:]), labels='' )
-    ax.set_thetagrids( theta*57.3, labels=clst_labels, fontsize=8)
+    ax.set_thetagrids( theta*57.3, labels=clusters, fontsize=8)
     ax.xaxis.grid(linewidth=0.1)
     ax.yaxis.grid(linewidth=0.2)
-    plt.title( ctxt_labels[_context])
+    plt.title( contexts[_context])
 
 legend = plt.legend( fontsize=8)
 
@@ -320,13 +322,14 @@ legend.set_bbox_to_anchor( (2.1, 1.25) )
 
 
 # Save figure
-# save_figure(HFigure, out_filename, overwrite=OVERWRITE, dpi=DPI )
+save_figure(HFigure, out_filename, overwrite=OVERWRITE, dpi=DPI )
 
 
 
 
 # #################################
 # ### Get "official" color list ###
+# COLOR_FILE = None # if not None, will try to load a csv file like a dict with colors per taxon
 # #... load colors
 # df = pd.read_csv('colors_malaspina_usable.txt', sep='\t', encoding='ansi')
 # #... correct taxon names
