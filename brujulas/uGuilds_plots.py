@@ -177,6 +177,31 @@ def stackbar(ax, x, Y, *args, **kwargs):
     return ax, kwargs["bottom"]
 
 
+def kmax_taxons(K, n):
+    top_taxon_idc = []
+    for ii in np.argsort(K.flatten())[-1::-1]:
+        taxon_idx = np.argwhere(K==K.flatten()[ii])[0][0]
+        if taxon_idx not in top_taxon_idc:
+            top_taxon_idc.append(taxon_idx)
+        if len(top_taxon_idc)>=n:
+            break
+    return top_taxon_idc
+
+
+def kmin_taxons(K, n):
+    top_taxon_idc = []
+    values = K.flatten()
+    for ii in np.argsort(values):
+        if values[ii]==0:
+            continue
+        taxon_idx = np.argwhere(K==K.flatten()[ii])[0][0]
+        if taxon_idx not in top_taxon_idc:
+            top_taxon_idc.append(taxon_idx)
+        if len(top_taxon_idc)>=n:
+            break
+    return top_taxon_idc
+
+
 def do_not_overwrite_filepath(filepath):
     import os
     new_filepath = filepath
@@ -196,11 +221,13 @@ def save_figure(HFigure, filepath, overwrite=True, *args, **kwargs):
     HFigure.savefig(filepath, *args, **kwargs)
 
 
-
 # General variables
 GENE_NAME = 'potF'
-LEVEL_NAME = 'Species_SQM'
+LEVEL_NAME = 'Species_GTDB'
 DISPLAY_MODE = 'log10' #  ... either linear or log10
+DISPLAY_KIND = "common" #  ... either common or rare
+CONTRIBUTION = "summed" #  ... either single or summed
+FIGSIZE = [16, 6]
 OVERWRITE = True
 VERBOSE = True
 #...
@@ -208,11 +235,11 @@ _filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_filename = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
 
 # Plotting options
-MAX_TAXONS_SHOWN = 20
+MAX_TAXONS_SHOWN = 25
 TAXONOMIC_ADVANTAGE = 0 # taxons fully assigned advantage over worse identifiable taxons
 
 # Styling options
-DPI = 200
+DPI = 300
 N_COLORS = 20 #  <=20
 R_UPPER_MARGIN_REL = 1.02 #  Radial margin top, relative to the maximum
 BAR_WIDTH_REL = 0.5
@@ -238,35 +265,54 @@ verboseprint(f"   {n_ctxts:4d}\tcontexts")
 verboseprint(f"   {n_clusters:4d}\tclusters.")
 
 
+
 #######################################################
 #################### ANALYZE DATA #####################
 ## Find plottable DATA ##
-contrib_per_taxon = np.sum(np.sum(K, axis=2), axis=1)
+# contrib_per_taxon = np.sum(np.sum(K, axis=2), axis=1)
 
 # All UNASSIGNED taxons add to the class "Unassigned"
 # ... we compute the taxonomic scores
-tx_scores = np.array([score_taxon(tx) for tx in taxons])
-idx_unassigned = np.argwhere( np.array(taxons) =="s__")[:,0]
-# idx_unassigned = np.argwhere(tx_scores<0.5)[:,0]
+idx_unassigned = np.argwhere(np.array(taxons) == "s__")[:, 0]
+taxons[idx_unassigned] = "Unassigned"
+
 
 # All taxons in the top MAX_TAXONS_SHOWN add to the class "Show"
-idc_left = list(set(range(n_taxons)) - set(idx_unassigned))
-_maxshown = np.clip(MAX_TAXONS_SHOWN,0, len(idc_left))
-scores = np.log10( contrib_per_taxon ) + tx_scores*TAXONOMIC_ADVANTAGE
-threshold = np.sort(scores[ idc_left ])[-_maxshown]
-idx_show = np.argwhere( scores[ idc_left ]>=threshold)[:,0]
-idx_show = np.array( idc_left )[idx_show]
+_maxshown = np.clip(MAX_TAXONS_SHOWN, 0, n_taxons)
 
+if CONTRIBUTION == "single":
+    if DISPLAY_KIND == "common":
+        idx_show = kmax_taxons(K, _maxshown)   
+        k_min = K[idx_show[-1],:,:].max()
+        _symbol="\leq"
+    elif DISPLAY_KIND == "rare":
+        idx_show = kmin_taxons(K, _maxshown)   
+        k_min =  min(i for i in K[idx_show[-1],:,:].flatten() if i > 0)
+        _symbol = "\geq"
+    else:
+        assert False
+        
+elif CONTRIBUTION == "summed":
+    if DISPLAY_KIND == "common":
+        contrib_per_taxon = np.sum(np.sum(K, axis=2), axis=1)
+        tx_scores = np.array([score_taxon(tx) for tx in taxons])
+        scores = np.log10( contrib_per_taxon ) + tx_scores*TAXONOMIC_ADVANTAGE
+        threshold = np.sort(scores)[-_maxshown]
+        idx_show = np.argwhere( scores>=threshold)[:,0]
+        k_min = contrib_per_taxon[idx_show].min()
+        _symbol = "\leq"
+    elif DISPLAY_KIND =="rare":
+        print(">> ERROR << Still not implemented")
+        
+        
 # All taxons left add to the class "Others"
-idx_other = list( set(idc_left) - set(idx_show) )
+idx_other = list( set(range(n_taxons)) - set(idx_show) )
 
 # Build K matrix to be shown, by summing the Kvalues of others, and unassigned.  
-K_shown = np.zeros((len(idx_show)+2, n_ctxts, n_clusters) )
+taxon_labels = [f"Others, K${_symbol}${k_min:1.1f}", *taxons[idx_show]]
+K_shown = np.zeros((len(idx_show)+1, n_ctxts, n_clusters) )
 K_shown[0,:,:] = np.sum(K[idx_other,:,:], axis=0)
-K_shown[1,:,:] = np.sum(K[idx_unassigned,:,:], axis=0)
-K_shown[2:,:,:]= K[idx_show,:,:]
-k_min = contrib_per_taxon[idx_show].min()
-taxon_labels = [f"Others, K$\leq${k_min:1.1f}","Unassigned", *taxons[idx_show]]
+K_shown[1:,:,:]= K[idx_show,:,:]
 
 
 verboseprint(f"Found {len(idx_unassigned)} unassigned taxons:")
@@ -277,26 +323,27 @@ verboseprint(f"Showing the top {len(idx_show)} contributing taxons, with")
 verboseprint(f"  K-values >= {k_min:1.3f}.")
 verboseprint("")
 
+
 # General plotting properties
 #... style properties and labels 
 # clst_labels = [ 'F. '+intToRoman( _+1) for _ in range( n_clusters ) ]
 colors = plt.cm.tab20( np.linspace(0, 1, N_COLORS) )
 colors = np.concatenate(([COLOR_OTHERS,], colors), axis=0)
-colors = np.concatenate(([COLOR_UNASSIGNED,], colors), axis=0)
 mpl.rcParams['hatch.linewidth'] = 0.4  # previous pdf hatch linewidth
 hatches=[ '' , '//////////' ,'..........']
 
 
-
+#%%
 #######################################################
 ###################### PLOT DATA ######################
 if DISPLAY_MODE == "linear":
     X = K.copy()
-    verboseprint("Currently displaying stacked k_values, in LINEAR mode.")
+    verboseprint("Displaying stacked k_values, in LINEAR mode.")
+    
 elif DISPLAY_MODE == "log10":
-    X = np.log10( K_shown )
+    X = np.log10( 1+K_shown )
     X[X<0] = 0
-    verboseprint("Currently displaying stacked log10(k_values), in LOG10 mode.")
+    verboseprint("Displaying stacked log10(k_values), in LOG10 mode.")
 
 
 #... derived values and matrices
@@ -304,57 +351,59 @@ sumX  = np.sum(X, axis=0)    # total K per cluster per context
 maxX  = np.max( np.max( X, axis=2), axis=1) # maximum contribution per taxon
 
 theta = np.linspace(0.0, 2 * np.pi, n_clusters, endpoint=False)
-rlims = np.linspace( X.min() , R_UPPER_MARGIN_REL*sumX.max(), 4)
+# rlims = np.ceil(np.linspace(0, R_UPPER_MARGIN_REL*sumX.max(), 4))
+dr = np.round(R_UPPER_MARGIN_REL*sumX.max()/4)
+rlims = np.arange(0, 1+np.ceil(R_UPPER_MARGIN_REL*sumX.max()/dr)*dr, dr)
 Dtheta = theta[1]-theta[0]
 width = BAR_WIDTH_REL*Dtheta
 
 
-n_cols = int(np.clip(n_ctxts+1, 1, 4))
+n_cols = int(np.clip(n_ctxts+1, 1, 3))
 n_rows = int(np.ceil((n_ctxts+1)/ 4))
-sz_cols = 4.5*n_cols
-sz_rows = 6*n_rows
+FIGSIZE[1] = FIGSIZE[1] * n_rows
+FIGSIZE = np.array(FIGSIZE)/2.3
 
-HFigure = plt.figure( figsize=(sz_cols, sz_rows), dpi=DPI)
+HFigure = plt.figure( figsize=FIGSIZE, dpi=DPI)
 bottoms = np.zeros((n_ctxts, n_clusters))
 
 for _context in range( n_ctxts ):
     ax = plt.subplot( n_rows, n_cols, _context+1, projection='polar')    
 
     # Plot Others and Unassigned
-    ax, _bot = stackbar(ax, theta, X[:2, _context,:],
+    ax, _bot = stackbar(ax, theta, X[:1, _context,:],
                        width=width,
-                       colors=colors[:2,:],
+                       colors=colors[:1,:],
                        hatches=hatches,
-                       labels=taxon_labels[:2])
+                       labels=taxon_labels[:1])
 
 
     # Plot the rest, nicely with hatches and colors
     bottoms[_context, :] = _bot
-    ax, _ = stackbar(ax, theta, X[2:, _context,:],
+    ax, _ = stackbar(ax, theta, X[1:, _context,:],
                        width=width,
-                       colors=colors[2:],
+                       colors=colors[1:],
                        hatches=hatches,
-                       labels=taxon_labels[2:],
+                       labels=taxon_labels[1:],
                        bottom = bottoms[_context, :])
 
-    ax.set_rgrids( np.ceil(rlims[1:]), labels='' )
-    ax.set_thetagrids( theta*57.3, labels=clusters, fontsize=8)
+    ax.set_rgrids( rlims, labels="" )
+    ax.set_thetagrids( theta*57.3, labels=clusters, fontsize=7)
     ax.xaxis.grid(linewidth=0.1)
     ax.yaxis.grid(linewidth=0.2)
-    plt.title( contexts[_context])
+    plt.title( contexts[_context], {"fontsize" : 11}, pad=18)
 
-legend = plt.legend( fontsize=8)
+# ... place legend    
+plt.subplot(n_rows,n_cols, 2)
+legend = plt.legend(fontsize=7, ncol=3,
+                    loc="upper center", bbox_to_anchor=(0.5, -0.15))
 
-#... place legend
-ax = plt.subplot(1, n_ctxts+1, n_ctxts+1)
-plt.axis('off')
-legend.set_bbox_to_anchor( (2.1, 1.25) )
 
 verboseprint(f"The radial units are:")
 verboseprint(f"{np.ceil(rlims)}")
 
 # Save figure
-save_figure(HFigure, out_filename, overwrite=OVERWRITE, dpi=DPI )
+save_figure(HFigure, out_filename, overwrite=OVERWRITE, dpi=DPI,
+            bbox_inches='tight')
 
 
 

@@ -185,7 +185,7 @@ def check_mastertable(filename, save=False):
 
 FILENAME    = 'mastertable.tsv'
 GENE_NAME   = 'potF'
-LEVEL_NAME  = 'Species_SQM'
+LEVEL_NAME  = 'Species_GTDB'
 VERBOSE = True
 EXPORT_PLOT = True
 EXPORT_LEGACY = False

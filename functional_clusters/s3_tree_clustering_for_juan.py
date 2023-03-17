@@ -16,8 +16,8 @@ from Bio import Phylo
 FILENAME_ZSCORES = 'data_clade_enrichment_potF.npz'
 FILENAME_CLADE_DATA = 'data_clades_potF.npz'
 FILENAME_TREE = 'tree_potF_labelled.newick' 
-FILENAME_OUT ='para_juan.txt'                 # exporta por features el MRCA
-FILENAME_OUT3= 'para_juan_per_node.txt'       # exporta por nodo MRCA su bcode
+FILENAME_OUT ='para_juan_nuevo.txt'                 # exporta por features el MRCA
+FILENAME_OUT3= 'para_juan_per_node_nuevo.txt'       # exporta por nodo MRCA su bcode
 FILENAME_OUT2= 'data_nodes_sign_filtered.npz' # exporta los nodos MRCA
 
 
