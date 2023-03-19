@@ -8,14 +8,14 @@ Before running anything, be sure that you have a properly formatted `master_tabl
 - `Species_GTDB` is the species taxonomic level associated to the sequence,
 - `TPM` is the abundance in transcripts per million of the sequence.
 
-### Generating
+### Generating tensor data
 Open `generate_guild_tensor.py` and go past the function definitions to where initial variables are specified. Modify FILENAME, GENE_NAME and LEVEL_NAME according to your project. Remember that the master table needs to be in TSV format.
 
-If EXPORT_LEGACY is set to True, another file more "humanly readble" will be created in plain text to evaluate guild structure by taxon.
+If `EXPORT_LEGACY` is set to True, another file more "humanly readble" will be created in plain text to evaluate guild structure by taxon.
 
-If EXPORT_PLOT is True, then a nice plot will be saved that includes the empirical model relating the abundance and the diversity of a sequence in panel A, and in panel B it compares sequence importance before and after favoring diversity.
+If `EXPORT_PLOT` is True, then a nice plot will be saved that includes the empirical model relating the abundance and the diversity of a sequence in panel A, and in panel B it compares sequence importance before and after favoring diversity.
 
-It is advised that you keep VERBOSE set to True.
+It is advised that you keep `VERBOSE` set to True.
 
 The script will generate a TSV table that describes the guild tensor.
 
@@ -32,4 +32,4 @@ you can limit the number of taxons to be distinguished in the legend and with pa
 - `DISPLAY_KIND` : [Untested] This lets you choose between displaying those that contribute the most or those that contribute the least. This is relevant to study rare microbiomes. It can be set to either "common" or "rare.
 
 
-**IMPORTANT NOTE** Although in general sum(k_mnl) is different than sum(log10(k_mnl)) for the m-th cluster and n-th context, if MAX_TAXONS_SHOWN is sufficiently large the qualitative results are almost identical.
+**IMPORTANT NOTE** Although in general sum(k_mnl) is different than sum(log10(k_mnl)) for the m-th cluster and n-th context, if `MAX_TAXONS_SHOWN` is sufficiently large the qualitative results are almost identical.
