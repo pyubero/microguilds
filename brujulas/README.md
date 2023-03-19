@@ -9,7 +9,7 @@ Before running anything, be sure that you have a properly formatted `master_tabl
 - `TPM` is the abundance in transcripts per million of the sequence.
 
 ### Generating tensor data
-Open `generate_guild_tensor.py` and go past the function definitions to where initial variables are specified. Modify FILENAME, GENE_NAME and LEVEL_NAME according to your project. Remember that the master table needs to be in TSV format.
+Open `guild_tensor_generate.py` and go past the function definitions to where initial variables are specified. Modify FILENAME, GENE_NAME and LEVEL_NAME according to your project. Remember that the master table needs to be in TSV format.
 
 If `EXPORT_LEGACY` is set to True, another file more "humanly readble" will be created in plain text to evaluate guild structure by taxon.
 
@@ -20,7 +20,7 @@ It is advised that you keep `VERBOSE` set to True.
 The script will generate a TSV table that describes the guild tensor.
 
 ### Visualization
-Open `visualize_guild_tensor.py` get past function definitions and start tuning your plot. Here I will describe a few of the easily tunable parameters.
+Open `guild_tensor_visualize.py` get past function definitions and start tuning your plot. Here I will describe a few of the easily tunable parameters.
 
 - `MAX_TAXONS_SHOWN` : As the number of taxons in a metagenomic experiment is typically large,
 you can limit the number of taxons to be distinguished in the legend and with particular colors. The guild importance of taxons not shown is summed and displayed as Others. We also indicate the K value threshold that delimits shown taxons and others. It should be a positive integer.
