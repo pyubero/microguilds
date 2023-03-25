@@ -12,17 +12,6 @@ import guild_tensor_utils as gtutils
 from guild_tensor_utils import verboseprint
 
 
-def find_idx_of_elements(input_list, elements):
-    '''Returns the indices in input list of different elements.'''
-    output_idc = set([])
-
-    for elem in elements:
-        print(np.argwhere(np.array(input_list) == elem))
-        idc = np.argwhere(np.array(input_list) == elem)[:, 0]
-        output_idc = output_idc.union(set(idc))
-    return list(output_idc)
-
-
 # General variables
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
@@ -37,6 +26,8 @@ MAX_TAXONS_SHOWN = 25
 TAXONOMIC_ADVANTAGE = 0  # taxons advantage over worse identifiable taxons
 DISPLAY_KIND = "common"  # either common or rare
 CONTRIBUTION = "single"  # either single or summed
+PROJECTION = "polar"  # either polar, or rectilinear
+ORIENTATION = "horizontal"  # either horizontal or vertical
 
 # Styling options
 DPI = 300
@@ -55,14 +46,13 @@ FILENAME_OUT = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
 # ######################################################
 # ##################### LOAD DATA ######################
 df = pd.read_csv(FILENAME_IN, sep='\t', header=0)
-# ...
+
 taxons = df['Taxon'].unique()
 clusters = df['Cluster'].unique()
 data = [taxons, CONTEXTS, clusters]
-# ...
+n_taxons, n_ctxts, n_clusters = len(taxons), len(CONTEXTS), len(clusters)
+
 K = gtutils.from_df_to_ktensor(df, data, column="k-value").astype("float")
-# ...
-n_taxons, n_ctxts, n_clusters = K.shape
 
 verboseprint("Loaded data for:", VERBOSE)
 verboseprint(f"   {n_taxons:4d}\ttaxons", VERBOSE)
@@ -71,12 +61,9 @@ verboseprint(f"   {n_clusters:4d}\tclusters.", VERBOSE)
 
 # ######################################################
 # ################### ANALYZE DATA #####################
-# Find plottable DATA ##
-# contrib_per_taxon = np.sum(np.sum(K, axis=2), axis=1)
-
 # All UNASSIGNED taxons add to the class "Unassigned"
 # ... we compute the taxonomic scores
-idx_unassigned = find_idx_of_elements(taxons, UNASSIGNED)
+idx_unassigned = gtutils.find_idx_of_elements(taxons, UNASSIGNED)
 
 # All taxons in the top MAX_TAXONS_SHOWN add to the class "Show"
 _maxshown = np.clip(MAX_TAXONS_SHOWN, 0, n_taxons)
@@ -135,8 +122,7 @@ verboseprint("", VERBOSE)
 
 # General plotting properties
 # ... style properties and labels
-# clst_labels = [ 'F. '+intToRoman( _+1) for _ in range( n_clusters ) ]
-colors = plt.cm.tab20(np.linspace(0, 1, N_COLORS))
+colors = mpl.colormaps.get_cmap('tab20')(np.linspace(0, 1, N_COLORS))
 colors = np.concatenate(([COLOR_OTHERS, COLOR_UNASSIGNED], colors), axis=0)
 mpl.rcParams['hatch.linewidth'] = 0.4  # previous pdf hatch linewidth
 hatches = ['', '//////////', '..........']
@@ -160,22 +146,30 @@ maxX = np.max(np.max(X, axis=2), axis=1)  # maximum contribution per taxon
 
 theta = np.linspace(0.0, 2 * np.pi, n_clusters, endpoint=False)
 Dtheta = theta[1]-theta[0]
-# rlims = np.ceil(np.linspace(0, R_UPPER_MARGIN_REL*sumX.max(), 4))
 dr = np.round(R_UPPER_MARGIN_REL*sumX.max()/4)
 rlims = np.arange(0, 1+np.ceil(R_UPPER_MARGIN_REL*sumX.max()/dr)*dr, dr)
 width = BAR_WIDTH_REL*Dtheta
+n_cols, n_rows = 0, 0
 
+if ORIENTATION == "horizontal":
+    n_cols = int(np.clip(n_ctxts+1, 1, 3))
+    n_rows = int(np.ceil((n_ctxts+1) / 4))
+    title_padding = 18
+    FIGSIZE[1] = FIGSIZE[1] * n_rows
 
-n_cols = int(np.clip(n_ctxts+1, 1, 3))
-n_rows = int(np.ceil((n_ctxts+1) / 4))
-FIGSIZE[1] = FIGSIZE[1] * n_rows
+elif ORIENTATION == "vertical":
+    n_rows = int(np.clip(n_ctxts+1, 1, 3))
+    n_cols = int(np.ceil((n_ctxts+1) / 4))
+    title_padding = 0
+    FIGSIZE[0] = FIGSIZE[0] * n_rows
+
 FIGSIZE = np.array(FIGSIZE) / 2.3
 
 HFigure = plt.figure(figsize=FIGSIZE, dpi=DPI)
 bottoms = np.zeros((n_ctxts, n_clusters))
 
 for _context in range(n_ctxts):
-    ax = plt.subplot(n_rows, n_cols, _context+1, projection='polar')
+    ax = plt.subplot(n_rows, n_cols, _context+1, projection=PROJECTION)
 
     # Plot Others and Unassigned
     ax, _bot = gtutils.stackbar(ax, theta, X[:2, _context, :],
@@ -193,21 +187,40 @@ for _context in range(n_ctxts):
                              labels=taxon_labels[2:],
                              bottom=bottoms[_context, :])
 
-    ax.set_rgrids(rlims, labels="")
-    ax.set_thetagrids(theta*57.3, labels=clusters, fontsize=7)
+    if PROJECTION == "polar":
+        ax.set_rgrids(rlims, labels="")
+        ax.set_thetagrids(theta*57.3, labels=clusters, fontsize=7)
+        ax.tick_params(pad=-3)
+
+    elif PROJECTION == "rectilinear":
+        if _context == 0:
+            ax.set_ylabel("K-value (log$_{10}$)")
+        ax.set_yticks(rlims)
+        ax.set_xticks(range(n_clusters), labels=clusters, fontsize=7)
+        ax.grid(True)
+
     ax.xaxis.grid(linewidth=0.1)
     ax.yaxis.grid(linewidth=0.2)
-    ax.tick_params(pad=-3)
     ax.set_axisbelow(True)
-    ax.set_title(CONTEXTS[_context], {"fontsize": 11}, pad=18)
+    ax.set_title(CONTEXTS[_context], {"fontsize": 11}, pad=title_padding)
 
 # ... place legend
+kwgs_legend = {}
+if ORIENTATION == "horizontal":
+    kwgs_legend = {
+        "loc": "upper center",
+        "ncol": 3,
+        "bbox_to_anchor": (0.5, -0.15)
+    }
+elif ORIENTATION == "vertical":
+    kwgs_legend = {
+        "loc": "center left",
+        "ncol": 1,
+        "bbox_to_anchor": (1.2, 0.5)
+    }
+
 plt.subplot(n_rows, n_cols, 2)
-legend = plt.legend(fontsize=7,
-                    ncol=3,
-                    loc="upper center",
-                    bbox_to_anchor=(0.5, -0.15)
-                    )
+legend = plt.legend(fontsize=7, **kwgs_legend)
 
 # Adjust horizontal padding
 plt.subplots_adjust(wspace=0.35)
@@ -221,4 +234,4 @@ gtutils.save_figure(HFigure, FILENAME_OUT,
 
 # Final print
 verboseprint("The radial units are:", VERBOSE)
-verboseprint(f"{np.ceil(rlims)}", VERBOSE)
+verboseprint(f"{rlims}", VERBOSE)

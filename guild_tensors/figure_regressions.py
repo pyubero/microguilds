@@ -5,16 +5,14 @@ Created on Tue Jul 19 11:47:36 2022
 @author: logslab
 """
 import numpy as np
-import pandas as pd
-from sklearn.metrics import r2_score
 from matplotlib import colormaps as cm
 from matplotlib import pyplot as plt
 import guild_tensor_utils as gtutils
-from guild_tensor_utils import verbosebar, verboseprint
+from guild_tensor_utils import verboseprint
 
 
 FILENAME = 'mastertable.tsv'
-GENE_NAMES = ["amoA", "hzsA", "nrt", "potF"]
+GENE_NAMES = ["amoA", "hzsA", "nirK", "potF"]
 LEVEL_NAME = 'Species_GTDB'
 VERBOSE = True
 EXPORT_PLOT = True
@@ -22,79 +20,37 @@ EXPORT_LEGACY = False
 
 FIGSIZE = (12, 4)
 DPI = 300
-COLORS = cm.get_cmap("tab10")(np.linspace(0, 256, 200, dtype='int'))
+COLORS = cm.get_cmap("tab10")(np.linspace(0, 1, 10))
 FILENAME_OUT = "Figure_regression.png"
 
 # Import mastertable
 master_table = gtutils.check_mastertable(FILENAME, True)
-verboseprint(f"Loaded mastertable with {len(master_table)} rows.")
+verboseprint(f"Loaded mastertable with {len(master_table)} rows.", VERBOSE)
 
 # Validate master table
-
 assert LEVEL_NAME in master_table.columns
 assert "gene_fun" in master_table.columns
 assert "cluster_id" in master_table.columns
 
-# Standardize taxonomic column name
-master_table = master_table.rename(
-    columns={LEVEL_NAME: "taxonomic_classification_level"}
-    )
+
+def linear_function(x_values, slope, offset):
+    '''Returns y = slope * x + offset'''
+    return slope * x_values + offset
+
 
 # Create figure
 H = plt.figure(figsize=FIGSIZE, dpi=DPI)
-
-
 for gg, gene in enumerate(GENE_NAMES):
 
-    # Filter by gene name
-    gene_table = master_table[master_table["gene_fun"] == gene]
-    verboseprint(f"Subtable for gene *{gene}* has {len(gene_table)} rows.")
+    # Compute adu_table
+    adu_table = gtutils.build_adu_table(master_table,
+                                        gene,
+                                        LEVEL_NAME,
+                                        force_build=False)
 
-    # Find clusters in gene subtable
-    clusters = gene_table['cluster_id'].unique()
-    n_clusters = len(clusters)
-
-    # Find taxons in gene subtable
-    taxons = gene_table["taxonomic_classification_level"].unique()
-    n_taxons = len(taxons)
-
-    # Find contexts in gene subtable
-    contexts = gene_table["Context"].unique()
-    n_contexts = len(contexts)
-
-    # Process data
-    idc = np.array(
-        np.meshgrid(range(n_taxons), range(n_contexts), range(n_clusters))
-        ).T.reshape(-1, 3)
-
-    # Define accumulator
-    adu_table = pd.DataFrame(columns=["Gene", "Taxon", "Context", "Cluster",
-                                      "Abundance", "Diversity", "Univocity"])
-    data = [taxons, contexts, clusters]
-
-    for j_tx, j_ct, j_cl in verbosebar(idc):
-        # Compute K value
-        _ab, _dv, _un = gtutils.compute_adu(gene_table,
-                                            data,
-                                            [j_tx, j_ct, j_cl])
-        new_row = pd.Series(
-            {"Gene": gene,
-             "Taxon": taxons[j_tx],
-             "Context": contexts[j_ct],
-             "Cluster": clusters[j_cl],
-             "Abundance": _ab,
-             "Diversity": _dv,
-             "Univocity": _un})
-
-        adu_table = pd.concat([adu_table, new_row.to_frame().T],
-                              ignore_index=True)
-
-    #############
-    # Regression
-    # ... maybe this should be refactored aka put into functions
-    def linear_function(x_values, slope, offset):
-        '''Returns y = slope * x + offset'''
-        return slope * x_values + offset
+    # Linear regression
+    gamma, c, r2 = gtutils.compute_gamma(adu_table, VERBOSE)
+    print(f"Gene: {gene} with R2={r2:0.2f}")
 
     # Load data to regress
     idx = adu_table["Abundance"] > 0
@@ -102,15 +58,12 @@ for gg, gene in enumerate(GENE_NAMES):
     y = adu_table["Diversity"][idx].to_numpy().astype("float")
 
     # Transform data to loglog
-    ABUNDANCE_THOLD = 1e-10
-    logx = np.log10(ABUNDANCE_THOLD + x)
-    logy = np.log10(ABUNDANCE_THOLD + y)
+    LOG_THRESHOLD = 1e-10
+    logx = np.log10(LOG_THRESHOLD + x)
+    logy = np.log10(LOG_THRESHOLD + y)
     logxx = np.sort(logx)
-    # Linear regression
-    gamma, c = gtutils.bivariate_regression(logx, logy)
-    r2 = r2_score(logy, logx * gamma + c)
-    print(f"Gene: {gene} with R2={r2:0.2f}")
 
+    # Plot
     label = fr"{gene}, $\gamma$={gamma:.2f}"
 
     ax = plt.subplot(1, 2, 1)
@@ -124,7 +77,7 @@ ax.legend(framealpha=1.0)
 
 ax = plt.subplot(1, 2, 2)
 delta = 10**logy / np.clip(10**linear_function(logx, gamma, c), 1, np.inf)
-logK = np.log10(ABUNDANCE_THOLD + x*delta)
+logK = np.log10(LOG_THRESHOLD + x*delta)
 
 ax.plot(logx, logK, '.', ms=3, color=COLORS[gg], label=f"{gene}")
 ax.plot(logx, logx, 'k', lw=0.5)

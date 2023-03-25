@@ -1,7 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jul 19 11:47:36 2022
+
+@author: logslab
+"""
 import os
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
+from sklearn.metrics import r2_score
 
 
 def verboseprint(msg, verbose=True, condition=True):
@@ -61,7 +68,7 @@ def compute_adu(df, inputs, loc):
     return abundance, diversity, univocity
 
 
-def export_legacy(df, filename):
+def export_legacy(df, filename, column="k-value"):
     '''Export data as a series of k-matrices in plain csv as in v0'''
     gene = df["Gene"].iloc[0]
     taxons = df["Taxon"].unique()
@@ -83,7 +90,7 @@ def export_legacy(df, filename):
                 (df["Cluster"] == clusters[j_cl])
         assert sum(idx) == 1
 
-        Kmat[j_tx, j_ct, j_cl] = df[idx]["k-value"]
+        Kmat[j_tx, j_ct, j_cl] = df[idx][column]
 
     # Prepare output file
     with open(filename, 'w+', encoding="utf-8") as file:
@@ -158,7 +165,7 @@ def hex_to_rgb(value):
     return tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
 
-def intToRoman(num):
+def int_to_roman(num):
     ''' Converts an integer to the roman number system. '''
     m = ["", "M", "MM", "MMM"]
     c = ["", "C", "CC", "CCC", "CD", "D",
@@ -244,9 +251,9 @@ def score_taxon(taxon: str):
     else:
         has_species = False
 
-    _is_UBA = (len(_tx) > 0) and (len(_tx[0] > 3)) and (_tx[0][3:6] == "UBA")
-    _is_GCA = (len(_tx) > 0) and (len(_tx[0] > 3)) and (_tx[0][3:6] == "GCA")
-    if _is_UBA or _is_GCA:
+    is_UBA = (len(_tx) > 0) and (len(_tx[0] > 3)) and (_tx[0][3:6] == "UBA")
+    is_GCA = (len(_tx) > 0) and (len(_tx[0] > 3)) and (_tx[0][3:6] == "GCA")
+    if is_UBA or is_GCA:
         has_genus = True
     else:
         has_genus = False
@@ -350,8 +357,8 @@ def do_not_overwrite_filepath(filepath):
     while os.path.exists(new_filepath):
         idx += 1
         split = filepath.split('.')
-        fp = '.'.join(split[:-1])
-        new_filepath = f"{fp}({idx}).{split[-1]}"
+        filepath_wo_extension = '.'.join(split[:-1])
+        new_filepath = f"{filepath_wo_extension}({idx}).{split[-1]}"
 
     return new_filepath
 
@@ -362,4 +369,121 @@ def save_figure(hfigure, filepath, *args, overwrite=True, **kwargs):
         filepath = do_not_overwrite_filepath(filepath)
 
     hfigure.savefig(filepath, *args, **kwargs)
-    return
+
+
+def find_idx_of_elements(input_list, elements):
+    '''Returns the indices in input list of different elements.'''
+    output_idc = set([])
+
+    for elem in elements:
+        idc = np.argwhere(np.array(input_list) == elem)[:, 0]
+        output_idc = output_idc.union(set(idc))
+    return list(output_idc)
+
+
+def build_adu_table(master_table, gene, taxonomic_level,
+                    force_build=False, verbose=True):
+    '''Builds an adu table WITHOUT K from a master_table.
+    It loads a table if it is found in the cwd with the standard name.'''
+
+    # Load file if it already exists
+    filename_in = f'kvalues_{gene}_{taxonomic_level}.tsv'
+    if (not force_build) and (os.path.isfile(filename_in)):
+        adu_table = pd.read_csv(filename_in, sep='\t', header=0)
+
+        ntaxons = len(adu_table['Taxon'].unique())
+        nclusters = len(adu_table['Cluster'].unique())
+        ncontexts = len(adu_table["Context"].unique())
+
+        verboseprint("Loaded data for:", verbose)
+        verboseprint(f"   {ntaxons:4d}\ttaxons", verbose)
+        verboseprint(f"   {ncontexts:4d}\tcontexts", verbose)
+        verboseprint(f"   {nclusters:4d}\tclusters.", verbose)
+        return adu_table
+
+    # Standardize taxonomic column name
+    master_table = master_table.rename(
+        columns={taxonomic_level: "taxonomic_classification_level"}
+        )
+
+    # Filter by gene name
+    gene_table = master_table[master_table["gene_fun"] == gene]
+    verboseprint(f"Subtable for gene *{gene}* has {len(gene_table)} rows.")
+
+    # Find clusters in gene subtable
+    clusters = gene_table['cluster_id'].unique()
+    n_clusters = len(clusters)
+
+    # Find taxons in gene subtable
+    taxons = gene_table["taxonomic_classification_level"].unique()
+    n_taxons = len(taxons)
+
+    # Find contexts in gene subtable
+    contexts = gene_table["Context"].unique()
+    n_contexts = len(contexts)
+
+    # Print some output
+    verboseprint(f"Found {n_clusters} clusters in gene subtable:", verbose)
+    _ = [verboseprint(f"\t{clustername}", verbose) for clustername in clusters]
+    verboseprint(f"""Found {n_taxons} taxonomic levels
+                 in column *{taxonomic_level}*.""", verbose)
+    verboseprint(f"Found {n_contexts} contexts in gene subtable.", verbose)
+    _ = [verboseprint(f"\t{ctxt}", verbose) for ctxt in contexts]
+    verboseprint("", verbose)
+
+    # Process data
+    idc = np.array(
+        np.meshgrid(range(n_taxons), range(n_contexts), range(n_clusters))
+        ).T.reshape(-1, 3)
+
+    # Define accumulator
+    adu_table = pd.DataFrame(columns=["Gene", "Taxon", "Context", "Cluster",
+                                      "Abundance", "Diversity", "Univocity"])
+    data = [taxons, contexts, clusters]
+
+    for j_tx, j_ct, j_cl in verbosebar(idc):
+        # Compute K value
+        _ab, _dv, _un = compute_adu(gene_table,
+                                    data,
+                                    [j_tx, j_ct, j_cl])
+        new_row = pd.Series(
+            {"Gene": gene,
+             "Taxon": taxons[j_tx],
+             "Context": contexts[j_ct],
+             "Cluster": clusters[j_cl],
+             "Abundance": _ab,
+             "Diversity": _dv,
+             "Univocity": _un})
+
+        adu_table = pd.concat([adu_table, new_row.to_frame().T],
+                              ignore_index=True)
+
+    return adu_table
+
+
+def compute_gamma(adu_table, verbose=True):
+    '''Computes the bivariate regression to the log-transformed data
+    of abundance and diversity from the adu_table to compute k-values.'''
+    log_threshold = 1e-10
+
+    # Load data to regress
+    idx = adu_table["Abundance"] > 0
+    x = adu_table["Abundance"][idx].to_numpy().astype("float")
+    y = adu_table["Diversity"][idx].to_numpy().astype("float")
+
+    # Transform data to loglog
+    logx = np.log10(log_threshold + x)
+    logy = np.log10(log_threshold + y)
+
+    # Linear regression
+    gamma, offset = bivariate_regression(logx, logy)
+    r2 = r2_score(logy, logx * gamma + offset)
+
+    # Print results
+    verboseprint("Bivariate loglog regression results:", verbose)
+    verboseprint(f"gamma = {gamma}", verbose)
+    verboseprint(f"c = {offset}", verbose)
+    verboseprint(f"R2 = {r2}", verbose)
+    verboseprint("", verbose)
+
+    return gamma, offset, r2

@@ -1,0 +1,232 @@
+Gene	Taxon	Context	Cluster	Abundance	Diversity	Univocity	delta	k-value
+amoA	g__Cycloclasticus	Epipelagic	Cyclo1	0.614	2	1.0	1.7260258248518352	1.0597798564590268
+amoA	g__Cycloclasticus	Mesopelagic	Cyclo1	0.368	1	1.0	1.0000000001	0.3680000000368
+amoA	g__Cycloclasticus	Bathypelagic	Cyclo1	0.509	1	1.0	0.9355048896889309	0.47617198885166584
+amoA	s__Oceanococcus atlanticus	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__	Epipelagic	Cyclo1	0.307	1	1.0	1.0000000001	0.3070000000307
+amoA	s__	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	Unspecified	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	Unspecified	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	Cyclo1	2.171	1	1.0	0.5013398175038067	1.0884087438007644
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	Cyclo1	1.544	1	1.0	0.5804792481535334	0.8962599591490555
+amoA	f__Nitrosopumilaceae	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	Cyclo1	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	putative_MBAE	4.061999999999999	4	1.0	1.531725691503669	6.221869758887903
+amoA	s__Oceanococcus atlanticus	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__	Mesopelagic	putative_MBAE	0.338	1	1.0	1.0000000001	0.33800000003380004
+amoA	s__	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	Unspecified	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	Unspecified	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	putative_MBAE	2.483	1	1.0	0.47320828825805655	1.1749761797447544
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	putative_MBAE	1.433	1	1.0	0.5994061145611719	0.8589489621661593
+amoA	f__Nitrosopumilaceae	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	putative_MBAE	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Mesopelagic	AOA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	AOA	14.127	3	1.0	0.6721181456283719	9.49501304329201
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	AOA	23.252000000000002	5	1.0	0.9041168994261332	21.02252614545645
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	AOA	11.780000000000001	4	1.0	0.9689875940070972	11.414673857403606
+amoA	s__	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__	Mesopelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	AOA	19.331	4	1.0	0.7830835292472963	15.137787703879484
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	AOA	2.386	1	1.0	0.4813878323262774	1.148591367930498
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	AOA	650.7130000000002	41	1.0	1.7691709893760135	1151.2225620098343
+amoA	Unspecified	Bathypelagic	AOA	334.174	24	1.0	1.3793175080608626	460.9320489387307
+amoA	s__Polycyclovorans sp002706265	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	AOA	126.108	4	1.0	0.3495650179623425	44.082945285195095
+amoA	f__Nitrosopumilaceae	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	AOA	0.931	2	1.0	1.4431125230303683	1.343537758941273
+amoA	s__UBA213 sp002713325	Bathypelagic	AOA	0.299	1	1.0	1.0000000001	0.2990000000299
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	AOA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	AOA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__	Mesopelagic	bmoA	0.232	1	1.0	1.0000000001	0.2320000000232
+amoA	s__	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	bmoA	38.862	14	1.0	2.0297895204308727	78.88168034298458
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	bmoA	18.743000000000002	6	1.0	1.1903336670097024	22.310423920762855
+amoA	Unspecified	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	bmoA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__	Mesopelagic	Incertae_sedis	1.041	3	1.0	2.0631605138651343	2.147750094933605
+amoA	s__	Bathypelagic	Incertae_sedis	0.3	1	1.0	1.0000000001	0.30000000003
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	Unspecified	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	Unspecified	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	Incertae_sedis	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__	Mesopelagic	A6	0.353	1	1.0	1.0000000001	0.35300000003529997
+amoA	s__	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	Unspecified	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	Unspecified	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	A6	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	A6	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	g__Cycloclasticus	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Oceanococcus atlanticus	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus brevis	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Nitrosopelagicus sp001627235	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Arctic96AD-7 sp002082305	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	Unspecified	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__Polycyclovorans sp002706265	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	f__Nitrosopumilaceae	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__UBA213 sp002713325	Bathypelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Epipelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Mesopelagic	Gamma_pmoA	0	0	1.0	0.0	0.0
+amoA	s__OPU3-GD-OMZ sp001901525	Bathypelagic	Gamma_pmoA	0.237	1	1.0	1.0000000001	0.2370000000237

@@ -34,20 +34,18 @@ LEVEL_NAME: str
     Taxonomic level to generate K values, eg, Species_GTDB. It NEEDS to be the
     name of a column of master table.
 """
-import pandas as pd
 import numpy as np
-from sklearn.metrics import r2_score
 from matplotlib import pyplot as plt
 import guild_tensor_utils as gtutils
-from guild_tensor_utils import verbosebar, verboseprint
+from guild_tensor_utils import verboseprint
 
 
 FILENAME = 'mastertable.tsv'
-GENE_NAME = 'amt'
+GENE_NAME = 'amoA'
 LEVEL_NAME = 'Species_GTDB'
 VERBOSE = True
 EXPORT_PLOT = True
-EXPORT_LEGACY = False
+EXPORT_LEGACY = True
 # ...
 out_filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_plot = f"loglog_regression_{GENE_NAME}_{LEVEL_NAME}.png"
@@ -63,104 +61,31 @@ assert "gene_fun" in master_table.columns
 assert GENE_NAME in master_table["gene_fun"].to_list()
 assert "cluster_id" in master_table.columns
 
-# Standardize taxonomic column name
-master_table = master_table.rename(
-    columns={LEVEL_NAME: "taxonomic_classification_level"}
-    )
-
-# Filter by gene name
-gene_table = master_table[master_table["gene_fun"] == GENE_NAME]
-verboseprint(f"Subtable for gene *{GENE_NAME}* has {len(gene_table)} rows.")
-
-# Find clusters in gene subtable
-clusters = gene_table['cluster_id'].unique()
-n_clusters = len(clusters)
-
-# Find taxons in gene subtable
-taxons = gene_table["taxonomic_classification_level"].unique()
-n_taxons = len(taxons)
-
-# Find contexts in gene subtable
-contexts = gene_table["Context"].unique()
-n_contexts = len(contexts)
-
-# Print some output
-verboseprint(f"Found {n_clusters} clusters in gene subtable:", VERBOSE)
-_ = [verboseprint(f"\t{clustername}", VERBOSE) for clustername in clusters]
-verboseprint(f"Found {n_taxons} taxonomic levels in column *{LEVEL_NAME}*.",
-             VERBOSE)
-verboseprint(f"Found {n_contexts} contexts in gene subtable.", VERBOSE)
-_ = [verboseprint(f"\t{ctxt}", VERBOSE) for ctxt in contexts]
-verboseprint("", VERBOSE)
-
-# Process data
-idc = np.array(
-    np.meshgrid(range(n_taxons), range(n_contexts), range(n_clusters))
-    ).T.reshape(-1, 3)
-
-# ... included keeps track of included and missing samples
-included = gene_table["taxonomic_classification_level"] == np.random.rand()
-
-# Define accumulator
-adu_table = pd.DataFrame(columns=["Gene", "Taxon", "Context", "Cluster",
-                                  "Abundance", "Diversity", "Univocity"])
-data = [taxons, contexts, clusters]
-
-for j_tx, j_ct, j_cl in verbosebar(idc):
-    # Compute K value
-    _ab, _dv, _un = gtutils.compute_adu(gene_table, data, [j_tx, j_ct, j_cl])
-    new_row = pd.Series(
-        {"Gene": GENE_NAME,
-         "Taxon": taxons[j_tx],
-         "Context": contexts[j_ct],
-         "Cluster": clusters[j_cl],
-         "Abundance": _ab,
-         "Diversity": _dv,
-         "Univocity": _un})
-
-    adu_table = pd.concat([adu_table, new_row.to_frame().T], ignore_index=True)
-
-    # To keep track of included and missing samples
-    _id = (gene_table["taxonomic_classification_level"] == taxons[j_tx]) & \
-          (gene_table["Context"] == contexts[j_ct]) & \
-          (gene_table["cluster_id"] == clusters[j_cl])
-    included = included | _id
-
-verboseprint(f"\nIncluded {sum(included)} out of {len(gene_table)} rows.",
-             VERBOSE)
-verboseprint(f"The sum of diversities is {sum(adu_table['Diversity'])}.",
-             VERBOSE)
-verboseprint("", VERBOSE)
+# Compute adu_table
+adu_table = gtutils.build_adu_table(master_table,
+                                    GENE_NAME,
+                                    LEVEL_NAME,
+                                    force_build=True)
 
 
-#############
-# Regression
-# ... maybe this should be refactored aka put into functions
+# Linear regression
 def linear_function(x_values, slope, offset):
     '''Returns y = slope * x + offset'''
     return slope * x_values + offset
 
 
-# Load data to regress
+gamma, c, r2 = gtutils.compute_gamma(adu_table, VERBOSE)
+print(f"Gene: {GENE_NAME} with R2={r2:0.2f}")
+
+# Load data of regression
 idx = adu_table["Abundance"] > 0
 x = adu_table["Abundance"][idx].to_numpy().astype("float")
 y = adu_table["Diversity"][idx].to_numpy().astype("float")
 
 # Transform data to loglog
-ABUNDANCE_THOLD = 1e-10
-logx = np.log10(ABUNDANCE_THOLD + x)
-logy = np.log10(ABUNDANCE_THOLD + y)
-
-# Linear regression
-gamma, c = gtutils.bivariate_regression(logx, logy)
-r2 = r2_score(logy, logx * gamma + c)
-
-# Print results
-verboseprint("Bivariate loglog regression results:", VERBOSE)
-verboseprint(f"gamma = {gamma}", VERBOSE)
-verboseprint(f"c = {c}", VERBOSE)
-verboseprint(f"R2 = {r2}", VERBOSE)
-verboseprint("", VERBOSE)
+log_threshold = 1e-10
+logx = np.log10(log_threshold + x)
+logy = np.log10(log_threshold + y)
 
 # Compute correction factor delta = d_obs/d_exp
 delta = 10**logy / np.clip(10**linear_function(logx, gamma, c), 1, np.inf)
@@ -201,4 +126,4 @@ if EXPORT_PLOT:
 
 if EXPORT_LEGACY:
     _filepath = f"legacy_kMatrixPerTaxon_{GENE_NAME}_{LEVEL_NAME}.csv"
-    gtutils.export_legacy(adu_table, _filepath)
+    gtutils.export_legacy(adu_table, _filepath, column="Diversity")
