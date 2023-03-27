@@ -50,10 +50,11 @@ def bin_count(array):
     return np.array([np.sum(array == value) for value in unique_values])
 
 
-FILENAME_TREE = 'tree_potF.newick'
+GENE = "16S"
+FILENAME_TREE = f'tree_{GENE}_new.newick'
 FILENAME_ENV_DATA = 'environmental_data.csv'
-FILENAME_OUT = 'data_enrichment_potF.npz'
-MCMAX = 1999  # 999 takes 220s; 99 takes 30s
+FILENAME_OUT = f'data_enrichment_{GENE}.npz'
+MCMAX = 99  # 999 takes 220s; 99 takes 30s
 VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
@@ -79,7 +80,6 @@ NCLADES = len(clade_ids)
 CLADE_NLEAFS = np.array([len(leafs) for leafs in clade_lfs])
 
 # Declare accumulators
-# PVALS = np.zeros((nclades, NFEATURES))*np.nan
 FEATURES = np.zeros((NLEAFS, NFEATURES))*np.nan
 ZSCORES = np.zeros((NCLADES, NFEATURES))*np.nan
 UNIVOCITY = np.zeros((NCLADES,))*np.nan
@@ -88,26 +88,15 @@ UNIVOCITY = np.zeros((NCLADES,))*np.nan
 GENUS = np.array([fcutils.get_genus(name) for name in leaf_names])
 SPECIES = np.array([fcutils.get_species(name) for name in leaf_names])
 
-# Uncomment for recA
-# Create dictionary
-# acc2names = {}
-# with open('seq_rplB_std.fasta','r') as file:
-#     for line in file.readlines():
-#         if line[0]=='>':
-#             line = line.replace('>','').split(' ')
-#             accession = line[0]
-#             name = ' '.join( line[1:3])
-#             acc2names.update( {accession : name} )
-# GENUS   = np.array( [acc2names[name].split(' ')[0] for name in leaf_names] )
-# SPECIES = np.array( [acc2names[name].split(' ')[1] for name in leaf_names] )
-
 
 # Fill feature matrix of the organisms found in the tree
+counter = 0
 for idx_sp, species in tqdm(enumerate(SPECIES_NAMES)):
     _speacies_name = species.split(' ')
     for idx_leaf, leaf in enumerate(leaf_names):
         # If "species" is matched to the tree "leaf"
         if (_speacies_name[0] in leaf) and (_speacies_name[1] in leaf):
+            counter += 1
             FEATURES[idx_leaf, :] = FEATURES_SPECIES[idx_sp, :]
 
         # Uncomment this when analysing recA data
@@ -121,8 +110,9 @@ verboseprint(f'Data obtained for {_not_missing_data} tree entries.', VERBOSE)
 verboseprint(f'Data missing  for {_missing_data} tree entries.', VERBOSE)
 
 # Uncomment to print missing species <- UNAVAILABLE
-# idx_missing = np.argwhere( np.all( np.isnan(F), axis=1))[:,0]
-# _=[print('  -%s' % acc2names[ leaf_names[_] ]) for _ in idx_missing]
+idx_missing = np.argwhere(np.all(np.isnan(FEATURES), axis=1))[:,0]
+_ = [verboseprint(f"  -[{_:4d}] {GENUS[_]} {SPECIES[_]}", VERBOSE)
+     for _ in idx_missing]
 
 for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
     # Compute true observed values for each feature
