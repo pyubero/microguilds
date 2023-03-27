@@ -78,10 +78,10 @@ def accession_to_taxoninfo(accession, db):
     return final[:-1]
 
 
-FILENAME_IN = "tree_rplB.newick"
-FILENAME_OUT = "tree_rplB_new.newick"
+FILENAME_IN = "tree_rplB_unlabeled.newick"
+FILENAME_OUT = "tree_rplB.newick"
 TREETYPE = "newick"
-DATABASE = "protein"  # either protein or nucleotide
+DATABASE = "protein"  # either protein (if rplB) or nucleotide (if 16S)
 
 
 TREE = Phylo.read(FILENAME_IN, TREETYPE)

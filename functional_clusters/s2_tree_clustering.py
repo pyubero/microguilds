@@ -8,14 +8,14 @@ import numpy as np
 from functional_clustering_utils import verboseprint
 import functional_clustering_utils as fcutils
 
-VERBOSE = True
-FILENAME_ENRICHMENT = 'data_enrichment_potF.npz'
-FILENAME_CLADE_DATA = 'data_clades_potF.npz'
-FILENAME_TREE = 'tree_potF.newick'
+GENE = "rplB"
+FILENAME_ENRICHMENT = f'data_enrichment_{GENE}.npz'
+FILENAME_CLADE_DATA = f'data_clades_{GENE}.npz'
+FILENAME_TREE = f'tree_{GENE}.newick'
 # ...
-FILENAME_OUT = 'significant_nodes.tsv'  # exporta por nodo MRCA su bcode
-FILENAME_NPZ = 'significant_nodes.npz'  # in numpy format
-
+FILENAME_OUT = f'significant_nodes_{GENE}.tsv'  # exporta por nodo su bcode
+FILENAME_NPZ = f'significant_nodes_{GENE}.npz'  # in numpy format
+VERBOSE = True
 # Accumulators
 Z_THRESHOLD = 3
 SIGNIFICANT = []
@@ -25,7 +25,9 @@ SIGNIFICANT = []
 ADJACENCY = fcutils.get_adjacency_matrix(FILENAME_TREE)
 
 # Load clade data
-data = fcutils.get_clade_data(FILENAME_TREE, treetype="newick")
+data = fcutils.get_clade_data(FILENAME_TREE,
+                              treetype="newick",
+                              filename_out=FILENAME_CLADE_DATA)
 clade_ids, clade_lfs, clade_dpt, leaf_names = data
 # ...
 CLADE_NLEAFS = np.array([len(leafs) for leafs in clade_lfs])
@@ -104,4 +106,4 @@ with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
 
 # Export numpy file
 np.savez(FILENAME_NPZ, significant_nodes=np.array(SIGNIFICANT, dtype=object))
-verboseprint(f"{FILENAME_NPZ} saved.", VERBOSE)
+verboseprint(f"\n{FILENAME_NPZ} saved.", VERBOSE)

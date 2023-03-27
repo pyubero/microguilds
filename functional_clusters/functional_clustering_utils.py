@@ -37,6 +37,11 @@ def create_temporal_folder():
 def get_clade_data(filename, treetype="newick", filename_out=None):
     '''Reads a phylogenetic tree and extracts relevant data from clades,
     which is how we call internal nodes, as opposed to leafs (external)'''
+
+    # If FILENAME_OUT already exists, then simply load it.
+    if isinstance(filename_out, str) and os.path.exists(filename_out):
+        return load_clade_data(filename_out)
+
     # Import tree
     tree = Phylo.read(filename, treetype)
     depths = tree.depths()
@@ -61,13 +66,13 @@ def get_clade_data(filename, treetype="newick", filename_out=None):
 
     if filename_out is not None:
         np.savez(filename_out,
-                 leaf_names=np.array(leaf_names),
+                 leaf_names=np.array(leaf_names, dtype=object),
                  clade_ids=np.array(clade_ids),
-                 clade_lfs=np.array(clade_lfs),
+                 clade_lfs=np.array(clade_lfs, dtype=object),
                  clade_dpt=np.array(clade_dpt))
-        print(f"Data exported to {filename_out}.")
+        print(f"\nData exported to {filename_out}.")
 
-    print(f"Data loaded from {filename}.")
+    print(f"\nData loaded from {filename}.")
     print(f"Found data for > {len(leaf_names)} leafs,")
     print(f"               > {len(clade_ids)} internal nodes.")
 
@@ -82,10 +87,10 @@ def load_clade_data(filename):
     clade_lfs = data['clade_lfs']
     clade_dpt = data['clade_dpt']
 
-    print(f"Data loaded from {filename}.")
+    print(f"\nData loaded from {filename}.")
     print(f"Found data for > {len(leaf_names)} leafs,")
     print(f"               > {len(clade_ids)} internal nodes.")
-    return leaf_names, clade_ids, clade_lfs, clade_dpt
+    return clade_ids, clade_lfs, clade_dpt, leaf_names
 
 
 def get_species(name):
@@ -98,6 +103,8 @@ def get_species(name):
     g_Pseudomonas_F_
     s_Pseudomonas_F_alcaligenes <--- would get this tag
     '''
+    if "_s_" not in name:
+        return None
     sp_name = name.split('_s_')[-1]
     if sp_name == '':
         # print('Species name not found.')

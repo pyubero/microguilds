@@ -12,34 +12,17 @@ from matplotlib import pyplot as plt
 from functional_clustering_utils import verboseprint
 import functional_clustering_utils as fcutils
 
-# def accession_to_name(query, fastafile):
-#     with open(fastafile,'r') as file:
-#         for line in file.readlines():
-#             if np.all( [ _ in line for _ in query ]):
-#                 return line
-#     return None
 
-
-# # Create dictionary
-# acc2names = {}
-# with open('seq_recA_std.fasta','r') as file:
-#     for line in file.readlines():
-#         if line[0]=='>':
-#             line = line.replace('>','').split(' ')
-#             accession = line[0]
-#             name = ' '.join( line[1:3])
-#             acc2names.update( {accession : name} )
-
-def entropy(f):
+def entropy(frequencies):
     '''Computes the entropy of a categorical histogram.'''
-    f = np.array(f)
-    idc = np.argwhere(f > 0)[:, 0]
+    frequencies = np.array(frequencies)
+    idc = np.argwhere(frequencies > 0)[:, 0]
 
     # Normalize ocurrences to probabilities
-    p = f[idc]/np.sum(f[idc])
+    p = frequencies[idc]/np.sum(frequencies[idc])
 
     # Return entropy
-    _entropy = np.zeros(f.shape)
+    _entropy = np.zeros(frequencies.shape)
     _entropy[idc] = -p*np.log(p)
     return np.sum(_entropy)
 
@@ -51,12 +34,13 @@ def bin_count(array):
 
 
 GENE = "16S"
-FILENAME_TREE = f'tree_{GENE}_new.newick'
+FILENAME_TREE = f'tree_{GENE}.newick'
 FILENAME_ENV_DATA = 'environmental_data.csv'
+FILENAME_CLADE_DATA = f'data_clades_{GENE}.npz'
 FILENAME_OUT = f'data_enrichment_{GENE}.npz'
-MCMAX = 99  # 999 takes 220s; 99 takes 30s
+MCMAX = 999  # 999 takes 220s; 99 takes 30s
 VERBOSE = True
-DISPLAY_PLOTS = True
+DISPLAY_PLOTS = False
 IGNORE_WARNINGS = True
 
 if IGNORE_WARNINGS:
@@ -72,8 +56,13 @@ FEATURES_SPECIES = np.array([line[1:16] for line in ft])
 NFEATURES = FEATURES_SPECIES.shape[1]
 
 # Load clade data
-data = fcutils.get_clade_data(FILENAME_TREE, treetype="newick")
+data = fcutils.get_clade_data(FILENAME_TREE,
+                              treetype="newick",
+                              filename_out=FILENAME_CLADE_DATA)
 clade_ids, clade_lfs, clade_dpt, leaf_names = data
+# ...
+GENUS = np.array([fcutils.get_genus(name) for name in leaf_names])
+SPECIES = np.array([fcutils.get_species(name) for name in leaf_names])
 # ...
 NLEAFS = len(leaf_names)
 NCLADES = len(clade_ids)
@@ -84,33 +73,20 @@ FEATURES = np.zeros((NLEAFS, NFEATURES))*np.nan
 ZSCORES = np.zeros((NCLADES, NFEATURES))*np.nan
 UNIVOCITY = np.zeros((NCLADES,))*np.nan
 
-# Uncomment for potF
-GENUS = np.array([fcutils.get_genus(name) for name in leaf_names])
-SPECIES = np.array([fcutils.get_species(name) for name in leaf_names])
-
-
 # Fill feature matrix of the organisms found in the tree
-counter = 0
 for idx_sp, species in tqdm(enumerate(SPECIES_NAMES)):
     _speacies_name = species.split(' ')
     for idx_leaf, leaf in enumerate(leaf_names):
         # If "species" is matched to the tree "leaf"
         if (_speacies_name[0] in leaf) and (_speacies_name[1] in leaf):
-            counter += 1
             FEATURES[idx_leaf, :] = FEATURES_SPECIES[idx_sp, :]
-
-        # Uncomment this when analysing recA data
-        # ... or comment this when analysing potF
-        # full_name = acc2names[full_name]
 
 _missing_data = np.sum(np.all(np.isnan(FEATURES), axis=1))
 _not_missing_data = FEATURES.shape[0] - _missing_data
-verboseprint('')
-verboseprint(f'Data obtained for {_not_missing_data} tree entries.', VERBOSE)
-verboseprint(f'Data missing  for {_missing_data} tree entries.', VERBOSE)
+idx_missing = np.argwhere(np.all(np.isnan(FEATURES), axis=1))[:, 0]
 
-# Uncomment to print missing species <- UNAVAILABLE
-idx_missing = np.argwhere(np.all(np.isnan(FEATURES), axis=1))[:,0]
+verboseprint(f'\nData obtained for {_not_missing_data} tree entries.', VERBOSE)
+verboseprint(f'Data missing  for {_missing_data} tree entries.', VERBOSE)
 _ = [verboseprint(f"  -[{_:4d}] {GENUS[_]} {SPECIES[_]}", VERBOSE)
      for _ in idx_missing]
 
@@ -135,6 +111,7 @@ for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
     UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))
 
 # Export data
+verboseprint(f"Data exported to {FILENAME_OUT}.", VERBOSE)
 np.savez(FILENAME_OUT,
          species_names=SPECIES_NAMES,
          features_names=FEATURES_NAMES,
