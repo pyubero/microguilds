@@ -68,29 +68,20 @@ def compute_adu(df, inputs, loc):
     return abundance, diversity, univocity
 
 
-def export_legacy(df, filename, column="k-value"):
+def export_legacy(df, filename, column="k-value", contexts=None):
     '''Export data as a series of k-matrices in plain csv as in v0'''
     gene = df["Gene"].iloc[0]
     taxons = df["Taxon"].unique()
-    contexts = df["Context"].unique()
     clusters = df['Cluster'].unique()
-    new_contexts = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+    if contexts is None:
+        contexts = df["Context"].unique()
 
     ntaxons = len(taxons)
-    ncontexts = len(contexts)
     nclusters = len(clusters)
 
     # Build Kmat
-    Kmat = np.zeros((ntaxons, ncontexts, nclusters))
-    _mesh = np.meshgrid(range(ntaxons), range(ncontexts), range(nclusters))
-    idc = np.array(_mesh).T.reshape(-1, 3)
-    for j_tx, j_ct, j_cl in verbosebar(idc):
-        idx = (df["Taxon"] == taxons[j_tx]) & \
-                (df["Context"] == new_contexts.astype("str")[j_ct]) & \
-                (df["Cluster"] == clusters[j_cl])
-        assert sum(idx) == 1
-
-        Kmat[j_tx, j_ct, j_cl] = df[idx][column]
+    data = data = [taxons, contexts, clusters]
+    Kmat = from_df_to_ktensor(df, data, column=column).astype("float")
 
     # Prepare output file
     with open(filename, 'w+', encoding="utf-8") as file:
@@ -115,6 +106,8 @@ def export_legacy(df, filename, column="k-value"):
         with open(filename, 'a', encoding="utf-8") as f:
             f.write(header)
             _ = [f.write(line) for line in lines]
+
+    verboseprint("Data exported in legacy format.")
 
 
 def bivariate_regression(x, y):

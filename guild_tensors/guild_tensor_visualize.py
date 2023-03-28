@@ -73,10 +73,12 @@ if CONTRIBUTION == "single":
         idx_show = gtutils.kmax_taxons(K, _maxshown)
         k_min = K[idx_show[-1], :, :].max()
         _symbol = r"\leq"
+
     elif DISPLAY_KIND == "rare":
         idx_show = gtutils.kmin_taxons(K, _maxshown)
         k_min = min(i for i in K[idx_show[-1], :, :].flatten() if i > 0)
         _symbol = r"\geq"
+
     else:
         assert False
 
@@ -89,6 +91,7 @@ elif CONTRIBUTION == "summed":
         idx_show = np.argwhere(scores >= threshold)[:, 0]
         k_min = contrib_per_taxon[idx_show].min()
         _symbol = r"\leq"
+
     elif DISPLAY_KIND == "rare":
         print(">> ERROR << Still not implemented")
 
@@ -123,9 +126,12 @@ verboseprint("", VERBOSE)
 # General plotting properties
 # ... style properties and labels
 colors = mpl.colormaps.get_cmap('tab20')(np.linspace(0, 1, N_COLORS))
+colors = np.delete(colors, [14, 15], axis=0)
+# colors[14] = np.array((61, 96, 76, 255))/255
+# colors[15] = np.clip(colors[14] * 1.55, 0, 1)
 colors = np.concatenate(([COLOR_OTHERS, COLOR_UNASSIGNED], colors), axis=0)
-mpl.rcParams['hatch.linewidth'] = 0.4  # previous pdf hatch linewidth
-hatches = ['', '//////////', '..........']
+mpl.rcParams['hatch.linewidth'] = 0.3  # previous pdf hatch linewidth
+hatches = ['', '/////////////', '.............']
 
 
 # ######################################################

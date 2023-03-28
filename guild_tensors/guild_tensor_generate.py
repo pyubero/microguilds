@@ -41,8 +41,9 @@ from guild_tensor_utils import verboseprint
 
 
 FILENAME = 'mastertable.tsv'
-GENE_NAME = 'amoA'
+GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
+CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 VERBOSE = True
 EXPORT_PLOT = True
 EXPORT_LEGACY = True
@@ -83,9 +84,9 @@ x = adu_table["Abundance"][idx].to_numpy().astype("float")
 y = adu_table["Diversity"][idx].to_numpy().astype("float")
 
 # Transform data to loglog
-log_threshold = 1e-10
-logx = np.log10(log_threshold + x)
-logy = np.log10(log_threshold + y)
+LOG_THRESHOLD = 1e-10
+logx = np.log10(LOG_THRESHOLD + x)
+logy = np.log10(LOG_THRESHOLD + y)
 
 # Compute correction factor delta = d_obs/d_exp
 delta = 10**logy / np.clip(10**linear_function(logx, gamma, c), 1, np.inf)
@@ -97,6 +98,7 @@ adu_table["delta"] = _delta
 adu_table["k-value"] = adu_table["Abundance"] * _delta
 adu_table.to_csv(out_filename, sep="\t", index=False)
 verboseprint(f"Data saved in {out_filename}.", VERBOSE)
+
 
 # Draw plot
 if EXPORT_PLOT:
@@ -126,4 +128,5 @@ if EXPORT_PLOT:
 
 if EXPORT_LEGACY:
     _filepath = f"legacy_kMatrixPerTaxon_{GENE_NAME}_{LEVEL_NAME}.csv"
-    gtutils.export_legacy(adu_table, _filepath, column="Diversity")
+    gtutils.export_legacy(adu_table, _filepath, column="k-value",
+                          contexts=CONTEXTS)
