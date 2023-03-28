@@ -33,7 +33,7 @@ def bin_count(array):
     return np.array([np.sum(array == value) for value in unique_values])
 
 
-GENE = "16S"
+GENE = "potF"
 FILENAME_TREE = f'tree_{GENE}.newick'
 FILENAME_ENV_DATA = 'environmental_data.csv'
 FILENAME_CLADE_DATA = f'data_clades_{GENE}.npz'

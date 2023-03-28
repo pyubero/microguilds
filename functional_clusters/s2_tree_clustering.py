@@ -99,7 +99,7 @@ for feature_idx in range(FEATURES.shape[1]):
 # Export table
 idc_nodes = np.unique([_ for a in SIGNIFICANT for _ in a])
 with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
-    file.write('node\tnleafs\t' + '\t'.join(list(FEATURES_NAMES)) + '\n')
+    file.write('node\t' + '\t'.join(list(FEATURES_NAMES)) + '\n')
     for idx in idc_nodes:
         message = f"{idx:5d}\t" + "\t  ".join([f"{_:.2f}" for _ in X[idx, :]])
         file.write(message + "\n")
