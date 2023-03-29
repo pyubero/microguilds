@@ -1,6 +1,7 @@
 figures
 ms
 *figure*
+**/*figure*
 *old*.*
 *old*/
 *.png
