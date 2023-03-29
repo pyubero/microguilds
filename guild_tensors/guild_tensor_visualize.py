@@ -15,7 +15,6 @@ from guild_tensor_utils import verboseprint
 # General variables
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
-DISPLAY_MODE = 'log10'  # either linear or log10
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 UNASSIGNED = ["s__", "Unspecified"]
 OVERWRITE = True
@@ -23,11 +22,12 @@ VERBOSE = True
 
 # Plotting options
 MAX_TAXONS_SHOWN = 25
-TAXONOMIC_ADVANTAGE = 0  # taxons advantage over worse identifiable taxons
 DISPLAY_KIND = "common"  # either common or rare
+DISPLAY_MODE = 'log10'  # either linear or log10
 CONTRIBUTION = "single"  # either single or summed
 PROJECTION = "polar"  # either polar, or rectilinear
 ORIENTATION = "horizontal"  # either horizontal or vertical
+TAXONOMIC_ADVANTAGE = 0  # taxons advantage over worse identifiable taxons
 
 # Styling options
 DPI = 300
