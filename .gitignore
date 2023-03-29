@@ -1,5 +1,6 @@
-figures/
-ms/
+figures
+ms
+*figure*
 *old*.*
 *old*/
 *.png
@@ -7,4 +8,13 @@ ncbi_gene_seq_fetcher/seq_whole_genome.fasta
 ncbi_gene_seq_fetcher/old
 *.fasta
 *.gz
+*.npz
+*.newick
+*.tsv
+*.csv
 _pychache_
+
+!tree_potF.newick
+!environmental_data.csv
+!organisms_input.csv
+!mastertable.tsv
