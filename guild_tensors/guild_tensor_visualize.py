@@ -16,18 +16,20 @@ from guild_tensor_utils import verboseprint
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+# CONTEXTS = np.array(["Meso_2237", "Meso_0538", "Others"])
 UNASSIGNED = ["s__", "Unspecified"]
 OVERWRITE = True
 VERBOSE = True
 
 # Plotting options
-MAX_TAXONS_SHOWN = 25
+MAX_TAXONS_SHOWN = 23
 DISPLAY_KIND = "common"  # either common or rare
 DISPLAY_MODE = 'log10'  # either linear or log10
 CONTRIBUTION = "single"  # either single or summed
 PROJECTION = "polar"  # either polar, or rectilinear
 ORIENTATION = "horizontal"  # either horizontal or vertical
 TAXONOMIC_ADVANTAGE = 0  # taxons advantage over worse identifiable taxons
+THRESHOLD_LOG = 0.01
 
 # Styling options
 DPI = 300
@@ -141,7 +143,7 @@ if DISPLAY_MODE == "linear":
     verboseprint("Displaying stacked k_values, in LINEAR mode.", VERBOSE)
 
 elif DISPLAY_MODE == "log10":
-    X = np.log10(1 + K_shown)
+    X = np.log10(THRESHOLD_LOG + K_shown)
     X[X < 0] = 0
     verboseprint("Displaying stacked log10(k_values), in LOG10 mode.", VERBOSE)
 
@@ -196,7 +198,7 @@ for _context in range(n_ctxts):
     if PROJECTION == "polar":
         ax.set_rgrids(rlims, labels="")
         ax.set_thetagrids(theta*57.3, labels=clusters, fontsize=7)
-        ax.tick_params(pad=-3)
+        ax.tick_params(pad=-1)
 
     elif PROJECTION == "rectilinear":
         if _context == 0:
@@ -215,7 +217,7 @@ kwgs_legend = {}
 if ORIENTATION == "horizontal":
     kwgs_legend = {
         "loc": "upper center",
-        "ncol": 3,
+        "ncol": 4,
         "bbox_to_anchor": (0.5, -0.15)
     }
 elif ORIENTATION == "vertical":
@@ -226,7 +228,7 @@ elif ORIENTATION == "vertical":
     }
 
 plt.subplot(n_rows, n_cols, 2)
-legend = plt.legend(fontsize=7, **kwgs_legend)
+legend = plt.legend(fontsize=6, **kwgs_legend)
 
 # Adjust horizontal padding
 plt.subplots_adjust(wspace=0.35)

@@ -40,13 +40,13 @@ import guild_tensor_utils as gtutils
 from guild_tensor_utils import verboseprint
 
 
-FILENAME = 'mastertable.tsv'
+FILENAME = "mastertable.tsv"
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 VERBOSE = True
 EXPORT_PLOT = True
-EXPORT_LEGACY = True
+EXPORT_LEGACY = False
 # ...
 out_filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_plot = f"loglog_regression_{GENE_NAME}_{LEVEL_NAME}.png"
@@ -92,9 +92,22 @@ logy = np.log10(LOG_THRESHOLD + y)
 delta = 10**logy / np.clip(10**linear_function(logx, gamma, c), 1, np.inf)
 _delta = np.zeros(len(adu_table))
 _delta[idx] = delta
+adu_table["delta"] = _delta
+
+
+# Normalize K??
+# Compute number of samples in each context
+# def compute_number_samples(dataframe, context):
+#     '''Computes # of samples per context.'''
+#     return len(dataframe[dataframe["Context"] == context]["MP"].unique())
+# nsamples = [compute_number_samples(master_table, ctx) for ctx in CONTEXTS]
+# adu_table["normalization"] = \
+#     (adu_table["Context"] == CONTEXTS[0])*nsamples[0] +\
+#     (adu_table["Context"] == CONTEXTS[1])*nsamples[1] +\
+#     (adu_table["Context"] == CONTEXTS[2])*nsamples[2]
+
 
 # Export data
-adu_table["delta"] = _delta
 adu_table["k-value"] = adu_table["Abundance"] * _delta
 adu_table.to_csv(out_filename, sep="\t", index=False)
 verboseprint(f"Data saved in {out_filename}.", VERBOSE)
