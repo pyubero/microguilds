@@ -39,7 +39,6 @@ epi_list= ["MP2239","MP2241","MP0323", "MP2819", "MP1857","MP0311","MP1419",
            "MP0321","MP2243","MP1672"]
 
 for jj, row in tqdm(df.iterrows(), total=len(df)):
-# row = df.iloc[4]
     if row[ID_COLUMN_NAME] in bathy_list:
         contexts.append("Bathypelagic")
     elif row[ID_COLUMN_NAME] in meso_list:
@@ -48,7 +47,7 @@ for jj, row in tqdm(df.iterrows(), total=len(df)):
         contexts.append("Epipelagic")
     else:
         print( f"Couldnt find a context for sample id: {row['Sample_ID']}")
-    
+
 
 df["Context"] = contexts
 df.to_csv("mastertable_w_ctxt.tsv", sep="\t", index=False)
