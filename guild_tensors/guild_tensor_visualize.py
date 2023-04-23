@@ -29,6 +29,7 @@ PROJECTION = "polar"  # either polar, or rectilinear
 ORIENTATION = "horizontal"  # either horizontal or vertical
 TAXONOMIC_ADVANTAGE = 0  # taxons advantage over worse identifiable taxons
 THRESHOLD_LOG = 0.01
+MAX_RLIM = None  # either None or an even number (preferably)
 
 # Styling options
 DPI = 300
@@ -153,8 +154,13 @@ maxX = np.max(np.max(X, axis=2), axis=1)  # maximum contribution per taxon
 
 theta = np.linspace(0.0, 2 * np.pi, n_clusters, endpoint=False)
 Dtheta = theta[1]-theta[0]
-dr = np.round(R_UPPER_MARGIN_REL*sumX.max()/4)
-rlims = np.arange(0, 1+np.ceil(R_UPPER_MARGIN_REL*sumX.max()/dr)*dr, dr)
+if MAX_RLIM is not None:
+    dr = np.round(MAX_RLIM/4)
+    rlims = np.arange(0, 1+np.ceil(MAX_RLIM/dr)*dr, dr)
+else:
+    dr = np.round(R_UPPER_MARGIN_REL*sumX.max()/4)
+    rlims = np.arange(0, 1+np.ceil(R_UPPER_MARGIN_REL*sumX.max()/dr)*dr, dr)
+
 width = BAR_WIDTH_REL*Dtheta
 n_cols, n_rows = 0, 0
 
