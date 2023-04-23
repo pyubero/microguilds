@@ -5,6 +5,7 @@ Created on Tue Jul 19 11:47:36 2022
 @author: logslab
 """
 import os
+import warnings
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
@@ -80,7 +81,7 @@ def export_legacy(df, filename, column="k-value", contexts=None):
     nclusters = len(clusters)
 
     # Build Kmat
-    data = data = [taxons, contexts, clusters]
+    data = [taxons, contexts, clusters]
     Kmat = from_df_to_ktensor(df, data, column=column).astype("float")
 
     # Prepare output file
@@ -207,10 +208,15 @@ def cycle_through(array, length):
 def from_df_to_ktensor(df, data, column="k-value", verbose=True):
     ''' Creates the GUILD TENSOR, that is the K-matrices representing the
     guild. It is totally suboptimized but it is reliable.
-    df :should be the gene_table, that is, a master table filtered by function.
 
-    data : should be a list of lists of strings with the names of taxons,
-    contexts and clusters in the order you wish to have in the array K.'''
+    Parameters
+    ----------
+    df : pandas.DataFrame : should be the gene_table, that is, a master table
+    filtered by function.
+
+    data : list : should be a list of lists of strings with the names of
+    taxons, contexts and clusters in the order you wish to have in the array
+    K.'''
 
     taxons, contexts, clusters = data
     ntaxons = len(taxons)
@@ -221,11 +227,19 @@ def from_df_to_ktensor(df, data, column="k-value", verbose=True):
     _meshgrid = np.meshgrid(range(ntaxons), range(ncontexts), range(nclusters))
     idc = np.array(_meshgrid).T.reshape(-1, 3)
     for j_tx, j_ct, j_cl in verbosebar(idc, verbose):
+
         idx = (df["Taxon"] == taxons[j_tx]) & \
                 (df["Context"] == contexts.astype("str")[j_ct]) & \
                 (df["Cluster"] == clusters[j_cl])
-        assert sum(idx) == 1
-        Kmat[j_tx, j_ct, j_cl] = df[idx][column].iloc[0]
+
+        if sum(idx) >= 1:
+            warnings.warn("Multiple rows found for the same taxon, context,\
+            and element during a call to from_df_to_ktensor(). Only one row is\
+            expected at maximum.\n\
+            Will be considering the sum of all corresponding rows.")
+
+        # old : Kmat[j_tx, j_ct, j_cl] = df[idx][column].iloc[0]
+        Kmat[j_tx, j_ct, j_cl] = np.sum(df[idx][column])
 
     return Kmat
 

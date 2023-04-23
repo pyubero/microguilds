@@ -41,7 +41,7 @@ from guild_tensor_utils import verboseprint
 
 
 FILENAME = "mastertable.tsv"
-GENE_NAME = 'potF'
+GENE_NAME = 'hzsA'
 LEVEL_NAME = 'Species_GTDB'
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 VERBOSE = True

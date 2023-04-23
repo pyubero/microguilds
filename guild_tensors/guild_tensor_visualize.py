@@ -13,10 +13,9 @@ from guild_tensor_utils import verboseprint
 
 
 # General variables
-GENE_NAME = 'potF'
+GENE_NAME = 'hzsA'
 LEVEL_NAME = 'Species_GTDB'
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
-# CONTEXTS = np.array(["Meso_2237", "Meso_0538", "Others"])
 UNASSIGNED = ["s__", "Unspecified"]
 OVERWRITE = True
 VERBOSE = True
@@ -198,7 +197,7 @@ for _context in range(n_ctxts):
     if PROJECTION == "polar":
         ax.set_rgrids(rlims, labels="")
         ax.set_thetagrids(theta*57.3, labels=clusters, fontsize=7)
-        ax.tick_params(pad=-1)
+        ax.tick_params(pad=3)
 
     elif PROJECTION == "rectilinear":
         if _context == 0:
