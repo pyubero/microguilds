@@ -37,15 +37,15 @@ def bin_count(array):
 
 # General parameters
 GENE = "potF"
-FILENAME_ENV_DATA = 'environmental_data.csv'
+FILENAME_ENV_DATA = './data/environmental_data.csv'
 MCMAX = 9999  # 999 takes 90s; 99 takes 10s
 VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
 
-FILENAME_TREE = f'tree_{GENE}.newick'
-FILENAME_CLADE_DATA = f'data_clades_{GENE}.npz'
-FILENAME_OUT = f'data_enrichment_{GENE}.npz'
+FILENAME_TREE = f'./data/tree_{GENE}.newick'
+FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
+FILENAME_OUT = f'./data/data_enrichment_{GENE}.npz'
 
 if IGNORE_WARNINGS:
     warnings.filterwarnings('ignore')

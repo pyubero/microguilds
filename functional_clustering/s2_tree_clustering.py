@@ -9,12 +9,12 @@ from functional_clustering_utils import verboseprint
 import functional_clustering_utils as fcutils
 
 GENE = "potF"
-FILENAME_ENRICHMENT = f'data_enrichment_{GENE}.npz'
-FILENAME_CLADE_DATA = f'data_clades_{GENE}.npz'
-FILENAME_TREE = f'tree_{GENE}.newick'
+FILENAME_ENRICHMENT = f'./data/data_enrichment_{GENE}.npz'
+FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
+FILENAME_TREE = f'./data/tree_{GENE}.newick'
 # ...
-FILENAME_OUT = f'significant_nodes_{GENE}.tsv'  # exporta por nodo su bcode
-FILENAME_NPZ = f'significant_nodes_{GENE}.npz'  # in numpy format
+FILENAME_OUT = f'./data/significant_nodes_{GENE}.tsv'  # exporta por nodo su bcode
+FILENAME_NPZ = f'./data/significant_nodes_{GENE}.npz'  # in numpy format
 VERBOSE = False
 # Accumulators
 Z_THRESHOLD = 2.9

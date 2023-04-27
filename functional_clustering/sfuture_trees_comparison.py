@@ -62,9 +62,9 @@ GENEX = "16S"
 GENEY = "potF"
 EXPORT_DATA = True
 # ...
-FILENAME_TREE_X = f'tree_{GENEX}.newick'
-FILENAME_TREE_Y = f'tree_{GENEY}.newick'
-FILENAME_OUT = f'data_tree_comparison_{GENEX}_{GENEY}.npz'
+FILENAME_TREE_X = f'./data/tree_{GENEX}.newick'
+FILENAME_TREE_Y = f'./data/tree_{GENEY}.newick'
+FILENAME_OUT = f'./data/data_tree_comparison_{GENEX}_{GENEY}.npz'
 
 
 # Load trees

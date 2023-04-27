@@ -17,7 +17,7 @@ def is_valid(treeleaf):
 
 GENEX = "16S"
 GENEY = "potF"
-FILENAME = f"data_tree_comparison_{GENEX}_{GENEY}.npz"
+FILENAME = f"./data/data_tree_comparison_{GENEX}_{GENEY}.npz"
 
 data = np.load(FILENAME)
 nof_leafs = data["nof_leafs"]
@@ -26,7 +26,7 @@ y = data["distance_y"]
 
 
 # Load rplB for reference
-data = np.load("data_tree_comparison_16S_rplB.npz")
+data = np.load("./data/data_tree_comparison_16S_rplB.npz")
 _nof_leafs = data["nof_leafs"]
 _x = data["distance_x"]
 _y = data["distance_y"]
@@ -45,7 +45,7 @@ print(r2)
 
 
 # Identify number of identifiable bichos in each clade
-tree = Phylo.read("tree_potF.newick", 'newick')
+tree = Phylo.read("./data/tree_potF.newick", 'newick')
 leafs = tree.get_terminals()
 clades = tree.get_nonterminals()
 nof_valid = []
