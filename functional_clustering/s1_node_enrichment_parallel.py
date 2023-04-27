@@ -4,11 +4,13 @@ Created on Tue Sep 27 13:36:26 2022
 
 @author: Pablo
 """
+#%%
 import warnings
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from matplotlib import pyplot as plt
+from multiprocessing import Pool
 from functional_clustering_utils import verboseprint
 import functional_clustering_utils as fcutils
 
@@ -36,7 +38,7 @@ def bin_count(array):
 # General parameters
 GENE = "potF"
 FILENAME_ENV_DATA = 'environmental_data.csv'
-MCMAX = 20_000  # 999 takes 90s; 99 takes 10s
+MCMAX = 9999  # 999 takes 90s; 99 takes 10s
 VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
@@ -92,27 +94,56 @@ verboseprint(f'Data missing  for {_missing_data} tree entries.', VERBOSE)
 _ = [verboseprint(f"  -[{_:4d}] {GENUS[_]} {SPECIES[_]}", VERBOSE)
      for _ in idx_missing]
 
-for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
-    # Compute true observed values for each feature
-    obs_mean = np.nanmean(FEATURES[_leafs, :], axis=0)
+
+def parallel_function(ii_clade):
+    '''Null model / Randomization function for a given clade idx'''
+    _leafs = np.array(clade_lfs[ii_clade])
+    _obsmean = np.nanmean(FEATURES[_leafs, :], axis=0)
 
     # Randomize values
-    values_mc = np.zeros((MCMAX, NFEATURES))
+    _mcvalues = np.zeros((MCMAX, NFEATURES))
     for imc in range(MCMAX):
         rr = np.random.permutation(NLEAFS)[:len(_leafs)]
-        values_mc[imc, :] = np.nanmean(FEATURES[rr, :], axis=0)
+        _mcvalues[imc, :] = np.nanmean(FEATURES[rr, :], axis=0)
 
-    mc_mean = np.nanmean(values_mc, axis=0)
-    mc_std = np.nanstd(values_mc, axis=0)
-    mc_std[np.abs(mc_std) <= 1e-8] = np.nan
-    ZSCORES[idx_clade, :] = (obs_mean-mc_mean)/mc_std
+    _mcmean = np.nanmean(_mcvalues, axis=0)
+    _mcstd = np.nanstd(_mcvalues, axis=0)
 
-    # Compute univocity
-    cluster_taxonomy = np.array(
-        [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
-    UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))
+    return ii_clade, _obsmean, _mcmean, _mcstd
 
-# Export data
+from time import sleep
+
+def parallel_function2(dummy):
+    sleep(1)
+    return True
+
+parallel_function(50)
+
+#%%
+with Pool(processes=4) as p:
+    results = p.imap_unordered(parallel_function2, [10,10,10,10])
+
+    for res in results:
+        pass
+
+#%%
+with Pool() as p:
+    results = p.imap_unordered(parallel_function, range(NCLADES), chunksize=20)
+
+    for ii, obs_mean, mc_mean, mc_std in tqdm(results, total=NCLADES):
+        pass
+        # mc_std[np.abs(mc_std) <= 1e-8] = np.nan
+        # ZSCORES[ii, :] = (obs_mean-mc_mean)/mc_std
+
+        # Compute univocity
+        # _leafs = np.array(clade_lfs[ii])
+        # cluster_taxonomy = np.array(
+        #     [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
+        # UNIVOCITY[ii] = entropy(bin_count(cluster_taxonomy))
+
+
+#%% Export and plot data
+
 verboseprint(f"Data exported to {FILENAME_OUT}.", VERBOSE)
 np.savez(FILENAME_OUT,
          species_names=SPECIES_NAMES,
@@ -162,3 +193,24 @@ if DISPLAY_PLOTS:
     plt.suptitle('Clade enrichment')
     plt.tight_layout()
     plt.show()
+
+#%%
+# for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
+    # Compute true observed values for each feature
+#     obs_mean = np.nanmean(FEATURES[_leafs, :], axis=0)
+
+    # Randomize values
+#     values_mc = np.zeros((MCMAX, NFEATURES))
+#     for imc in range(MCMAX):
+#         rr = np.random.permutation(NLEAFS)[:len(_leafs)]
+#         values_mc[imc, :] = np.nanmean(FEATURES[rr, :], axis=0)
+
+#     mc_mean = np.nanmean(values_mc, axis=0)
+#     mc_std = np.nanstd(values_mc, axis=0)
+#     mc_std[np.abs(mc_std) <= 1e-8] = np.nan
+#     ZSCORES[idx_clade, :] = (obs_mean-mc_mean)/mc_std
+
+    # Compute univocity
+#     cluster_taxonomy = np.array(
+#         [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
+#     UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))

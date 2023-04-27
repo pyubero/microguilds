@@ -1,3 +1,5 @@
+data/
+_pychache_/
 figures
 ms
 *figure*
@@ -13,7 +15,7 @@ ncbi_gene_seq_fetcher/old
 *.newick
 *.tsv
 *.csv
-_pychache_
+*.pyc
 
 !tree_potF.newick
 !environmental_data.csv

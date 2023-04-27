@@ -8,16 +8,16 @@ import numpy as np
 from functional_clustering_utils import verboseprint
 import functional_clustering_utils as fcutils
 
-GENE = "rplB"
+GENE = "potF"
 FILENAME_ENRICHMENT = f'data_enrichment_{GENE}.npz'
 FILENAME_CLADE_DATA = f'data_clades_{GENE}.npz'
 FILENAME_TREE = f'tree_{GENE}.newick'
 # ...
 FILENAME_OUT = f'significant_nodes_{GENE}.tsv'  # exporta por nodo su bcode
 FILENAME_NPZ = f'significant_nodes_{GENE}.npz'  # in numpy format
-VERBOSE = True
+VERBOSE = False
 # Accumulators
-Z_THRESHOLD = 3
+Z_THRESHOLD = 2.9
 SIGNIFICANT = []
 
 
@@ -96,6 +96,7 @@ for feature_idx in range(FEATURES.shape[1]):
     SIGNIFICANT.append(mrca_nodes)
     # SIGNIFICANT.append(final_mrca_nodes)
 
+
 # Export table
 idc_nodes = np.unique([_ for a in SIGNIFICANT for _ in a])
 with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
@@ -107,3 +108,5 @@ with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
 # Export numpy file
 np.savez(FILENAME_NPZ, significant_nodes=np.array(SIGNIFICANT, dtype=object))
 verboseprint(f"\n{FILENAME_NPZ} saved.", VERBOSE)
+
+print(len(idc_nodes))
