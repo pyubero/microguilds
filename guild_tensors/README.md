@@ -37,7 +37,6 @@ Open `guild_tensor_visualize.py` and tune your plot to your needs. Here I will d
 - `CONTEXTS` : This array is given to set the contexts in a specific order. If None, contexts will be ordered randomly.
  
 - `UNASSIGNED` : Includes a list of taxon names that should be grouped under the "Unassigned" label.
-- 
 
 
 **IMPORTANT NOTE** Although in general sum(k_mnl) is different than sum(log10(k_mnl)) for the m-th cluster and n-th context, if `MAX_TAXONS_SHOWN` is sufficiently large the qualitative results are almost identical.
