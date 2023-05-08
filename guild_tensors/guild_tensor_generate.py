@@ -116,14 +116,14 @@ def compute_number_samples(dataframe, context):
 
 
 if NORMALIZE_NSAMPLES:
-    verboseprint("k-values have been normalized.")
-    nsamples = [compute_number_samples(master_table, ctx)
-                for ctx in CONTEXTS]
+    normalization = np.ones(len(adu_table))
 
-    adu_table["normalization"] = \
-        (adu_table["Context"] == CONTEXTS[0])*nsamples[0] +\
-        (adu_table["Context"] == CONTEXTS[1])*nsamples[1] +\
-        (adu_table["Context"] == CONTEXTS[2])*nsamples[2]
+    for ctx in CONTEXTS:
+        nsamples = compute_number_samples(master_table, ctx)
+        normalization[adu_table["Context"] == ctx] = nsamples
+
+    adu_table["normalization"] = normalization
+    verboseprint("k-values have been normalized.")
 else:
     verboseprint("k-values have NOT been normalized.")
     adu_table["normalization"] = 1
