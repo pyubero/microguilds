@@ -36,8 +36,8 @@ LEVEL_NAME: str
     name of a column of master table.
 
 CONTEXTS : numpy.array of str
-    Please specify the contexts of interest in the desired order. Otherwise they
-    could get sorted automatically.
+    Please specify the contexts of interest in the desired order. Otherwise
+    they could get sorted automatically.
 
 NORMALIZE_NSAMPLES : bool
     Set whether to normalize k-values by the number of samples included in each

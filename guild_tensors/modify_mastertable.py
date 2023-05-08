@@ -12,7 +12,7 @@ ID_COLUMN_NAME = "MP"
 
 df = pd.read_csv(FILENAME, sep=",")
 
-df=df.drop( df.columns[0] , axis="columns")
+df = df.drop(df.columns[0], axis="columns")
 
 
 contexts = []
@@ -45,6 +45,7 @@ for jj, row in tqdm(df.iterrows(), total=len(df)):
         contexts.append("Epipelagic")
 
     else:
+        contexts.append("")
         print(f"Couldnt find a context for sample id: {row['Sample_ID']}")
 
 
