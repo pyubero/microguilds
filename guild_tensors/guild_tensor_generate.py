@@ -22,6 +22,7 @@ The mastertable should have AT LEAST the following columns:
     TPM : these are the abundances found in metagenomic samples in transcripts
     per million.
 
+
 * INPUTS *
 
 FILENAME  : str
@@ -33,6 +34,15 @@ GENE_NAME : str
 LEVEL_NAME: str
     Taxonomic level to generate K values, eg, Species_GTDB. It NEEDS to be the
     name of a column of master table.
+
+CONTEXTS : numpy.array of str
+    Please specify the contexts of interest in the desired order. Otherwise they
+    could get sorted automatically.
+
+NORMALIZE_NSAMPLES : bool
+    Set whether to normalize k-values by the number of samples included in each
+    context. This is to correct for highly unbalanced contexts, for example,
+    imagine comparing a context with a single sample, and another with 100.
 """
 import numpy as np
 from matplotlib import pyplot as plt
@@ -44,6 +54,8 @@ FILENAME = "mastertable.tsv"
 GENE_NAME = 'hzsA'
 LEVEL_NAME = 'Species_GTDB'
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+NORMALIZE_NSAMPLES = False
+SAMPLECODE_COLUMN = "MP"
 VERBOSE = True
 EXPORT_PLOT = True
 EXPORT_LEGACY = False
@@ -95,20 +107,32 @@ _delta[idx] = delta
 adu_table["delta"] = _delta
 
 
-# Normalize K??
-# Compute number of samples in each context
-# def compute_number_samples(dataframe, context):
-#     '''Computes # of samples per context.'''
-#     return len(dataframe[dataframe["Context"] == context]["MP"].unique())
-# nsamples = [compute_number_samples(master_table, ctx) for ctx in CONTEXTS]
-# adu_table["normalization"] = \
-#     (adu_table["Context"] == CONTEXTS[0])*nsamples[0] +\
-#     (adu_table["Context"] == CONTEXTS[1])*nsamples[1] +\
-#     (adu_table["Context"] == CONTEXTS[2])*nsamples[2]
+# Normalize K-values according to the number of samples in contexts
+def compute_number_samples(dataframe, context):
+    '''Computes # of samples per context.'''
+    samples_in_context = dataframe[dataframe["Context"] == context]
+    list_of_samples = samples_in_context[SAMPLECODE_COLUMN]
+    return len(list_of_samples.unique())
+
+
+if NORMALIZE_NSAMPLES:
+    verboseprint("k-values have been normalized.")
+    nsamples = [compute_number_samples(master_table, ctx)
+                for ctx in CONTEXTS]
+
+    adu_table["normalization"] = \
+        (adu_table["Context"] == CONTEXTS[0])*nsamples[0] +\
+        (adu_table["Context"] == CONTEXTS[1])*nsamples[1] +\
+        (adu_table["Context"] == CONTEXTS[2])*nsamples[2]
+else:
+    verboseprint("k-values have NOT been normalized.")
+    adu_table["normalization"] = 1
 
 
 # Export data
-adu_table["k-value"] = adu_table["Abundance"] * _delta
+adu_table["k-value"] = adu_table["Abundance"] * \
+                       adu_table["delta"] / \
+                       adu_table["normalization"]
 adu_table.to_csv(out_filename, sep="\t", index=False)
 verboseprint(f"Data saved in {out_filename}.", VERBOSE)
 
