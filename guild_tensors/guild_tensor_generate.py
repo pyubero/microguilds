@@ -39,6 +39,11 @@ CONTEXTS : numpy.array of str
     Please specify the contexts of interest in the desired order. Otherwise
     they could get sorted automatically.
 
+REGRESSION_LEVEL : str either "gene" or "cluster"
+    Specifies which points are used to compute the model that relates abundance
+    and diversity. It can be useful to benefit certain implementations
+    (or clusters) differently for their observed abundance.
+
 NORMALIZE_NSAMPLES : bool
     Set whether to normalize k-values by the number of samples included in each
     context. This is to correct for highly unbalanced contexts, for example,
@@ -51,8 +56,9 @@ from guild_tensor_utils import verboseprint
 
 
 FILENAME = "mastertable.tsv"
-GENE_NAME = 'hzsA'
+GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
+REGRESSION_LEVEL = "gene"
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 NORMALIZE_NSAMPLES = False
 SAMPLECODE_COLUMN = "MP"
@@ -81,30 +87,33 @@ adu_table = gtutils.build_adu_table(master_table,
                                     force_build=True)
 
 
-# Linear regression
-def linear_function(x_values, slope, offset):
-    '''Returns y = slope * x + offset'''
-    return slope * x_values + offset
+# Linear regressions
+if REGRESSION_LEVEL == "gene":
+    gamma, c, r2 = gtutils.compute_gamma(adu_table, VERBOSE)
+    delta = gtutils.compute_delta(adu_table, [gamma, c])
+    print(f"Gene: {GENE_NAME} with R2={r2:0.2f}")
 
+elif REGRESSION_LEVEL == "cluster":
+    delta = np.zeros(len(adu_table))
+    for cluster in adu_table["Cluster"].unique():
 
-gamma, c, r2 = gtutils.compute_gamma(adu_table, VERBOSE)
-print(f"Gene: {GENE_NAME} with R2={r2:0.2f}")
+        idx = (adu_table["Cluster"] == cluster).to_numpy()
+        gamma, c, r2 = gtutils.compute_gamma(adu_table[idx], VERBOSE)
 
-# Load data of regression
-idx = adu_table["Abundance"] > 0
-x = adu_table["Abundance"][idx].to_numpy().astype("float")
-y = adu_table["Diversity"][idx].to_numpy().astype("float")
+        if gamma is None:
+            delta[idx] = 1
+            print(f"Cluster: {cluster} withou regression. Deltas=1.")
+            print('------------------------')
+        else:
+            delta[idx] = gtutils.compute_delta(adu_table[idx], [gamma, c])
+            print(f"Cluster: {cluster} with R2={r2:0.2f}")
+            print('------------------------')
+else:
+    raise ValueError(
+        f'''Error as REGRESSION_LEVEL={REGRESSION_LEVEL} needs to be
+        either 'gene' or 'cluster'.''')
 
-# Transform data to loglog
-LOG_THRESHOLD = 1e-10
-logx = np.log10(LOG_THRESHOLD + x)
-logy = np.log10(LOG_THRESHOLD + y)
-
-# Compute correction factor delta = d_obs/d_exp
-delta = 10**logy / np.clip(10**linear_function(logx, gamma, c), 1, np.inf)
-_delta = np.zeros(len(adu_table))
-_delta[idx] = delta
-adu_table["delta"] = _delta
+adu_table["delta"] = delta
 
 
 # Normalize K-values according to the number of samples in contexts
@@ -138,11 +147,20 @@ verboseprint(f"Data saved in {out_filename}.", VERBOSE)
 
 
 # Draw plot
-if EXPORT_PLOT:
+if EXPORT_PLOT and (REGRESSION_LEVEL == "gene"):
+
+    valid = adu_table["Abundance"] > 0
+    x = adu_table["Abundance"][valid].to_numpy().astype("float")
+    y = adu_table["Diversity"][valid].to_numpy().astype("float")
+
+    # Transform data to loglog
+    logx = np.log10(1e-10 + x)
+    logy = np.log10(1e-10 + y)
+
     H = plt.figure(figsize=(12, 4), dpi=300)
     plt.subplot(1, 2, 1)
     plt.scatter(logx, logy, s=10, c=logy)
-    plt.plot(logx, linear_function(logx, gamma, c))
+    plt.plot(logx, gamma * logx + c)
     plt.grid()
     plt.xlabel("log10 Abundance")
     plt.ylabel("log10 Diversity")
@@ -151,7 +169,7 @@ if EXPORT_PLOT:
         )
 
     plt.subplot(1, 2, 2)
-    plt.scatter(x, x*delta, s=delta*10, c=logy)
+    plt.scatter(x, x*delta[valid], s=delta[valid]*10, c=logy)
     plt.grid()
     plt.colorbar(label="log10 Observed diversity")
     plt.plot(x, x, 'k', lw=0.5)

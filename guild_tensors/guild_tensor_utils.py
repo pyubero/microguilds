@@ -114,7 +114,9 @@ def export_legacy(df, filename, column="k-value", contexts=None):
 def bivariate_regression(x, y):
     '''Computes a bivariate regression as the angle of the cov matrix.'''
     C = np.cov([x, y])
-    V = np.linalg.eig(C)[1]
+    lambdas, V = np.linalg.eig(C)
+    idx = np.argsort(lambdas)[::-1]
+    V = V[:, idx]
     alfa = V[1][0]/V[0][0]
     beta = np.mean(y) - alfa * np.mean(x)
     return alfa, beta
@@ -474,11 +476,19 @@ def compute_gamma(adu_table, verbose=True):
     log_threshold = 1e-10
 
     # Load data to regress
-    idx = adu_table["Abundance"] > 0
-    x = adu_table["Abundance"][idx].to_numpy().astype("float")
-    y = adu_table["Diversity"][idx].to_numpy().astype("float")
+    valid = adu_table["Abundance"] > 0
+    if np.sum(valid) < 2:
+        return None, None, None
+
+    elif np.sum(valid) < 10:
+        warnings.warn(
+            f"Fitting bivariate regression for {np.sum(valid)}<10 data points."
+        )
 
     # Transform data to loglog
+    x = adu_table["Abundance"][valid].to_numpy().astype("float")
+    y = adu_table["Diversity"][valid].to_numpy().astype("float")
+
     logx = np.log10(log_threshold + x)
     logy = np.log10(log_threshold + y)
 
@@ -494,3 +504,30 @@ def compute_gamma(adu_table, verbose=True):
     verboseprint("", verbose)
 
     return gamma, offset, r2
+
+
+def compute_delta(table, params):
+    '''Computes delta = delta_obs/delta_exp with delta_expected given by
+    the empirical (abundance, diversity) fit'''
+
+    # Load data for regression
+    valid = table["Abundance"] > 0
+    x = table["Abundance"][valid].to_numpy().astype("float")
+    y = table["Diversity"][valid].to_numpy().astype("float")
+
+    # Transform data to loglog
+    log_threshold = 1e-10
+    logx = np.log10(log_threshold + x)
+    logy = np.log10(log_threshold + y)
+
+    # Compute correction factor delta = d_obs/d_exp
+    delta = 10**logy / np.clip(10**linear_function(logx, *params), 1, np.inf)
+    _delta = np.zeros(len(table))
+    _delta[valid] = delta
+
+    return _delta
+
+
+def linear_function(x_values, slope, offset):
+    '''Returns y = slope * x + offset'''
+    return slope * x_values + offset
