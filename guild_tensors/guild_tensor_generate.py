@@ -81,10 +81,12 @@ assert GENE_NAME in master_table["gene_fun"].to_list()
 assert "cluster_id" in master_table.columns
 
 # Compute adu_table
-adu_table = gtutils.build_adu_table(master_table,
-                                    GENE_NAME,
-                                    LEVEL_NAME,
-                                    force_build=True)
+adu_table = gtutils.build_adu_table(
+                master_table,
+                GENE_NAME,
+                LEVEL_NAME,
+                force_build=True
+            )
 
 
 # Linear regressions
@@ -111,7 +113,8 @@ elif REGRESSION_LEVEL == "cluster":
 else:
     raise ValueError(
         f'''Error as REGRESSION_LEVEL={REGRESSION_LEVEL} needs to be
-        either 'gene' or 'cluster'.''')
+        either 'gene' or 'cluster'.'''
+        )
 
 adu_table["delta"] = delta
 
