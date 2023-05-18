@@ -15,9 +15,10 @@ from guild_tensor_utils import verboseprint
 # General variables
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
-CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])  # or None
+CLUSTERS = None  # np.array(["C3", "c1b"]) for manual display
 UNASSIGNED = ["s__", "Unspecified"]
-OVERWRITE = True
+OVERWRITE = False
 VERBOSE = True
 
 # Plotting options
@@ -50,9 +51,19 @@ FILENAME_OUT = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
 df = pd.read_csv(FILENAME_IN, sep='\t', header=0)
 
 taxons = df['Taxon'].unique()
-clusters = df['Cluster'].unique()
-data = [taxons, CONTEXTS, clusters]
-n_taxons, n_ctxts, n_clusters = len(taxons), len(CONTEXTS), len(clusters)
+
+if CLUSTERS is None:
+    clusters = df['Cluster'].unique()
+else:
+    clusters = CLUSTERS
+
+if CONTEXTS is None:
+    contexts = df['Context'].unique()
+else:
+    contexts = CONTEXTS
+
+data = [taxons, contexts, clusters]
+n_taxons, n_ctxts, n_clusters = len(taxons), len(contexts), len(clusters)
 
 kvals = gtutils.from_df_to_ktensor(df, data, column="k-value").astype("float")
 nsamp = gtutils.from_df_to_ktensor(df, data, column="normalization").astype("float")
@@ -111,9 +122,12 @@ idx_other = list(set(idx_other) - set(idx_unassigned))
 idx_show = list(set(idx_show) - set(idx_unassigned))
 
 # Build K matrix to be shown, by summing the Kvalues of others, and unassigned.
-taxon_labels = [f"Others, K${_symbol}${k_min:1.1f}",
-                "Unassigned",
-                *taxons[idx_show]]
+taxon_labels = [
+    f"Others, K${_symbol}${k_min:1.1f}",
+    "Unassigned",
+    *taxons[idx_show]
+]
+
 K_shown = np.zeros((len(idx_show) + 2, n_ctxts, n_clusters))
 K_shown[0, :, :] = np.sum(K[idx_other, :, :], axis=0)
 K_shown[1, :, :] = np.sum(K[idx_unassigned, :, :], axis=0)
@@ -160,11 +174,12 @@ maxX = np.max(np.max(X, axis=2), axis=1)  # maximum contribution per taxon
 theta = np.linspace(0.0, 2 * np.pi, n_clusters, endpoint=False)
 Dtheta = theta[1] - theta[0]
 if MAX_RLIM is not None:
-    dr = np.round(MAX_RLIM / 4)
-    rlims = np.arange(0, 1 + np.ceil(MAX_RLIM / dr) * dr, dr)
+    dr = np.round(MAX_RLIM / 4) if MAX_RLIM >= 2 else MAX_RLIM / 3
+    rlims = np.arange(0, 0.001 + np.ceil(MAX_RLIM / dr) * dr, dr)
 else:
-    dr = np.round(R_UPPER_MARGIN_REL * sumX.max() / 4)
-    rlims = np.arange(0, 1 + np.ceil(R_UPPER_MARGIN_REL * sumX.max() / dr) * dr, dr)
+    _dr = R_UPPER_MARGIN_REL * sumX.max() / 4
+    dr = np.round(_dr) if sumX.max() >=2 else _dr
+    rlims = np.arange(0, 0.001 + np.ceil(R_UPPER_MARGIN_REL * sumX.max() / dr) * dr, dr)
 
 width = BAR_WIDTH_REL * Dtheta
 n_cols, n_rows = 0, 0
@@ -220,7 +235,7 @@ for _context in range(n_ctxts):
     ax.xaxis.grid(linewidth=0.1)
     ax.yaxis.grid(linewidth=0.2)
     ax.set_axisbelow(True)
-    ax.set_title(CONTEXTS[_context], {"fontsize": 11}, pad=title_padding)
+    ax.set_title(contexts[_context], {"fontsize": 11}, pad=title_padding)
 
 # ... place legend
 kwgs_legend = {}
