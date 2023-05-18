@@ -350,11 +350,11 @@ def is_sequence_in_fasta(filename, query_list):
     return False
 
 
-def export_failed(organism, filename):
-    '''Appends filename some string.'''
+def export_failed(message, filename):
+    '''Appends some string to filename.'''
 
     with open(filename, 'a+', encoding="utf-8") as file:
-        file.write(organism + '\n')
+        file.write(message + '\n')
 
 
 if __name__ == '__main__':
@@ -383,8 +383,16 @@ if __name__ == '__main__':
                         help='Clears all output before running the script.')
 
     # For interactive execution
+    # fumC -> 187/320
+    # tolC -> mierdoso
+    # macA -> 9/320
+    # emrA -> 5/320
+    # yqjH -> 0/80
+    # ompA -> 0/50
+    # rcsF -> <50/300
+    # thiB -> 140/320
     args = parser.parse_args(
-        "organisms_input_clean.csv -q LepA -t CDS --verbose".split(' ')
+        "organisms_input_clean.csv -q rcsF -t CDS --verbose".split(' ')
         )
 
     # External variables
@@ -396,7 +404,7 @@ if __name__ == '__main__':
 
     # Internal variables
     OUT_CORRECT = './data/organismlist_correct.csv'
-    OUT_FAILED = './data/organismlist_failed.csv'
+    OUT_FAILED = f'./data/organismlist_failed_{QUERY}.csv'
     OUT_FASTA = f'./data/{QUERY}_sequences.fasta'
     nerrors = 0
     data = {"Name": [],

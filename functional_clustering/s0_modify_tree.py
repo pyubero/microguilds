@@ -3,10 +3,7 @@ import requests
 from Bio import Phylo
 from tqdm import tqdm
 import functional_clustering_utils as fcutils
-
-# accession = ACCESSION
-# db = DATABASE
-# el 208 de 16S
+import warnings
 
 
 def accession_to_taxoninfo(accession, db):
@@ -45,6 +42,7 @@ def accession_to_taxoninfo(accession, db):
     response = requests.get(url, params=params, timeout=10)
 
     if response.status_code > 200:
+        warnings.warn(f"Request status code {response.status_code}.")
         return None
 
     if db == "nucleotide":
@@ -57,7 +55,8 @@ def accession_to_taxoninfo(accession, db):
     chunk = response.text.split("ORGANISM")[1].split(split_word)[0].split("\n")
     organism_name = clean_string(chunk[0]).split(" ")
     organism_taxonomy = clean_string(chunk[1]).split(" ")
-
+    print(organism_name)
+    print(organism_taxonomy)
     while len(organism_name) < 2:
         organism_name = [*organism_name, ""]
     organism_name = organism_name[:2]
@@ -78,8 +77,8 @@ def accession_to_taxoninfo(accession, db):
     return final[:-1]
 
 
-FILENAME_IN = "./data/tree_rplB_unlabeled.newick"
-FILENAME_OUT = "./data/tree_rplB.newick"
+FILENAME_IN = "./data/contree_rpoB.newick"
+FILENAME_OUT = "./data/contree_rpoB_labelled.newick"
 TREETYPE = "newick"
 DATABASE = "protein"  # either protein (if rplB) or nucleotide (if 16S)
 
@@ -88,10 +87,24 @@ TREE = Phylo.read(FILENAME_IN, TREETYPE)
 LEAFS = TREE.get_terminals()
 NODES = TREE.get_nonterminals()
 
-print(TREE.get_nonterminals()[208].name)
-print(TREE.get_terminals()[208].name)
+# Uncomment this section when leafs are named as genus_species_gene.
+# for leaf in tqdm(LEAFS):
+#     genus = leaf.name.split('_')[0]
+#     species = leaf.name.split('_')[1]
+#     header = f"XXXX_cds_YYYY_g_{genus}_s_{species}"
+#     leaf.name = header
+
+# for nn, node in tqdm(enumerate(NODES)):
+#     node.name = f"IN_{nn}_0"
+
+# Phylo.write(TREE, FILENAME_OUT, format="newick")
 
 
+
+
+
+
+# This has debugging purposes
 # leaf = TREE.get_terminals()[0]
 # accession = leaf.name.split(".")[0]
 # db = "nucleotide"

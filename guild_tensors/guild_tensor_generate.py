@@ -60,7 +60,7 @@ GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 REGRESSION_LEVEL = "gene"
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
-NORMALIZE_NSAMPLES = False
+NORMALIZE_NSAMPLES = True
 SAMPLECODE_COLUMN = "MP"
 VERBOSE = True
 EXPORT_PLOT = True
@@ -82,11 +82,11 @@ assert "cluster_id" in master_table.columns
 
 # Compute adu_table
 adu_table = gtutils.build_adu_table(
-                master_table,
-                GENE_NAME,
-                LEVEL_NAME,
-                force_build=True
-            )
+    master_table,
+    GENE_NAME,
+    LEVEL_NAME,
+    force_build=True
+)
 
 
 # Linear regressions
@@ -172,7 +172,7 @@ if EXPORT_PLOT and (REGRESSION_LEVEL == "gene"):
         )
 
     plt.subplot(1, 2, 2)
-    plt.scatter(x, x*delta[valid], s=delta[valid]*10, c=logy)
+    plt.scatter(x, x * delta[valid], s=delta[valid] * 10, c=logy)
     plt.grid()
     plt.colorbar(label="log10 Observed diversity")
     plt.plot(x, x, 'k', lw=0.5)

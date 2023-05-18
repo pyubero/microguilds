@@ -13,7 +13,7 @@ from guild_tensor_utils import verboseprint
 
 
 # General variables
-GENE_NAME = 'hzsA'
+GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 UNASSIGNED = ["s__", "Unspecified"]
@@ -54,7 +54,12 @@ clusters = df['Cluster'].unique()
 data = [taxons, CONTEXTS, clusters]
 n_taxons, n_ctxts, n_clusters = len(taxons), len(CONTEXTS), len(clusters)
 
-K = gtutils.from_df_to_ktensor(df, data, column="k-value").astype("float")
+kvals = gtutils.from_df_to_ktensor(df, data, column="k-value").astype("float")
+nsamp = gtutils.from_df_to_ktensor(df, data, column="normalization").astype("float")
+abund = gtutils.from_df_to_ktensor(df, data, column="Abundance").astype("float")
+delta = gtutils.from_df_to_ktensor(df, data, column="delta").astype("float")
+K = kvals
+
 
 verboseprint("Loaded data for:", VERBOSE)
 verboseprint(f"   {n_taxons:4d}\ttaxons", VERBOSE)
@@ -88,7 +93,7 @@ elif CONTRIBUTION == "summed":
     if DISPLAY_KIND == "common":
         contrib_per_taxon = np.sum(np.sum(K, axis=2), axis=1)
         tx_scores = np.array([gtutils.score_taxon(tx) for tx in taxons])
-        scores = np.log10(contrib_per_taxon) + tx_scores*TAXONOMIC_ADVANTAGE
+        scores = np.log10(contrib_per_taxon) + tx_scores * TAXONOMIC_ADVANTAGE
         threshold = np.sort(scores)[-_maxshown]
         idx_show = np.argwhere(scores >= threshold)[:, 0]
         k_min = contrib_per_taxon[idx_show].min()
@@ -109,7 +114,7 @@ idx_show = list(set(idx_show) - set(idx_unassigned))
 taxon_labels = [f"Others, K${_symbol}${k_min:1.1f}",
                 "Unassigned",
                 *taxons[idx_show]]
-K_shown = np.zeros((len(idx_show)+2, n_ctxts, n_clusters))
+K_shown = np.zeros((len(idx_show) + 2, n_ctxts, n_clusters))
 K_shown[0, :, :] = np.sum(K[idx_other, :, :], axis=0)
 K_shown[1, :, :] = np.sum(K[idx_unassigned, :, :], axis=0)
 K_shown[2:, :, :] = K[idx_show, :, :]
@@ -153,26 +158,26 @@ sumX = np.sum(X, axis=0)    # total K per cluster per context
 maxX = np.max(np.max(X, axis=2), axis=1)  # maximum contribution per taxon
 
 theta = np.linspace(0.0, 2 * np.pi, n_clusters, endpoint=False)
-Dtheta = theta[1]-theta[0]
+Dtheta = theta[1] - theta[0]
 if MAX_RLIM is not None:
-    dr = np.round(MAX_RLIM/4)
-    rlims = np.arange(0, 1+np.ceil(MAX_RLIM/dr)*dr, dr)
+    dr = np.round(MAX_RLIM / 4)
+    rlims = np.arange(0, 1 + np.ceil(MAX_RLIM / dr) * dr, dr)
 else:
-    dr = np.round(R_UPPER_MARGIN_REL*sumX.max()/4)
-    rlims = np.arange(0, 1+np.ceil(R_UPPER_MARGIN_REL*sumX.max()/dr)*dr, dr)
+    dr = np.round(R_UPPER_MARGIN_REL * sumX.max() / 4)
+    rlims = np.arange(0, 1 + np.ceil(R_UPPER_MARGIN_REL * sumX.max() / dr) * dr, dr)
 
-width = BAR_WIDTH_REL*Dtheta
+width = BAR_WIDTH_REL * Dtheta
 n_cols, n_rows = 0, 0
 
 if ORIENTATION == "horizontal":
-    n_cols = int(np.clip(n_ctxts+1, 1, 3))
-    n_rows = int(np.ceil((n_ctxts+1) / 4))
+    n_cols = int(np.clip(n_ctxts + 1, 1, 3))
+    n_rows = int(np.ceil((n_ctxts + 1) / 4))
     title_padding = 18
     FIGSIZE[1] = FIGSIZE[1] * n_rows
 
 elif ORIENTATION == "vertical":
-    n_rows = int(np.clip(n_ctxts+1, 1, 3))
-    n_cols = int(np.ceil((n_ctxts+1) / 4))
+    n_rows = int(np.clip(n_ctxts + 1, 1, 3))
+    n_cols = int(np.ceil((n_ctxts + 1) / 4))
     title_padding = 0
     FIGSIZE[0] = FIGSIZE[0] * n_rows
 
@@ -182,7 +187,7 @@ HFigure = plt.figure(figsize=FIGSIZE, dpi=DPI)
 bottoms = np.zeros((n_ctxts, n_clusters))
 
 for _context in range(n_ctxts):
-    ax = plt.subplot(n_rows, n_cols, _context+1, projection=PROJECTION)
+    ax = plt.subplot(n_rows, n_cols, _context + 1, projection=PROJECTION)
 
     # Plot Others and Unassigned
     ax, _bot = gtutils.stackbar(ax, theta, X[:2, _context, :],
@@ -202,7 +207,7 @@ for _context in range(n_ctxts):
 
     if PROJECTION == "polar":
         ax.set_rgrids(rlims, labels="")
-        ax.set_thetagrids(theta*57.3, labels=clusters, fontsize=7)
+        ax.set_thetagrids(theta * 57.3, labels=clusters, fontsize=7)
         ax.tick_params(pad=3)
 
     elif PROJECTION == "rectilinear":

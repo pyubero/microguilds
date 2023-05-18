@@ -34,14 +34,14 @@ def bin_count(array):
 
 
 # General parameters
-GENE = "potF"
+GENE = "rpoB"
 FILENAME_ENV_DATA = './data/environmental_data.csv'
 MCMAX = 20_000  # 999 takes 90s; 99 takes 10s
 VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
 
-FILENAME_TREE = f'./data/tree_{GENE}.newick'
+FILENAME_TREE = f'./data/contree_{GENE}_labelled.newick'
 FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
 FILENAME_OUT = f'./data/data_enrichment_{GENE}.npz'
 
