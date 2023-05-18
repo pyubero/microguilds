@@ -178,7 +178,7 @@ if MAX_RLIM is not None:
     rlims = np.arange(0, 0.001 + np.ceil(MAX_RLIM / dr) * dr, dr)
 else:
     _dr = R_UPPER_MARGIN_REL * sumX.max() / 4
-    dr = np.round(_dr) if sumX.max() >=2 else _dr
+    dr = np.round(_dr) if sumX.max() >= 2 else _dr
     rlims = np.arange(0, 0.001 + np.ceil(R_UPPER_MARGIN_REL * sumX.max() / dr) * dr, dr)
 
 width = BAR_WIDTH_REL * Dtheta
