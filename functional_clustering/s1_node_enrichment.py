@@ -19,11 +19,11 @@ def entropy(frequencies):
     idc = np.argwhere(frequencies > 0)[:, 0]
 
     # Normalize ocurrences to probabilities
-    p = frequencies[idc]/np.sum(frequencies[idc])
+    p = frequencies[idc] / np.sum(frequencies[idc])
 
     # Return entropy
     _entropy = np.zeros(frequencies.shape)
-    _entropy[idc] = -p*np.log(p)
+    _entropy[idc] = - p * np.log(p)
     return np.sum(_entropy)
 
 
@@ -71,9 +71,9 @@ NCLADES = len(clade_ids)
 CLADE_NLEAFS = np.array([len(leafs) for leafs in clade_lfs])
 
 # Declare accumulators
-FEATURES = np.zeros((NLEAFS, NFEATURES))*np.nan
-ZSCORES = np.zeros((NCLADES, NFEATURES))*np.nan
-UNIVOCITY = np.zeros((NCLADES,))*np.nan
+FEATURES = np.zeros((NLEAFS, NFEATURES)) * np.nan
+ZSCORES = np.zeros((NCLADES, NFEATURES)) * np.nan
+UNIVOCITY = np.zeros((NCLADES,)) * np.nan
 
 # Fill feature matrix of the organisms found in the tree
 for idx_sp, species in tqdm(enumerate(SPECIES_NAMES)):
@@ -105,7 +105,7 @@ for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
     mc_mean = np.nanmean(values_mc, axis=0)
     mc_std = np.nanstd(values_mc, axis=0)
     mc_std[np.abs(mc_std) <= 1e-8] = np.nan
-    ZSCORES[idx_clade, :] = (obs_mean-mc_mean)/mc_std
+    ZSCORES[idx_clade, :] = (obs_mean - mc_mean) / mc_std
 
     # Compute univocity
     cluster_taxonomy = np.array(
@@ -141,7 +141,7 @@ if DISPLAY_PLOTS:
     # Massive plot of z-scores
     plt.figure(figsize=(12, 6))
     for jj in range(15):
-        plt.subplot(3, 5, jj+1)
+        plt.subplot(3, 5, jj + 1)
         plt.scatter(CLADE_NLEAFS, ZSCORES[:, jj], s=8)
         xlim = plt.xlim()
 

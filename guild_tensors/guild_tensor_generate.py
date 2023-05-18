@@ -114,7 +114,7 @@ else:
     raise ValueError(
         f'''Error as REGRESSION_LEVEL={REGRESSION_LEVEL} needs to be
         either 'gene' or 'cluster'.'''
-        )
+    )
 
 adu_table["delta"] = delta
 
@@ -142,9 +142,7 @@ else:
 
 
 # Export data
-adu_table["k-value"] = adu_table["Abundance"] * \
-                       adu_table["delta"] / \
-                       adu_table["normalization"]
+adu_table["k-value"] = adu_table["Abundance"] * adu_table["delta"] / adu_table["normalization"]
 adu_table.to_csv(out_filename, sep="\t", index=False)
 verboseprint(f"Data saved in {out_filename}.", VERBOSE)
 
@@ -167,9 +165,10 @@ if EXPORT_PLOT and (REGRESSION_LEVEL == "gene"):
     plt.grid()
     plt.xlabel("log10 Abundance")
     plt.ylabel("log10 Diversity")
-    plt.legend(
-        ["Data", fr"Biv. loglog reg\n$\gamma$={gamma:.3f}\nR2={r2:.3f}"]
-        )
+    plt.legend([
+        "Data", fr"Biv. loglog reg\n$\gamma$={gamma:.3f}\nR2={r2:.3f}"
+    ]
+    )
 
     plt.subplot(1, 2, 2)
     plt.scatter(x, x * delta[valid], s=delta[valid] * 10, c=logy)
