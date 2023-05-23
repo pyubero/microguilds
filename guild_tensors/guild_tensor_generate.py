@@ -39,7 +39,7 @@ CONTEXTS : numpy.array of str
     Please specify the contexts of interest in the desired order. Otherwise
     they could get sorted automatically.
 
-REGRESSION_LEVEL : str either "gene" or "cluster"
+REGRESSION_LEVEL : str either "gene", "cluster" or "context"
     Specifies which points are used to compute the model that relates abundance
     and diversity. It can be useful to benefit certain implementations
     (or clusters) differently for their observed abundance.
@@ -70,14 +70,12 @@ EXPORT_LEGACY = False
 out_filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_plot = f"loglog_regression_{GENE_NAME}_{LEVEL_NAME}.png"
 
-# Repair mastertable if some taxonomic tags are missing
+# Repair mastertable if some SQM taxonomic tags are missing
 # master_table = gtutils.repair_SQMtaxonomy(FILENAME, save=True)
 
 # Load mastertable
 master_table = pd.read_csv(FILENAME, sep="\t")
 verboseprint(f"Loaded mastertable with {len(master_table)} rows.")
-
-
 
 # Validate master table
 assert LEVEL_NAME in master_table.columns
@@ -92,7 +90,6 @@ adu_table = gtutils.build_adu_table(
     LEVEL_NAME,
     force_build=True
 )
-
 
 # Linear regressions
 if REGRESSION_LEVEL == "gene":
@@ -110,15 +107,32 @@ elif REGRESSION_LEVEL == "cluster":
         if gamma is None:
             delta[idx] = 1
             print(f"Cluster: {cluster} withou regression. Deltas=1.")
-            print('------------------------')
+            print('------------------------\n')
         else:
             delta[idx] = gtutils.compute_delta(adu_table[idx], [gamma, c])
             print(f"Cluster: {cluster} with R2={r2:0.2f}")
-            print('------------------------')
+            print('------------------------\n')
+
+elif REGRESSION_LEVEL == "context":
+    delta = np.zeros(len(adu_table))
+    for context in adu_table["Context"].unique():
+
+        idx = (adu_table["Context"] == context).to_numpy()
+        gamma, c, r2 = gtutils.compute_gamma(adu_table[idx], VERBOSE)
+
+        if gamma is None:
+            delta[idx] = 1
+            print(f"Context: {context} withou regression. Deltas=1.")
+            print('------------------------\n')
+        else:
+            delta[idx] = gtutils.compute_delta(adu_table[idx], [gamma, c])
+            print(f"Context: {context} with R2={r2:0.2f}")
+            print('------------------------\n')
+
 else:
     raise ValueError(
         f'''Error as REGRESSION_LEVEL={REGRESSION_LEVEL} needs to be
-        either 'gene' or 'cluster'.'''
+        either 'gene', 'cluster' or 'context'.'''
     )
 
 adu_table["delta"] = delta
