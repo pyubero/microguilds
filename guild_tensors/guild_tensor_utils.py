@@ -117,18 +117,18 @@ def bivariate_regression(x, y):
     lambdas, V = np.linalg.eig(C)
     idx = np.argsort(lambdas)[::-1]
     V = V[:, idx]
-    alfa = V[1][0]/V[0][0]
+    alfa = V[1][0] / V[0][0]
     beta = np.mean(y) - alfa * np.mean(x)
     return alfa, beta
 
 
-def check_mastertable(filename: str, save=False):
-    '''Checks and repairs the entries of a mastertable without a Species_SQM by
-    using those given by GTDB.'''
+def repair_mastertable(filename: str, save=False):
+    '''Repairs the entries of a mastertable without a Species_SQM by
+    using those given by Species_GTDB.'''
     df = pd.read_csv(filename, sep="\t")
     _modified = False
 
-    # Find null taxons
+    # Find taxons without LEVEL_NAME
     idc_null = np.argwhere(df['Species_SQM'].isnull().values)[:, 0]
     if len(idc_null) == 0:
         verboseprint(f"All {len(df)} entries are apparently valid.")
@@ -136,13 +136,13 @@ def check_mastertable(filename: str, save=False):
         _modified = True
         verboseprint(f"Found {len(idc_null)} null classifications")
         for jj in verbosebar(idc_null):
-            df.at[jj, "Domain_SQM"] = "GTDB:"+df.loc[jj, "Domain_GTDB"]
-            df.at[jj, "Phylum_SQM"] = "GTDB:"+df.loc[jj, "Phylum_GTDB"]
-            df.at[jj, "Class_SQM"] = "GTDB:"+df.loc[jj, "Class_GTDB"]
-            df.at[jj, "Order_SQM"] = "GTDB:"+df.loc[jj, "Order_GTDB"]
-            df.at[jj, "Family_SQM"] = "GTDB:"+df.loc[jj, "Family_GTDB"]
-            df.at[jj, "Genus_SQM"] = "GTDB:"+df.loc[jj, "Genus_GTDB"]
-            df.at[jj, "Species_SQM"] = "GTDB:"+df.loc[jj, "Species_GTDB"]
+            df.at[jj, "Domain_SQM"] = "GTDB:" + df.loc[jj, "Domain_GTDB"]
+            df.at[jj, "Phylum_SQM"] = "GTDB:" + df.loc[jj, "Phylum_GTDB"]
+            df.at[jj, "Class_SQM"] = "GTDB:" + df.loc[jj, "Class_GTDB"]
+            df.at[jj, "Order_SQM"] = "GTDB:" + df.loc[jj, "Order_GTDB"]
+            df.at[jj, "Family_SQM"] = "GTDB:" + df.loc[jj, "Family_GTDB"]
+            df.at[jj, "Genus_SQM"] = "GTDB:" + df.loc[jj, "Genus_GTDB"]
+            df.at[jj, "Species_SQM"] = "GTDB:" + df.loc[jj, "Species_GTDB"]
 
         idc_null = np.argwhere(df['Domain_SQM'].isnull().values)[:, 0]
         verboseprint(f"Still found {len(idc_null)} null classifications.",
@@ -177,8 +177,7 @@ def int_to_roman(num):
     tens = x[(num % 100) // 10]
     ones = i[num % 10]
 
-    ans = (thousands + hundreds +
-           tens + ones)
+    ans = (thousands + hundreds + tens + ones)
 
     return ans
 
@@ -188,13 +187,13 @@ def cycle_through(array, length):
     a specific length.
     Typically used to cycle through color maps to increase contrast.'''
     N = len(array)
-    cycle = np.ceil(N/length)
+    cycle = np.ceil(N / length)
 
     x0 = 0
     k = 1
     new_order = [x0,]
     while len(new_order) < len(array):
-        new_idx = x0 + k*cycle
+        new_idx = x0 + k * cycle
 
         if new_idx < len(array):
             new_order.append(int(new_idx))
@@ -231,8 +230,8 @@ def from_df_to_ktensor(df, data, column="k-value", verbose=True):
     for j_tx, j_ct, j_cl in verbosebar(idc, verbose):
 
         idx = (df["Taxon"] == taxons[j_tx]) & \
-                (df["Context"] == contexts.astype("str")[j_ct]) & \
-                (df["Cluster"] == clusters[j_cl])
+              (df["Context"] == contexts.astype("str")[j_ct]) & \
+              (df["Cluster"] == clusters[j_cl])
 
         if sum(idx) >= 1:
             warnings.warn("Multiple rows found for the same taxon, context,\
@@ -413,7 +412,7 @@ def build_adu_table(master_table, gene, taxonomic_level,
     # Standardize taxonomic column name
     master_table = master_table.rename(
         columns={taxonomic_level: "taxonomic_classification_level"}
-        )
+    )
 
     # Filter by gene name
     gene_table = master_table[master_table["gene_fun"] == gene]
@@ -443,7 +442,7 @@ def build_adu_table(master_table, gene, taxonomic_level,
     # Process data
     idc = np.array(
         np.meshgrid(range(n_taxons), range(n_contexts), range(n_clusters))
-        ).T.reshape(-1, 3)
+    ).T.reshape(-1, 3)
 
     # Define accumulator
     adu_table = pd.DataFrame(columns=["Gene", "Taxon", "Context", "Cluster",

@@ -50,6 +50,7 @@ NORMALIZE_NSAMPLES : bool
     imagine comparing a context with a single sample, and another with 100.
 """
 import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
 import guild_tensor_utils as gtutils
 from guild_tensor_utils import verboseprint
@@ -69,10 +70,14 @@ EXPORT_LEGACY = False
 out_filename = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 out_plot = f"loglog_regression_{GENE_NAME}_{LEVEL_NAME}.png"
 
+# Repair mastertable if some taxonomic tags are missing
+# master_table = gtutils.repair_SQMtaxonomy(FILENAME, save=True)
 
-# Import mastertable
-master_table = gtutils.check_mastertable(FILENAME, True)
+# Load mastertable
+master_table = pd.read_csv(FILENAME, sep="\t")
 verboseprint(f"Loaded mastertable with {len(master_table)} rows.")
+
+
 
 # Validate master table
 assert LEVEL_NAME in master_table.columns
