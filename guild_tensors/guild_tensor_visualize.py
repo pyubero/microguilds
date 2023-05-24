@@ -44,6 +44,7 @@ COLOR_UNASSIGNED = [0.4, 0.4, 0.4, 1]
 # Other options
 FILENAME_IN = f'kvalues_{GENE_NAME}_{LEVEL_NAME}.tsv'
 FILENAME_OUT = f"gpattern_{GENE_NAME}_{LEVEL_NAME}.png"
+FILENAME_COLORDICT = f"colordict_{GENE_NAME}_{LEVEL_NAME}.csv"
 
 
 # ######################################################
@@ -152,7 +153,7 @@ colors = np.delete(colors, [14, 15], axis=0)
 # colors[15] = np.clip(colors[14] * 1.55, 0, 1)
 colors = np.concatenate(([COLOR_OTHERS, COLOR_UNASSIGNED], colors), axis=0)
 mpl.rcParams['hatch.linewidth'] = 0.3  # previous pdf hatch linewidth
-hatches = ['', '/////////////', '.............']
+hatches = ['', '////////////', '.....']
 
 
 # ######################################################
@@ -201,6 +202,23 @@ FIGSIZE = np.array(FIGSIZE) / 2.3
 HFigure = plt.figure(figsize=FIGSIZE, dpi=DPI)
 bottoms = np.zeros((n_ctxts, n_clusters))
 
+# Load or create colordict
+if FILENAME_COLORDICT is None:
+    color_dict = {}
+else:
+    color_dict = gtutils.load_colordict(FILENAME_COLORDICT)
+
+# ... and update it
+color_dict = gtutils.update_colordict(
+    color_dict,
+    taxon_labels[2:],
+    maxColorIdx=18,
+    maxHatchIdx=3,
+    offset=0,
+    filename=FILENAME_COLORDICT
+)
+
+# Do the plotting
 for _context in range(n_ctxts):
     ax = plt.subplot(n_rows, n_cols, _context + 1, projection=PROJECTION)
 
@@ -218,7 +236,8 @@ for _context in range(n_ctxts):
                              colors=colors[2:],
                              hatches=hatches,
                              labels=taxon_labels[2:],
-                             bottom=bottoms[_context, :])
+                             bottom=bottoms[_context, :],
+                             colordict=color_dict)
 
     if PROJECTION == "polar":
         ax.set_rgrids(rlims, labels="")

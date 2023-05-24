@@ -122,7 +122,7 @@ def bivariate_regression(x, y):
     return alfa, beta
 
 
-def repair_mastertable(filename: str, save=False):
+def repair_SQMtaxonomy(filename: str, save=False):
     '''Repairs the entries of a mastertable without a Species_SQM by
     using those given by Species_GTDB.'''
     df = pd.read_csv(filename, sep="\t")
@@ -270,63 +270,63 @@ def score_taxon(taxon: str):
     return score
 
 
-def stackbar(ax, x, Y, *args, **kwargs):
-    ''' Easily plot stacked bars with, optionally, a list of colors and
-    hatches.'''
+# def stackbar(ax, x, Y, *args, **kwargs):
+#     ''' OBSOLETE Easily plot stacked bars with, optionally, a list of colors
+#     and hatches.'''
 
-    if "bottom" not in kwargs:
-        kwargs.update({"bottom": np.zeros(Y.shape[1], )})
+#     if "bottom" not in kwargs:
+#         kwargs.update({"bottom": np.zeros(Y.shape[1], )})
 
-    if "labels" in kwargs:
-        labels = kwargs["labels"]
-        kwargs.pop("labels")
-        _given_labels = True
-    else:
-        labels = None
-        _given_labels = False
+#     if "labels" in kwargs:
+#         labels = kwargs["labels"]
+#         kwargs.pop("labels")
+#         _given_labels = True
+#     else:
+#         labels = None
+#         _given_labels = False
 
-    if "colors" in kwargs:
-        colors = kwargs["colors"]
-        kwargs.pop("colors")
-        _given_colors = True
-    else:
-        colors = None
-        _given_colors = False
+#     if "colors" in kwargs:
+#         colors = kwargs["colors"]
+#         kwargs.pop("colors")
+#         _given_colors = True
+#     else:
+#         colors = None
+#         _given_colors = False
 
-    if "hatches" in kwargs:
-        hatches = kwargs["hatches"]
-        kwargs.pop("hatches")
-        _given_hatches = True
-    else:
-        hatches = None
-        _given_hatches = False
+#     if "hatches" in kwargs:
+#         hatches = kwargs["hatches"]
+#         kwargs.pop("hatches")
+#         _given_hatches = True
+#     else:
+#         hatches = None
+#         _given_hatches = False
 
-    if Y.shape[0] == 0:
-        return ax, kwargs["bottom"]
+#     if Y.shape[0] == 0:
+#         return ax, kwargs["bottom"]
 
-    for idx in range(Y.shape[0]):
-        if _given_labels:
-            kwargs.update({"label": labels[idx]})
+#     for idx in range(Y.shape[0]):
+#         if _given_labels:
+#             kwargs.update({"label": labels[idx]})
 
-        if _given_colors:
-            idx_color = idx % colors.shape[0]
-            kwargs.update({"color": colors[idx_color, :]})
-            if _given_hatches:
-                idx_hatch = idx // colors.shape[0]
-                kwargs.update({"hatch": hatches[idx_hatch]})
+#         if _given_colors:
+#             idx_color = idx % colors.shape[0]
+#             kwargs.update({"color": colors[idx_color, :]})
+#             if _given_hatches:
+#                 idx_hatch = idx // colors.shape[0]
+#                 kwargs.update({"hatch": hatches[idx_hatch]})
 
-        # Plot
-        ax.bar(x, Y[idx, :], *args, **kwargs)
+#         # Plot
+#         ax.bar(x, Y[idx, :], *args, **kwargs)
 
-        # ... update bottoms
-        new_bottoms = kwargs["bottom"] + Y[idx, :]
-        kwargs.update({"bottom": new_bottoms})
+#         # ... update bottoms
+#         new_bottoms = kwargs["bottom"] + Y[idx, :]
+#         kwargs.update({"bottom": new_bottoms})
 
-        # ... remove label
-        if ("label" in kwargs) and (type(kwargs["label"]) == str):
-            kwargs.pop("label")
+#         # ... remove label
+#         if ("label" in kwargs) and (type(kwargs["label"]) == str):
+#             kwargs.pop("label")
 
-    return ax, kwargs["bottom"]
+#     return ax, kwargs["bottom"]
 
 
 def kmax_taxons(K, n):
@@ -530,3 +530,152 @@ def compute_delta(table, params):
 def linear_function(x_values, slope, offset):
     '''Returns y = slope * x + offset'''
     return slope * x_values + offset
+
+
+def update_colordict(
+    colordict,
+    taxons,
+    maxColorIdx,
+    maxHatchIdx,
+    offset=0,
+    filename=False
+):
+
+    '''To generate visualizations with consistent color and hatch codes,
+    we now generate, load and update a colordict file.'''
+
+    # Generate all possible patterns
+    all_combs = [
+        [cc + offset, hh] for hh in range(maxHatchIdx) for cc in range(maxColorIdx)
+    ]
+
+    # Remove combinations being currently used
+    for _, value in colordict.items():
+        try:
+            all_combs.remove(value)
+        except ValueError:
+            continue
+
+    # To every new taxon not present in colordict{} add next pattern
+    for taxon in taxons[offset:]:
+        if taxon not in colordict:
+            colordict.update(
+                {taxon: all_combs[0]}
+            )
+
+            all_combs.remove(colordict[taxon])
+            print(f"New taxon {taxon[:10]} added with {colordict[taxon]}")
+
+    # Export colordict
+    if filename:
+        export_colordict(filename, colordict)
+
+    return colordict
+
+
+def export_colordict(filename, colordict, *args, **kwargs):
+    '''Export a colordict into a human readable csv'''
+
+    df = pd.DataFrame.from_dict(
+        colordict,
+        orient="index",
+        columns=["colorIdx", "hatchIdx"])
+
+    df.to_csv(filename, index=True, *args, **kwargs)
+    return True
+
+
+def load_colordict(filename, *args, **kwargs):
+    '''Loads a colordict file.
+    Must be a csv with columns : [None, colorIdx, hatchIdx]'''
+
+    if not os.path.exists(filename):
+        warnings.warn(
+            f"FileNotFound {filename}, returning an empty colordict."
+        )
+        return {}
+
+    df = pd.read_csv(filename, index_col=0, *args, **kwargs)
+
+    colordict = {}
+    for ii, row in df.iterrows():
+        species = row.name
+        colorIdx = row["colorIdx"]
+        hatchIdx = row["hatchIdx"]
+        colordict.update({species: [colorIdx, hatchIdx]})
+
+    return colordict
+
+
+def stackbar(ax, x, Y, *args, **kwargs):
+    ''' Easily plot stacked bars with, optionally, a list of colors and
+    hatches.'''
+
+    if "bottom" not in kwargs:
+        kwargs.update({"bottom": np.zeros(Y.shape[1], )})
+
+    if "labels" in kwargs:
+        labels = kwargs["labels"]
+        kwargs.pop("labels")
+        _given_labels = True
+    else:
+        labels = None
+        _given_labels = False
+
+    if "colors" in kwargs:
+        colors = kwargs["colors"]
+        kwargs.pop("colors")
+        _given_colors = True
+    else:
+        colors = None
+        _given_colors = False
+
+    if "hatches" in kwargs:
+        hatches = kwargs["hatches"]
+        kwargs.pop("hatches")
+        _given_hatches = True
+    else:
+        hatches = None
+        _given_hatches = False
+
+    if "colordict" in kwargs:
+        colordict = kwargs["colordict"]
+        kwargs.pop("colordict")
+        _given_colordict = True
+    else:
+        colordict = None
+        _given_colordict = False
+
+    if Y.shape[0] == 0:
+        return ax, kwargs["bottom"]
+
+    for idx in range(Y.shape[0]):
+        if _given_labels:
+            kwargs.update({"label": labels[idx]})
+
+        if _given_colordict and _given_labels and _given_hatches:
+            properties = colordict[labels[idx]]
+            idx_color = properties[0]
+            idx_hatch = properties[1]
+            kwargs.update({"color": colors[idx_color, :]})
+            kwargs.update({"hatch": hatches[idx_hatch]})
+
+        elif _given_colors:
+            idx_color = idx % colors.shape[0]
+            kwargs.update({"color": colors[idx_color, :]})
+            if _given_hatches:
+                idx_hatch = idx // colors.shape[0]
+                kwargs.update({"hatch": hatches[idx_hatch]})
+
+        # Plot
+        ax.bar(x, Y[idx, :], *args, **kwargs)
+
+        # ... update bottoms
+        new_bottoms = kwargs["bottom"] + Y[idx, :]
+        kwargs.update({"bottom": new_bottoms})
+
+        # ... remove label
+        if ("label" in kwargs) and (type(kwargs["label"]) == str):
+            kwargs.pop("label")
+
+    return ax, kwargs["bottom"]
