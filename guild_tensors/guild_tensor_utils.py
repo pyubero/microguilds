@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 from sklearn.metrics import r2_score
+from matplotlib import pyplot as plt
 
 
 def verboseprint(msg, verbose=True, condition=True):
@@ -239,7 +240,7 @@ def from_df_to_ktensor(df, data, column="k-value", verbose=True):
                 and element during a call to from_df_to_ktensor() for:
                 taxon: {taxons[j_tx]}
                 context: {contexts.astype("str")[j_ct]}
-                element: {cluster[j_cl]}
+                element: {clusters[j_cl]}
                 Only one row is expected at maximum.\
                 Will be considering the sum of all corresponding rows.'''
             )
@@ -509,26 +510,92 @@ def compute_gamma(adu_table, verbose=True):
     return gamma, offset, r2
 
 
-def compute_delta(table, params):
-    '''Computes delta = delta_obs/delta_exp with delta_expected given by
-    the empirical (abundance, diversity) fit'''
+def compute_delta(
+        table,
+        threshold=1e-10,
+        verbose=True,
+        printfigure=True,
+        printlabel=""
+):
+    '''Computes delta as delta_obs/delta_exp with delta_expected
+    given by the bivariate regression to the log-transformed
+    data of abundance and diversity from the adu_table to compute
+    k-values.'''
 
-    # Load data for regression
+    # Load data to regress
     valid = table["Abundance"] > 0
+    if np.sum(valid) < 2:
+        warnings.warn(
+            f"Not enough points to compute delta. Found {np.sum(valid)} points."
+        )
+        return np.ones(len(table))
+
+    elif np.sum(valid) < 10:
+        warnings.warn(
+            f"Fitting bivariate regression for {np.sum(valid)}<10 data points."
+        )
+
+    # Transform data to loglog
     x = table["Abundance"][valid].to_numpy().astype("float")
     y = table["Diversity"][valid].to_numpy().astype("float")
 
-    # Transform data to loglog
-    log_threshold = 1e-10
-    logx = np.log10(log_threshold + x)
-    logy = np.log10(log_threshold + y)
+    logx = np.log10(threshold + x)
+    logy = np.log10(threshold + y)
+
+    # Linear regression
+    gamma, offset = bivariate_regression(logx, logy)
+    r2 = r2_score(logy, logx * gamma + offset)
+
+    # Print regression results
+    verboseprint("Bivariate loglog regression results:", verbose)
+    verboseprint(f"numpts = {np.sum(valid)}", verbose)
+    verboseprint(f"gamma = {gamma}", verbose)
+    verboseprint(f"offset = {offset}", verbose)
+    verboseprint(f"R2 = {r2}", verbose)
+    verboseprint("", verbose)
 
     # Compute correction factor delta = d_obs/d_exp
-    delta = 10**logy / np.clip(10**linear_function(logx, *params), 1, np.inf)
+    d_exp = np.clip(10**linear_function(logx, gamma, offset), 1, np.inf)
+
     _delta = np.zeros(len(table))
-    _delta[valid] = delta
+    _delta[valid] = y / d_exp
+
+    if printfigure:
+        plt.figure(printfigure)
+
+        plt.scatter(logx, logy, s=10, label=printlabel)
+        plt.plot(
+            logx,
+            gamma * logx + offset
+        )
+        # label=f"$\gamma$={gamma:.3f}\nR2={r2:.3f}"
+
+        plt.grid()
+        plt.xlabel("log10 Abundance")
+        plt.ylabel("log10 Diversity")
 
     return _delta
+
+
+# def compute_delta(table, params):
+#     '''Computes delta = delta_obs/delta_exp with delta_expected given by
+#     the empirical (abundance, diversity) fit'''
+
+#     # Load data for regression
+#     valid = table["Abundance"] > 0
+#     x = table["Abundance"][valid].to_numpy().astype("float")
+#     y = table["Diversity"][valid].to_numpy().astype("float")
+
+#     # Transform data to loglog
+#     log_threshold = 1e-10
+#     logx = np.log10(log_threshold + x)
+#     logy = np.log10(log_threshold + y)
+
+#     # Compute correction factor delta = d_obs/d_exp
+#     delta = 10**logy / np.clip(10**linear_function(logx, *params), 1, np.inf)
+#     _delta = np.zeros(len(table))
+#     _delta[valid] = delta
+#     return _delta
 
 
 def linear_function(x_values, slope, offset):
@@ -602,7 +669,7 @@ def load_colordict(filename, *args, **kwargs):
     df = pd.read_csv(filename, index_col=0, *args, **kwargs)
 
     colordict = {}
-    for ii, row in df.iterrows():
+    for _, row in df.iterrows():
         species = row.name
         colorIdx = row["colorIdx"]
         hatchIdx = row["hatchIdx"]
@@ -683,3 +750,10 @@ def stackbar(ax, x, Y, *args, **kwargs):
             kwargs.pop("label")
 
     return ax, kwargs["bottom"]
+
+
+def compute_number_samples(dataframe, context, samplecolumn):
+    '''Computes # of samples per context.'''
+    samples_in_context = dataframe[dataframe["Context"] == context]
+    list_of_samples = samples_in_context[samplecolumn]
+    return len(list_of_samples.unique())

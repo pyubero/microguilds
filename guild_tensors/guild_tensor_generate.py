@@ -58,13 +58,12 @@ import guild_tensor_utils as gtutils
 from guild_tensor_utils import verboseprint
 
 
-FILENAME = "nit16.tsv"  # "mastertable.tsv"
-GENE_NAME = "n_uptake"  # 'potF'
+FILENAME = "mastertable.tsv"
+GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 REGRESSION_LEVEL = "gene"
-# CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
-CONTEXTS= np.array(["Controls", "NH4", "T0", "NO3"])
-NORMALIZE_NSAMPLES = True
+CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+NORMALIZE_NSAMPLES = False
 SAMPLECODE_COLUMN = "Samples"
 VERBOSE = True
 EXPORT_PLOT = True
@@ -89,6 +88,7 @@ assert "gene_fun" in master_table.columns
 assert GENE_NAME in master_table["gene_fun"].to_list()
 assert "cluster_id" in master_table.columns
 
+#####################
 # Compute adu_table
 adu_table = gtutils.build_adu_table(
     master_table,
@@ -97,66 +97,77 @@ adu_table = gtutils.build_adu_table(
     force_build=True
 )
 
+#####################
 # Linear regressions
+H = plt.figure("plots", figsize=(12, 4), dpi=300)
+plt.subplot(1, 2, 1)
+
 if REGRESSION_LEVEL == "gene":
-    gamma, c, r2 = gtutils.compute_gamma(adu_table, VERBOSE)
-    delta = gtutils.compute_delta(adu_table, [gamma, c])
-    print(f"Gene: {GENE_NAME} with R2={r2:0.2f}")
+    print(f"\n----- {GENE_NAME} -----")
+    delta = gtutils.compute_delta(
+        adu_table,
+        verbose=VERBOSE,
+        printfigure=H,
+        printlabel=GENE_NAME
+    )
 
 elif REGRESSION_LEVEL == "cluster":
     delta = np.zeros(len(adu_table))
     for cluster in adu_table["Cluster"].unique():
-
+        print(f"\n----- {cluster} -----")
         idx = (adu_table["Cluster"] == cluster).to_numpy()
-        gamma, c, r2 = gtutils.compute_gamma(adu_table[idx], VERBOSE)
-
-        if gamma is None:
-            delta[idx] = 1
-            print(f"Cluster: {cluster} withou regression. Deltas=1.")
-            print('------------------------\n')
-        else:
-            delta[idx] = gtutils.compute_delta(adu_table[idx], [gamma, c])
-            print(f"Cluster: {cluster} with R2={r2:0.2f}")
-            print('------------------------\n')
+        delta[idx] = gtutils.compute_delta(
+            adu_table[idx],
+            verbose=VERBOSE,
+            printfigure=H,
+            printlabel=cluster
+        )
 
 elif REGRESSION_LEVEL == "context":
     delta = np.zeros(len(adu_table))
     for context in adu_table["Context"].unique():
-
+        print(f"\n----- {context} -----")
         idx = (adu_table["Context"] == context).to_numpy()
-        gamma, c, r2 = gtutils.compute_gamma(adu_table[idx], VERBOSE)
+        delta[idx] = gtutils.compute_delta(
+            adu_table[idx],
+            verbose=VERBOSE,
+            printfigure=H,
+            printlabel=context
+        )
 
-        if gamma is None:
-            delta[idx] = 1
-            print(f"Context: {context} withou regression. Deltas=1.")
-            print('------------------------\n')
-        else:
-            delta[idx] = gtutils.compute_delta(adu_table[idx], [gamma, c])
-            print(f"Context: {context} with R2={r2:0.2f}")
-            print('------------------------\n')
+elif REGRESSION_LEVEL == "context_and_cluster":
+    delta = np.zeros(len(adu_table))
+    for context in adu_table["Context"].unique():
+        for cluster in adu_table["Cluster"].unique():
+            print(f"\n----- {context} : {cluster} -----")
+            idx = (adu_table["Context"] == context).to_numpy()
+            delta[idx] = gtutils.compute_delta(
+                adu_table[idx],
+                verbose=VERBOSE,
+                printfigure=H,
+                printlabel=f"{context},{cluster}"
+            )
 
 else:
     raise ValueError(
         f'''Error as REGRESSION_LEVEL={REGRESSION_LEVEL} needs to be
-        either 'gene', 'cluster' or 'context'.'''
+        either 'gene', 'cluster', 'context' or "context_and_cluster'.'''
     )
 
 adu_table["delta"] = delta
 
+if EXPORT_PLOT:
+    plt.suptitle(f"{GENE_NAME}, {LEVEL_NAME}")
+    plt.savefig(out_plot)
 
+
+# ######################
 # Normalize K-values according to the number of samples in contexts
-def compute_number_samples(dataframe, context):
-    '''Computes # of samples per context.'''
-    samples_in_context = dataframe[dataframe["Context"] == context]
-    list_of_samples = samples_in_context[SAMPLECODE_COLUMN]
-    return len(list_of_samples.unique())
-
-
 if NORMALIZE_NSAMPLES:
     normalization = np.ones(len(adu_table))
 
     for ctx in CONTEXTS:
-        nsamples = compute_number_samples(master_table, ctx)
+        nsamples = gtutils.compute_number_samples(master_table, ctx, SAMPLECODE_COLUMN)
         normalization[adu_table["Context"] == ctx] = nsamples
 
     adu_table["normalization"] = normalization
@@ -166,14 +177,16 @@ else:
     adu_table["normalization"] = 1
 
 
+# ####################
 # Export data
 adu_table["k-value"] = adu_table["Abundance"] * adu_table["delta"] / adu_table["normalization"]
 adu_table.to_csv(out_filename, sep="\t", index=False)
 verboseprint(f"Data saved in {out_filename}.", VERBOSE)
 
 
+# ####################
 # Draw plot
-if EXPORT_PLOT and (REGRESSION_LEVEL == "gene"):
+if EXPORT_PLOT:
 
     valid = adu_table["Abundance"] > 0
     x = adu_table["Abundance"][valid].to_numpy().astype("float")
@@ -183,17 +196,9 @@ if EXPORT_PLOT and (REGRESSION_LEVEL == "gene"):
     logx = np.log10(1e-10 + x)
     logy = np.log10(1e-10 + y)
 
-    H = plt.figure(figsize=(12, 4), dpi=300)
+    plt.figure(H)
     plt.subplot(1, 2, 1)
-    plt.scatter(logx, logy, s=10, c=logy)
-    plt.plot(logx, gamma * logx + c)
-    plt.grid()
-    plt.xlabel("log10 Abundance")
-    plt.ylabel("log10 Diversity")
-    plt.legend([
-        "Data", fr"Biv. loglog reg\n$\gamma$={gamma:.3f}\nR2={r2:.3f}"
-    ]
-    )
+    plt.legend()
 
     plt.subplot(1, 2, 2)
     plt.scatter(x, x * delta[valid], s=delta[valid] * 10, c=logy)
