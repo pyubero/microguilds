@@ -438,8 +438,7 @@ def build_adu_table(master_table, gene, taxonomic_level,
     # Print some output
     verboseprint(f"Found {n_clusters} clusters in gene subtable:", verbose)
     _ = [verboseprint(f"\t{clustername}", verbose) for clustername in clusters]
-    verboseprint(f"""Found {n_taxons} taxonomic levels
-                 in column *{taxonomic_level}*.""", verbose)
+    verboseprint(f"Found {n_taxons} taxonomic levels in column *{taxonomic_level}*.", verbose)
     verboseprint(f"Found {n_contexts} contexts in gene subtable.", verbose)
     _ = [verboseprint(f"\t{ctxt}", verbose) for ctxt in contexts]
     verboseprint("", verbose)

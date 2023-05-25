@@ -14,13 +14,15 @@ The mastertable should have AT LEAST the following columns:
     will effectively study a single gene function per run of the script.
 
     cluster_id : cluster identifier, see "aumatic sequence clustering" from
-    from this same project and paper.
+    this same project and paper. This variable can distinguish between
+    implementations for the same gene, or between genes for a same route.
 
-    Species_GTDB : or another taxonomic category. Please, in case you would
+    Species : or some taxonomic category. Please, in case you would
     like to group taxons using a different level specify variable LEVEL_NAME.
 
     TPM : these are the abundances found in metagenomic samples in transcripts
-    per million.
+    per million. If you wish to process raw_counts or some other abundance
+    measure, please modify the column name in a copy of your original file.
 
 
 * INPUTS *
@@ -36,8 +38,8 @@ LEVEL_NAME: str
     name of a column of master table.
 
 CONTEXTS : numpy.array of str
-    Please specify the contexts of interest in the desired order. Otherwise
-    they could get sorted automatically.
+    Please specify the contexts of interest in the desired order. If None
+    they will get sorted automatically.
 
 REGRESSION_LEVEL : str either "gene", "cluster" or "context"
     Specifies which points are used to compute the model that relates abundance
@@ -56,13 +58,14 @@ import guild_tensor_utils as gtutils
 from guild_tensor_utils import verboseprint
 
 
-FILENAME = "mastertable.tsv"
-GENE_NAME = 'potF'
+FILENAME = "nit16.tsv"  # "mastertable.tsv"
+GENE_NAME = "n_uptake"  # 'potF'
 LEVEL_NAME = 'Species_GTDB'
 REGRESSION_LEVEL = "gene"
-CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+# CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
+CONTEXTS= np.array(["Controls", "NH4", "T0", "NO3"])
 NORMALIZE_NSAMPLES = True
-SAMPLECODE_COLUMN = "MP"
+SAMPLECODE_COLUMN = "Samples"
 VERBOSE = True
 EXPORT_PLOT = True
 EXPORT_LEGACY = False
@@ -75,6 +78,9 @@ out_plot = f"loglog_regression_{GENE_NAME}_{LEVEL_NAME}.png"
 
 # Load mastertable
 master_table = pd.read_csv(FILENAME, sep="\t")
+
+# ... get rid of non-contributing rows
+master_table = master_table[master_table["TPM"] > 0]
 verboseprint(f"Loaded mastertable with {len(master_table)} rows.")
 
 # Validate master table
