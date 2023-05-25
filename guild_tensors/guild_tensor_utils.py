@@ -233,11 +233,16 @@ def from_df_to_ktensor(df, data, column="k-value", verbose=True):
               (df["Context"] == contexts.astype("str")[j_ct]) & \
               (df["Cluster"] == clusters[j_cl])
 
-        if sum(idx) >= 1:
-            warnings.warn("Multiple rows found for the same taxon, context,\
-            and element during a call to from_df_to_ktensor(). Only one row is\
-            expected at maximum.\n\
-            Will be considering the sum of all corresponding rows.")
+        if sum(idx) > 1:
+            warnings.warn(
+                f'''Multiple rows found for the same taxon, context,
+                and element during a call to from_df_to_ktensor() for:
+                taxon: {taxons[j_tx]}
+                context: {contexts.astype("str")[j_ct]}
+                element: {cluster[j_cl]}
+                Only one row is expected at maximum.\
+                Will be considering the sum of all corresponding rows.'''
+            )
 
         # old : Kmat[j_tx, j_ct, j_cl] = df[idx][column].iloc[0]
         Kmat[j_tx, j_ct, j_cl] = np.sum(df[idx][column])
