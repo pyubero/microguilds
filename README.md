@@ -14,9 +14,13 @@ This repo is divided into three different aspects related to microbial guild ana
 
 To use migroguilds you don't need to install anything (for now it is not meant to be a package) but rather a collection of useful functions or cli applications. Simply clone this repo and start running our own developped applications or write your own!
 
-0. To clone the repository: `git clone https://github.com/pyubero/microguilds.git`
+- To clone the repository use: `git clone https://github.com/pyubero/microguilds.git`
 
-## Contributing, Bug Reports :bug:
+## Tutorials
+For a better experience, we have create some [tutorials](https://github.com/pyubero/uGuilds/tree/main/Tutorials) on how we personally use the functions available in this repo. They are somewhat deeply commented examples using mock organisms and a mock mastertable.
+
+
+## Contributing and bug reports :bug:
 
 We are always looking for people interested in helping with code development, documentation... If you wish to contribute, please first send any of us an email.
 
@@ -24,6 +28,21 @@ If you find any bug please do not hesitate to open an issue.
 
 ## License 
 This code is offered under a GNU General Public License v3.0. 
+
+## Citation
+Please cite the following paper for academic references:
+
+```
+@article{microguilds,
+   author    = "Juan Rivas and Pablo Yubero",
+   title     = "Quantifying microbial guilds",
+   journal   = "bioRxiv",
+   publisher = "Cold Spring Harbor Laboratory",
+   year      = 2023,
+   doi       = "0-486-61272-4",
+
+ }
+```
 
 ## Credits
 microguilds mainly involves Juan Rivas and Pablo Yubero (both PhD students at CNB, Madrid).
