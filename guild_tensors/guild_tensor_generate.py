@@ -62,6 +62,7 @@ FILENAME = "mastertable.tsv"
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
 REGRESSION_LEVEL = "context_and_cluster"
+R2_MIN = 0.8
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 NORMALIZE_NSAMPLES = False
 SAMPLECODE_COLUMN = "Samples"
@@ -106,6 +107,7 @@ if REGRESSION_LEVEL == "gene":
     print(f"\n----- {GENE_NAME} -----")
     delta = gtutils.compute_delta(
         adu_table,
+        r2min=R2_MIN,
         verbose=VERBOSE,
         printfigure=H,
         printlabel=GENE_NAME
@@ -122,6 +124,7 @@ elif REGRESSION_LEVEL == "cluster":
 
         delta[idx] = gtutils.compute_delta(
             adu_table[idx],
+            r2min=R2_MIN,
             verbose=VERBOSE,
             printfigure=H,
             printlabel=cluster
@@ -138,6 +141,7 @@ elif REGRESSION_LEVEL == "context":
 
         delta[idx] = gtutils.compute_delta(
             adu_table[idx],
+            r2min=R2_MIN,
             verbose=VERBOSE,
             printfigure=H,
             printlabel=context
@@ -155,6 +159,7 @@ elif REGRESSION_LEVEL == "context_and_cluster":
 
             delta[idx] = gtutils.compute_delta(
                 adu_table[idx],
+                r2min=R2_MIN,
                 verbose=VERBOSE,
                 printfigure=H,
                 printlabel=f"{context},{cluster}"

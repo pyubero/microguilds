@@ -513,6 +513,7 @@ def compute_gamma(adu_table, verbose=True):
 def compute_delta(
         table,
         threshold=1e-10,
+        r2min=0.0,
         verbose=True,
         printfigure=True,
         printlabel=""
@@ -528,6 +529,7 @@ def compute_delta(
         warnings.warn(
             f"Not enough points to compute delta. Found {np.sum(valid)} points."
         )
+        print("")
         return np.ones(len(table))
 
     elif np.sum(valid) < 10:
@@ -555,10 +557,21 @@ def compute_delta(
     verboseprint("", verbose)
 
     # Compute correction factor delta = d_obs/d_exp
-    d_exp = np.clip(10**linear_function(logx, gamma, offset), 1, np.inf)
+    if r2 > r2min:
+        d_exp = np.clip(10**linear_function(logx, gamma, offset), 1, np.inf)
+        _delta = np.zeros(len(table))
+        _delta[valid] = y / d_exp
 
-    _delta = np.zeros(len(table))
-    _delta[valid] = y / d_exp
+    else:
+        _delta = np.zeros(len(table))
+        _delta[valid] = 1
+
+        warnings.warn(
+            f'''
+            <Warning> Current R2={r2:0.2f} is < {r2min:0.2f}.
+                      Deltas will automatically be set equal to one.
+            '''
+        )
 
     if printfigure:
         plt.figure(printfigure)
