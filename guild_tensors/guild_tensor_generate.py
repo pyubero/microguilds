@@ -61,7 +61,7 @@ from guild_tensor_utils import verboseprint
 FILENAME = "mastertable.tsv"
 GENE_NAME = 'potF'
 LEVEL_NAME = 'Species_GTDB'
-REGRESSION_LEVEL = "gene"
+REGRESSION_LEVEL = "context_and_cluster"
 CONTEXTS = np.array(["Epipelagic", "Mesopelagic", "Bathypelagic"])
 NORMALIZE_NSAMPLES = False
 SAMPLECODE_COLUMN = "Samples"
@@ -149,9 +149,9 @@ elif REGRESSION_LEVEL == "context_and_cluster":
         for cluster in adu_table["Cluster"].unique():
             print(f"\n----- {context} : {cluster} -----")
 
-            idx = (
-                (adu_table["Context"] == context) and (adu_table["Cluster"] == cluster)
-            ).to_numpy()
+            idx_context = (adu_table["Context"] == context).to_numpy()
+            idx_cluster = (adu_table["Cluster"] == cluster).to_numpy()
+            idx = idx_cluster * idx_context
 
             delta[idx] = gtutils.compute_delta(
                 adu_table[idx],
