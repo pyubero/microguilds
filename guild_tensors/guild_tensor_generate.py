@@ -115,7 +115,11 @@ elif REGRESSION_LEVEL == "cluster":
     delta = np.zeros(len(adu_table))
     for cluster in adu_table["Cluster"].unique():
         print(f"\n----- {cluster} -----")
-        idx = (adu_table["Cluster"] == cluster).to_numpy()
+
+        idx = (
+            adu_table["Cluster"] == cluster
+        ).to_numpy()
+
         delta[idx] = gtutils.compute_delta(
             adu_table[idx],
             verbose=VERBOSE,
@@ -127,7 +131,11 @@ elif REGRESSION_LEVEL == "context":
     delta = np.zeros(len(adu_table))
     for context in adu_table["Context"].unique():
         print(f"\n----- {context} -----")
-        idx = (adu_table["Context"] == context).to_numpy()
+
+        idx = (
+            adu_table["Context"] == context
+        ).to_numpy()
+
         delta[idx] = gtutils.compute_delta(
             adu_table[idx],
             verbose=VERBOSE,
@@ -140,7 +148,11 @@ elif REGRESSION_LEVEL == "context_and_cluster":
     for context in adu_table["Context"].unique():
         for cluster in adu_table["Cluster"].unique():
             print(f"\n----- {context} : {cluster} -----")
-            idx = (adu_table["Context"] == context).to_numpy()
+
+            idx = (
+                (adu_table["Context"] == context) and (adu_table["Cluster"] == cluster)
+            ).to_numpy()
+
             delta[idx] = gtutils.compute_delta(
                 adu_table[idx],
                 verbose=VERBOSE,
