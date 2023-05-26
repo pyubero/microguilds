@@ -168,10 +168,6 @@ else:
 
 adu_table["delta"] = delta
 
-if EXPORT_PLOT:
-    plt.suptitle(f"{GENE_NAME}, {LEVEL_NAME}")
-    plt.savefig(out_plot)
-
 
 # ######################
 # Normalize K-values according to the number of samples in contexts
@@ -210,7 +206,8 @@ if EXPORT_PLOT:
 
     plt.figure(H)
     plt.subplot(1, 2, 1)
-    plt.legend()
+    plt.grid()
+    # plt.legend()
 
     plt.subplot(1, 2, 2)
     plt.scatter(x, x * delta[valid], s=delta[valid] * 10, c=logy)
