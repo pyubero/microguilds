@@ -549,9 +549,9 @@ def compute_delta(
     # Print regression results
     verboseprint("Bivariate loglog regression results:", verbose)
     verboseprint(f"numpts = {np.sum(valid)}", verbose)
-    verboseprint(f"gamma = {gamma}", verbose)
-    verboseprint(f"offset = {offset}", verbose)
-    verboseprint(f"R2 = {r2}", verbose)
+    verboseprint(f"gamma = {gamma:0.3f}", verbose)
+    verboseprint(f"offset = {offset:0.3f}", verbose)
+    verboseprint(f"R2 = {r2:0.3f}", verbose)
     verboseprint("", verbose)
 
     # Compute correction factor delta = d_obs/d_exp
