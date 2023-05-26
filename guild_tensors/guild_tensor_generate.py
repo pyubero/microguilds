@@ -41,7 +41,7 @@ CONTEXTS : numpy.array of str
     Please specify the contexts of interest in the desired order. If None
     they will get sorted automatically.
 
-REGRESSION_LEVEL : str either "gene", "cluster" or "context"
+REGRESSION_LEVEL : str either "gene", "cluster", "context" or "context_and_cluster"
     Specifies which points are used to compute the model that relates abundance
     and diversity. It can be useful to benefit certain implementations
     (or clusters) differently for their observed abundance.
