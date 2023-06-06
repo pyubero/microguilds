@@ -59,11 +59,11 @@ def tree_mapping(tree1, tree2):
 
 
 GENEX = "16S"
-GENEY = "potF"
+GENEY = "gyrB"
 EXPORT_DATA = True
 # ...
 FILENAME_TREE_X = f'./data/tree_{GENEX}.newick'
-FILENAME_TREE_Y = f'./data/tree_{GENEY}.newick'
+FILENAME_TREE_Y = f'./data/contree_{GENEY}_labelled.newick'
 FILENAME_OUT = f'./data/data_tree_comparison_{GENEX}_{GENEY}.npz'
 
 
@@ -104,9 +104,11 @@ for clade in tqdm(treeY.get_nonterminals()):
 
     # Raise warning
     if len(leafs_in_x) != len(leafs_in_y):
-        warnings.warn("There might be some leafs in tree Y present more " +
-                      "than once in tree X; or some leafs in tree Y that " +
-                      "tree X is lacking.")
+        warnings.warn(
+            '''\nThere might be some leafs in tree Y present more
+            than once in tree X; or some leafs in tree Y that
+            tree X is lacking.'''
+        )
 
     # Compute distances between clades
     clade_terminals_x = [leafsX[ii] for ii in np.unique(leafs_in_x)]
