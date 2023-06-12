@@ -131,6 +131,7 @@ def get_genus(name):
 
 
 def get_adjacency_matrix(tree_filename):
+
     # Load tree
     tree = Phylo.read(tree_filename, 'newick')
     nodes = tree.get_nonterminals()
@@ -139,12 +140,11 @@ def get_adjacency_matrix(tree_filename):
     connectivity = np.zeros((len(nodes), len(nodes)))
 
     # Compute connectivity matrix
-    for node in nodes:
-        parent_idx = int(node.name.split('_')[1])
+    for idx, node in enumerate(nodes):
         children = node.clades
         for child in children:
             if not child.is_terminal():
                 child_idx = int(child.name.split('_')[1])
-                connectivity[parent_idx, child_idx] = 1
+                connectivity[idx, child_idx] = 1
 
     return connectivity

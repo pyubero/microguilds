@@ -4,10 +4,11 @@ Created on Tue Sep 27 13:36:26 2022
 
 @author: Pablo
 """
-#%%
+# %%
 import warnings
 import numpy as np
 import pandas as pd
+from time import sleep
 from tqdm import tqdm
 from matplotlib import pyplot as plt
 from multiprocessing import Pool
@@ -38,12 +39,12 @@ def bin_count(array):
 # General parameters
 GENE = "potF"
 FILENAME_ENV_DATA = './data/environmental_data.csv'
-MCMAX = 9999  # 999 takes 90s; 99 takes 10s
+MCMAX = 99  # 999 takes 90s; 99 takes 10s
 VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
 
-FILENAME_TREE = f'./data/tree_{GENE}.newick'
+FILENAME_TREE = f'./data/new_{GENE}.newick'
 FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
 FILENAME_OUT = f'./data/data_enrichment_{GENE}.npz'
 
@@ -73,9 +74,9 @@ NCLADES = len(clade_ids)
 CLADE_NLEAFS = np.array([len(leafs) for leafs in clade_lfs])
 
 # Declare accumulators
-FEATURES = np.zeros((NLEAFS, NFEATURES))*np.nan
-ZSCORES = np.zeros((NCLADES, NFEATURES))*np.nan
-UNIVOCITY = np.zeros((NCLADES,))*np.nan
+FEATURES = np.zeros((NLEAFS, NFEATURES)) * np.nan
+ZSCORES = np.zeros((NCLADES, NFEATURES)) * np.nan
+UNIVOCITY = np.zeros((NCLADES,)) * np.nan
 
 # Fill feature matrix of the organisms found in the tree
 for idx_sp, species in tqdm(enumerate(SPECIES_NAMES)):
@@ -111,29 +112,29 @@ def parallel_function(ii_clade):
 
     return ii_clade, _obsmean, _mcmean, _mcstd
 
-from time import sleep
+# from time import sleep
+# def parallel_function2(dummy):
+#     sleep(1)
+#     return True
 
-def parallel_function2(dummy):
-    sleep(1)
-    return True
 
 parallel_function(50)
 
-#%%
-with Pool(processes=4) as p:
-    results = p.imap_unordered(parallel_function2, [10,10,10,10])
+# %%
+# with Pool(processes=4) as p:
+#     results = p.imap_unordered(parallel_function2, [10,10,10,10])
 
-    for res in results:
-        pass
+#     for res in results:
+#         pass
 
-#%%
+# %%
 with Pool() as p:
     results = p.imap_unordered(parallel_function, range(NCLADES), chunksize=20)
 
     for ii, obs_mean, mc_mean, mc_std in tqdm(results, total=NCLADES):
-        pass
-        # mc_std[np.abs(mc_std) <= 1e-8] = np.nan
-        # ZSCORES[ii, :] = (obs_mean-mc_mean)/mc_std
+        # pass
+        mc_std[np.abs(mc_std) <= 1e-8] = np.nan
+        ZSCORES[ii, :] = (obs_mean - mc_mean) / mc_std
 
         # Compute univocity
         # _leafs = np.array(clade_lfs[ii])
@@ -142,7 +143,7 @@ with Pool() as p:
         # UNIVOCITY[ii] = entropy(bin_count(cluster_taxonomy))
 
 
-#%% Export and plot data
+# %% Export and plot data
 
 verboseprint(f"Data exported to {FILENAME_OUT}.", VERBOSE)
 np.savez(FILENAME_OUT,

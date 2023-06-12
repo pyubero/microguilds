@@ -34,14 +34,14 @@ def bin_count(array):
 
 
 # General parameters
-GENE = "rpoB"
+GENE = "potF"
 FILENAME_ENV_DATA = './data/environmental_data.csv'
 MCMAX = 20_000  # 999 takes 90s; 99 takes 10s
 VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
 
-FILENAME_TREE = f'./data/contree_{GENE}_labelled.newick'
+FILENAME_TREE = f'./data/new_{GENE}.newick'
 FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
 FILENAME_OUT = f'./data/data_enrichment_{GENE}.npz'
 
@@ -108,9 +108,9 @@ for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
     ZSCORES[idx_clade, :] = (obs_mean - mc_mean) / mc_std
 
     # Compute univocity
-    cluster_taxonomy = np.array(
-        [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
-    UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))
+    # cluster_taxonomy = np.array(
+    #     [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
+    # UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))
 
 # Export data
 verboseprint(f"Data exported to {FILENAME_OUT}.", VERBOSE)

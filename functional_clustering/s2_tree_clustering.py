@@ -8,18 +8,18 @@ import numpy as np
 from functional_clustering_utils import verboseprint
 import functional_clustering_utils as fcutils
 
-GENE = "rpoB"
+GENE = "potF"
 FILENAME_ENRICHMENT = f'./data/data_enrichment_{GENE}.npz'
 FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
-FILENAME_TREE = f'./data/contree_{GENE}_labelled.newick'
+FILENAME_TREE = f'./data/new_{GENE}.newick'
 # ...
 FILENAME_OUT = f'./data/significant_nodes_{GENE}.tsv'  # exporta por nodo su bcode
 FILENAME_NPZ = f'./data/significant_nodes_{GENE}.npz'  # in numpy format
-VERBOSE = False
+VERBOSE = True
+
 # Accumulators
 Z_THRESHOLD = 2.9
 SIGNIFICANT = []
-
 
 # Load tree adjacency matrix
 ADJACENCY = fcutils.get_adjacency_matrix(FILENAME_TREE)
@@ -108,5 +108,3 @@ with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
 # Export numpy file
 np.savez(FILENAME_NPZ, significant_nodes=np.array(SIGNIFICANT, dtype=object))
 verboseprint(f"\n{FILENAME_NPZ} saved.", VERBOSE)
-
-print(len(idc_nodes))
