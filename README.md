@@ -37,11 +37,7 @@ Please cite the following paper for academic references:
 @article{microguilds,
    author    = "Juan Rivas and Pablo Yubero",
    title     = "Quantifying microbial guilds",
-   journal   = "bioRxiv",
-   publisher = "Cold Spring Harbor Laboratory",
-   year      = 2023,
-   doi       = "0-486-61272-4",
-
+   year      = 2023
  }
 ```
 
