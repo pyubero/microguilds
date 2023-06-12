@@ -6,9 +6,10 @@ Microguilds is a python project that aims to simplify and automate the analysis 
 ## Contents
 This repo is divided into three different aspects related to microbial guild analysis:
 
-1. `sequence_fetcher` from NCBI's databases: the idea is that given a list of organisms in plain text file, you can automatically retrieve the sequence of any gene using either NCBI's assemblies or E-tools. [More info](https://github.com/pyubero/uGuilds/tree/main/ncbi_gene_seq_fetcher).
-2. `functional_clustering`: contains all scripts related with the clustering of a tree's branches given some environmental data. In this way we distinguish, in a meaningful way, between implementations of a function that have adapted to specific environmental features. [More info](https://github.com/pyubero/uGuilds/tree/main/functional_clustering).
-3. `guild_tensors`: once the different functional implementations have been identified, we can quantitatively characterize the contribution of taxons and implementations to a microbial guild across different environmental contexts. These scripts help quantify, visualize and analyze microbial guilds. [More info](https://github.com/pyubero/uGuilds/tree/main/guild_tensors)
+1. `functional_clustering`: contains all scripts related with the clustering of a tree's branches given some environmental data. In this way we distinguish, in a meaningful way, between implementations of a function that have adapted to specific environmental features. [More info](https://github.com/pyubero/uGuilds/tree/main/functional_clustering).
+2. `guild_tensors`: once the different functional implementations have been identified, we can quantitatively characterize the contribution of taxons and implementations to a microbial guild across different environmental contexts. These scripts help quantify, visualize and analyze microbial guilds. [More info](https://github.com/pyubero/uGuilds/tree/main/guild_tensors)
+3. [obsolete](https://github.com/pyubero/neutral-drift) `sequence_fetcher` from NCBI's databases: the idea is that given a list of organisms in plain text file, you can automatically retrieve the sequence of any gene using either NCBI's assemblies or E-tools. [More info](https://github.com/pyubero/uGuilds/tree/main/ncbi_gene_seq_fetcher).
+
 
 ## Installation
 
