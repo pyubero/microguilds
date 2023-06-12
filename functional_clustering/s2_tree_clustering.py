@@ -11,11 +11,12 @@ import functional_clustering_utils as fcutils
 GENE = "potF"
 FILENAME_ENRICHMENT = f'./data/data_enrichment_{GENE}.npz'
 FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
-FILENAME_TREE = f'./data/new_{GENE}.newick'
+FILENAME_TREE = f'./data/tree_{GENE}.newick'
 # ...
 FILENAME_OUT = f'./data/significant_nodes_{GENE}.tsv'  # exporta por nodo su bcode
 FILENAME_NPZ = f'./data/significant_nodes_{GENE}.npz'  # in numpy format
 VERBOSE = True
+EXPORT = True
 
 # Accumulators
 Z_THRESHOLD = 2.9
@@ -25,9 +26,12 @@ SIGNIFICANT = []
 ADJACENCY = fcutils.get_adjacency_matrix(FILENAME_TREE)
 
 # Load clade data
-data = fcutils.get_clade_data(FILENAME_TREE,
-                              treetype="newick",
-                              filename_out=FILENAME_CLADE_DATA)
+data = fcutils.get_clade_data(
+    FILENAME_TREE,
+    treetype="newick",
+    filename_out=FILENAME_CLADE_DATA
+)
+
 clade_ids, clade_lfs, clade_dpt, leaf_names = data
 # ...
 CLADE_NLEAFS = np.array([len(leafs) for leafs in clade_lfs])
@@ -93,18 +97,26 @@ for feature_idx in range(FEATURES.shape[1]):
     # Export final_mrca_nodes if you wish to remove significant nodes whose
     # direct parent is not significant, but perhaps some other "secondary" or
     # more distant parent is again significant. From 70 to 50 entries in potF.
-    SIGNIFICANT.append(mrca_nodes)
-    # SIGNIFICANT.append(final_mrca_nodes)
+    SIGNIFICANT.append(final_mrca_nodes)
+    # SIGNIFICANT.append(mrca_nodes)
 
+idc_unique = np.unique([_ for a in SIGNIFICANT for _ in a])
+
+print('\n----------------------------------')
+print(f"Number of unique last parent significant nodes: {len(idc_unique)}.")
 
 # Export table
-idc_nodes = np.unique([_ for a in SIGNIFICANT for _ in a])
-with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
-    file.write('node\t' + '\t'.join(list(FEATURES_NAMES)) + '\n')
-    for idx in idc_nodes:
-        message = f"{idx:5d}\t" + "\t  ".join([f"{_:.2f}" for _ in X[idx, :]])
-        file.write(message + "\n")
+if EXPORT:
+    print('\n----------------------------------')
+    print("Exporting info.")
 
-# Export numpy file
-np.savez(FILENAME_NPZ, significant_nodes=np.array(SIGNIFICANT, dtype=object))
-verboseprint(f"\n{FILENAME_NPZ} saved.", VERBOSE)
+    with open(FILENAME_OUT, 'w+', encoding="utf-8") as file:
+        file.write('node\t' + '\t'.join(list(FEATURES_NAMES)) + '\n')
+        for idx in idc_unique:
+            message = f"{idx:5d}\t" + "\t  ".join([f"{_:.2f}" for _ in X[idx, :]])
+            file.write(message + "\n")
+    verboseprint(f"\n{FILENAME_OUT} saved.", VERBOSE)
+
+    # Export numpy file
+    np.savez(FILENAME_NPZ, significant_nodes=np.array(SIGNIFICANT, dtype=object))
+    verboseprint(f"{FILENAME_NPZ} saved.", VERBOSE)

@@ -41,7 +41,7 @@ VERBOSE = True
 DISPLAY_PLOTS = True
 IGNORE_WARNINGS = True
 
-FILENAME_TREE = f'./data/new_{GENE}.newick'
+FILENAME_TREE = f'./data/tree_{GENE}.newick'
 FILENAME_CLADE_DATA = f'./data/data_clades_{GENE}.npz'
 FILENAME_OUT = f'./data/data_enrichment_{GENE}.npz'
 
@@ -58,9 +58,12 @@ FEATURES_SPECIES = np.array([line[1:16] for line in ft])
 NFEATURES = FEATURES_SPECIES.shape[1]
 
 # Load clade data
-data = fcutils.get_clade_data(FILENAME_TREE,
-                              treetype="newick",
-                              filename_out=FILENAME_CLADE_DATA)
+data = fcutils.get_clade_data(
+    FILENAME_TREE,
+    treetype="newick",
+    filename_out=FILENAME_CLADE_DATA
+)
+
 clade_ids, clade_lfs, clade_dpt, leaf_names = data
 # ...
 GENUS = np.array([fcutils.get_genus(name) for name in leaf_names])
@@ -108,28 +111,31 @@ for idx_clade, _leafs in tqdm(enumerate(clade_lfs), total=NCLADES):
     ZSCORES[idx_clade, :] = (obs_mean - mc_mean) / mc_std
 
     # Compute univocity
-    # cluster_taxonomy = np.array(
-    #     [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
-    # UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))
+    cluster_taxonomy = np.array(
+        [GENUS[idx] for idx in _leafs if GENUS[idx] is not None])
+    UNIVOCITY[idx_clade] = entropy(bin_count(cluster_taxonomy))
 
 # Export data
-verboseprint(f"Data exported to {FILENAME_OUT}.", VERBOSE)
-np.savez(FILENAME_OUT,
-         species_names=SPECIES_NAMES,
-         features_names=FEATURES_NAMES,
-         features=FEATURES,
-         univocity=UNIVOCITY,
-         mcmax=MCMAX,
-         zscores=ZSCORES)
+if FILENAME_OUT != "":
+    verboseprint(f"Data exported to {FILENAME_OUT}.", VERBOSE)
+    np.savez(
+        FILENAME_OUT,
+        species_names=SPECIES_NAMES,
+        features_names=FEATURES_NAMES,
+        features=FEATURES,
+        univocity=UNIVOCITY,
+        mcmax=MCMAX,
+        zscores=ZSCORES
+    )
 
 if DISPLAY_PLOTS:
     # Load data
-    data = np.load(FILENAME_OUT, allow_pickle=True)
-    SPECIES_NAMES = data['species_names']
-    FEATURES_NAMES = data['features_names']
-    FEATURES = data['features']
-    UNIVOCITY = data['univocity']
-    ZSCORES = data['zscores']
+    # data = np.load(FILENAME_OUT, allow_pickle=True)
+    # SPECIES_NAMES = data['species_names']
+    # FEATURES_NAMES = data['features_names']
+    # FEATURES = data['features']
+    # UNIVOCITY = data['univocity']
+    # ZSCORES = data['zscores']
 
     # Entropy/Univocity correlates with the number of leafs within clade
     plt.figure(figsize=(6, 4))
