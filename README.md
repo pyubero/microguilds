@@ -34,11 +34,14 @@ This code is offered under a GNU General Public License v3.0.
 Please cite the following paper for academic references:
 
 ```
-@article{microguilds,
-   author    = "Juan Rivas and Pablo Yubero",
-   title     = "Quantifying microbial guilds",
-   year      = 2023
- }
+@article {microguilds,
+	author = {Juan Rivas-Santisteban and Pablo Yubero and Semidan Robaina-Estevez and Jose M Gonzalez and Javier Tamames and Carlos Pedros-Alio},
+	title = {Quantifying microbial guilds},
+	year = {2023},
+	doi = {10.1101/2023.07.23.550202},
+	publisher = {Cold Spring Harbor Laboratory},
+	journal = {bioRxiv}
+}
 ```
 
 ## Credits
