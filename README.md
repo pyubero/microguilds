@@ -1,7 +1,7 @@
 # microguilds
 
 Welcome to `microguilds` :tada:
-Microguilds is a python project that aims to simplify and automate the analysis of microbial guilds given metagenomic samples (or other types of data). Recall that an [ecological guild](https://en.wikipedia.org/wiki/Guild_(ecology)) is composed of individuals that occupy the same resource space despite exploiting it differently (methods, pathways or sequences). 
+Microguilds is a python project that aims to simplify and automate the analysis of microbial guilds given metagenomic samples (or other types of data). Recall that an [ecological guild](https://en.wikipedia.org/wiki/Guild_(ecology)) is composed of individuals that exploit a key resource space despite exploiting it differently (with different implemented functions). 
 
 ## Contents
 This repo is divided into three different aspects related to microbial guild analysis:
