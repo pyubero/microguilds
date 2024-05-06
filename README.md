@@ -33,7 +33,7 @@ This code is offered under a GNU General Public License v3.0.
 ## Citation
 Please cite the following paper for academic references:
 
-Rivas-Santisteban, J., Yubero, P., Robaina-Estévez, S., González, J. M., Tamames, J., & Pedrós-Alió, C. (2024). Quantifying microbial guilds. ISME Communications, ycae042.
+Rivas-Santisteban, J., Yubero, P., Robaina-Estévez, S., González, J. M., Tamames, J., & Pedrós-Alió, C. (2024). Quantifying microbial guilds. ISME Communications, 4(1), ycae042.
 
 or bibtex
 
@@ -42,6 +42,8 @@ or bibtex
   title={Quantifying microbial guilds},
   author={Rivas-Santisteban, Juan and Yubero, Pablo and Robaina-Est{\'e}vez, Semid{\'a}n and Gonz{\'a}lez, Jos{\'e} M and Tamames, Javier and Pedr{\'o}s-Ali{\'o}, Carlos},
   journal={ISME Communications},
+  volume={4},
+  number={1},
   pages={ycae042},
   year={2024},
   publisher={Oxford University Press}
